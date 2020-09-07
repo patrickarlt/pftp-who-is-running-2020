@@ -1,13 +1,44 @@
-body {
+html,
+body,
+#root,
+#router {
+  width: 100%;
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  --pftp-background-1: #0d0d0d;
+  --pftp-background-2: rgba(13, 13, 13, 0.75);
+  --pftp-gray-1: #585858;
+  --pftp-text-1: #e8e8e8;
+  --pftp-teal-accent-1: #6aa99e;
+  --pftp-blue-accent-1: #5882ca;
+  --pftp-green-accent-1: #71cd94;
+  --pftp-purple-accent-1: #8c4bdc;
+  --pftp-red-accent-1: #c26b68;
+  --pftp-yellow-accent-1: #eec041;
+
+  font-family: "Avenir Next", "Avenir", "Roboto", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: var(--pftp-background-1);
+  color: var(--pftp-text-1);
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.panelBackground {
+  background: var(--pftp-background-2);
+}
+
+.panelLayout {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
 }
