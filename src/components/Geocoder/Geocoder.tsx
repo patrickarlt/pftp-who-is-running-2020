@@ -30,7 +30,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
   } = useCombobox({
     items: inputItems,
     itemToString: (item) => {
-      return item.text;
+      return item?.text;
     },
     onStateChange: (change) => {
       if (
