@@ -1,9 +1,9 @@
 import React from "react";
-import { Router, RouteComponentProps } from "@reach/router";
-import CandidateRoute from "../CandidateRoute/CandidateRoute";
+import { RouteComponentProps } from "@reach/router";
+
 import DistrictDetails from "../DistrictDetails/DistrictDetails";
 import { useDistrictQuery } from "../../hooks/useDistrictQuery";
-import styles from "./DistrictRoute.module.css";
+// import styles from "./DistrictRoute.module.css";
 import PanelLoadingIndicator from "../PanelLoadingIndicator/PanelLoadingIndicator";
 import PanelError from "../PanelError/PanelError";
 

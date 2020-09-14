@@ -27,23 +27,11 @@ const ordinal = function (d: number) {
 };
 
 export const DistrictDetails: React.FunctionComponent<IDistrictDetailsProps> = function DistrictDetails({
-  children,
   house,
   senate,
   state,
   district,
 }) {
-  let prefix = "th";
-  switch (district) {
-    case 1:
-      prefix = "st";
-      break;
-    case 2:
-      prefix = "nd";
-      break;
-    default:
-      break;
-  }
   return (
     <div>
       <h1 className={styles.title}>

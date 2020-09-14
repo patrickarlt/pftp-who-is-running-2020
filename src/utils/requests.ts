@@ -1,5 +1,5 @@
 import { queryFeatures } from "@esri/arcgis-rest-feature-layer";
-
+import axios from "axios";
 const stateBoundriesService =
   "https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/State_Boundries_(Census)/FeatureServer/0";
 const districtBoundriesService =
@@ -34,7 +34,7 @@ export interface ICandidate {
 }
 
 export function getStateData(stateAbbr: string): Promise<IStateData> {
-  return fetch(`/data/${stateAbbr}.json`).then((r) => r.json());
+  return axios.get(`/data/${stateAbbr}.json`);
 }
 
 export function getStateDistrictForLatLng(lat: number, lng: number) {

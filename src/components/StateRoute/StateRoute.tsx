@@ -1,11 +1,9 @@
 import React from "react";
-import { Router, RouteComponentProps } from "@reach/router";
+import { RouteComponentProps } from "@reach/router";
 
-import CandidateRoute from "../CandidateRoute/CandidateRoute";
-import DistrictRoute from "../DistrictRoute/DistrictRoute";
 import StateDetails from "../StateDetails/StateDetails";
 import PanelLoadingIndicator from "../PanelLoadingIndicator/PanelLoadingIndicator";
-import styles from "./StateRoute.module.css";
+// import styles from "./StateRoute.module.css";
 import { useStateQuery } from "../../hooks/useStateQuery";
 import PanelError from "../PanelError/PanelError";
 

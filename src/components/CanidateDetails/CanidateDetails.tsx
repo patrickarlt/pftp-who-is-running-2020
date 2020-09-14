@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./CanidateDetails.module.css";
-import { Link } from "@reach/router";
 import { ICandidate, IStateData } from "../../utils/requests";
 
 export interface ICanidateDetailsProps {

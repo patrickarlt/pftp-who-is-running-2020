@@ -5,7 +5,7 @@ import {
   geocode,
   IGeocodeResponse,
 } from "@esri/arcgis-rest-geocoding";
-import styles from "./Geocoder.module.css";
+// import styles from "./Geocoder.module.css";
 
 export type GeocodeCandidate = IGeocodeResponse["candidates"][0];
 
@@ -19,7 +19,6 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
   const [inputItems, setInputItems] = useState<any[]>([]);
   const {
     isOpen,
-    selectedItem,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
@@ -27,13 +26,13 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
     getComboboxProps,
     highlightedIndex,
     getItemProps,
+    selectItem,
   } = useCombobox({
     items: inputItems,
     itemToString: (item) => {
       return item.text;
     },
     onStateChange: (change) => {
-      console.log(change);
       if (
         change.type === useCombobox.stateChangeTypes.InputKeyDownEnter &&
         change.selectedItem
@@ -58,10 +57,17 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
   });
 
   return (
-    <>
+    <form autoComplete="off">
       <label {...getLabelProps()}>Address</label>
       <div {...getComboboxProps()}>
-        <input {...getInputProps()} />
+        <input
+          {...getInputProps({
+            onBlur: () => {
+              selectItem(null);
+            },
+          })}
+          autoComplete="off"
+        />
         <button
           type="button"
           {...getToggleButtonProps()}
@@ -85,7 +91,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
           ))}
       </ul>
       <input type="submit" />
-    </>
+    </form>
   );
 };
 

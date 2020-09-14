@@ -252,6 +252,19 @@ async function fetchHouseCandidates() {
         slug: candidate.slug,
       })),
     });
+    const sitemapWrite = outputJSON("./public/data/sitemap.json", {
+      states: senateCandidates.map((candidate) => ({
+        stateAbbr: candidate.stateAbbr,
+      })),
+      house: houseCandidates.map((candidate) => ({
+        stateAbbr: candidate.stateAbbr,
+        district: candidate.district,
+        party: candidate.party,
+        name: candidate.name,
+        image: candidate.image,
+        slug: candidate.slug,
+      })),
+    });
     await Promise.all([...stateWrites, summaryWrite]);
   } catch (e) {
     console.error(e);

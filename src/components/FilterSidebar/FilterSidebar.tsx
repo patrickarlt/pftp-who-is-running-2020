@@ -4,7 +4,7 @@ import { navigate } from "@reach/router";
 import { getStateDistrictForLatLng } from "../../utils/requests";
 
 import { default as Geocoder, GeocodeCandidate } from "../Geocoder/Geocoder";
-import { linkSync } from "fs";
+import StateDropdown from "../StateDropdown/StateDropdown";
 
 const statesByAbbr: { [index: string]: string } = {
   AZ: "Arizona",
@@ -66,9 +66,6 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
   children,
 }) {
   const [disabled, setDisabled] = useState(false);
-  function handleOnClick() {
-    navigate("/state/ca/");
-  }
   function handleGeocode(result: GeocodeCandidate) {
     getStateDistrictForLatLng(result.location.y, result.location.x).then(
       ({ state, district }) => {
@@ -103,15 +100,12 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
     <div>
       <h1 className={styles.title}>Find your candidates</h1>
       <Geocoder handleGeocode={handleGeocode} />
-
       <hr />
-
       <button onClick={handleLocation} disabled={disabled}>
         Use my location
       </button>
-
       <hr />
-
+      <StateDropdown />
       <select onChange={handleOnSelect} defaultValue="">
         <option disabled value="">
           Select a state

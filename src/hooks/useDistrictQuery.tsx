@@ -11,7 +11,6 @@ export interface IDistrictQuery {
 
 export function useDistrictQuery(stateId?: string, districtId?: string) {
   const stateQuery = useStateQuery(stateId);
-
   return useQuery<IDistrictQuery>(
     ["candidate", districtId, stateQuery.data],
     (key, districtId, stateData) => {
