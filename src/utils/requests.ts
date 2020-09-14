@@ -34,7 +34,7 @@ export interface ICandidate {
 }
 
 export function getStateData(stateAbbr: string): Promise<IStateData> {
-  return axios.get(`/data/${stateAbbr}.json`);
+  return axios.get(`/data/${stateAbbr}.json`).then(({ data }) => data);
 }
 
 export function getStateDistrictForLatLng(lat: number, lng: number) {

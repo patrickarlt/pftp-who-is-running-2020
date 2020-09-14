@@ -17,7 +17,7 @@ export function useStateQuery(stateId?: string) {
     ["state", stateId],
     (key, state) => {
       return getStateData(state).then((stateData) => {
-        return Object.assign(stateData, {
+        return Object.assign({}, stateData, {
           houseByDistrict: groupBy(stateData.house, "district"),
         });
       });

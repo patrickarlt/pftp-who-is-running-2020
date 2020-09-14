@@ -31,6 +31,7 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
   }
 
   const { name, house, houseByDistrict, senate } = state;
+  console.log({ name, house, houseByDistrict, senate });
   return (
     <div>
       <h1 className={styles.title}>{name}</h1>
