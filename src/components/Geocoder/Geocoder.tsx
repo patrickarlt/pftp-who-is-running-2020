@@ -57,7 +57,12 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
   });
 
   return (
-    <form autoComplete="off">
+    <form
+      autoComplete="off"
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <label {...getLabelProps()}>Address</label>
       <div {...getComboboxProps()}>
         <input

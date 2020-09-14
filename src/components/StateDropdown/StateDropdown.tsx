@@ -109,7 +109,12 @@ const StateDropdown: React.FunctionComponent<IStateDropdownProps> = function Sta
   });
 
   return (
-    <form autoComplete="off">
+    <form
+      autoComplete="off"
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <label {...getLabelProps()}>State</label>
       <div {...getComboboxProps()}>
         <input
