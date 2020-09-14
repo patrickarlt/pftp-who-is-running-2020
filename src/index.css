@@ -9,7 +9,7 @@ body,
 
 body {
   --pftp-background-1: #0d0d0d;
-  --pftp-background-2: rgba(13, 13, 13, 0.75);
+  --pftp-background-2: rgba(13, 13, 13, 0.85);
   --pftp-gray-1: #585858;
   --pftp-text-1: #e8e8e8;
   --pftp-teal-accent-1: #6aa99e;
@@ -41,4 +41,8 @@ body {
   width: 100%;
   height: 100%;
   padding: 2rem;
+}
+
+a {
+  color: var(--pftp-yellow-accent-1);
 }
