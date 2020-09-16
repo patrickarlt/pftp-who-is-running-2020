@@ -30,6 +30,7 @@ function padWithZeros(num: number | string, size: number) {
 export const ElectionMap: React.FunctionComponent<IMapViewProps> = function ElectionMap({
   children,
 }) {
+  //Test
   const map: any = useRef<any>();
   const mapView: any = useRef<any>(null);
   const stateLayer = useRef<any>();
@@ -373,7 +374,11 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function Elec
   //   });
   // }, []);
 
-  return <div className={styles.map} ref={viewRef}></div>;
+  return (
+    <>
+      <div className={styles.map} ref={viewRef}></div>
+    </>
+  );
 };
 
 export default ElectionMap;
