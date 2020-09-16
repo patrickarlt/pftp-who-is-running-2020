@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./MapView.module.css";
-import { setDefaultOptions, loadModules } from "esri-loader";
+// import { setDefaultOptions, loadModules } from "esri-loader";
 import { useMatch, navigate } from "@reach/router";
+import Map from "@arcgis/core/Map";
+import MapView from "@arcgis/core/views/MapView";
+import Basemap from "@arcgis/core/Basemap";
+import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
+import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 
 export interface IMapViewProps {}
 
@@ -22,18 +27,18 @@ function padWithZeros(num: number | string, size: number) {
   return s;
 }
 
-export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapView({
+export const ElectionMap: React.FunctionComponent<IMapViewProps> = function ElectionMap({
   children,
 }) {
-  const map = useRef<any>();
-  const mapView = useRef<any>(null);
+  const map: any = useRef<any>();
+  const mapView: any = useRef<any>(null);
   const stateLayer = useRef<any>();
   const districtLayer = useRef<any>(null);
   const [mapViewReady, setMapViewReady] = useState(false);
-  const [
-    [Map, MapView, Basemap, VectorTileLayer, FeatureLayer],
-    setModulesLoaded,
-  ] = useState<any[]>([]);
+  // const [
+  //   [Map, MapView, Basemap, VectorTileLayer, FeatureLayer],
+  //   setModulesLoaded,
+  // ] = useState<any[]>([]);
   const stateMatch = useMatch("/state/:stateId/");
   const districtMatch = useMatch("/state/:stateId/districts/:districtId/*");
 
@@ -167,7 +172,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
   const viewRef = useRef(null);
 
   useEffect(() => {
-    if (MapView && Map && viewRef) {
+    if (viewRef) {
       stateLayer.current = new FeatureLayer({
         url: stateBoundriesService,
         outFields: ["*"],
@@ -184,7 +189,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
               font: { family: "Arial", size: 10.5 },
               haloColor: [43, 43, 43, 255],
               haloSize: 1,
-            },
+            } as any,
           },
         ],
         renderer: {
@@ -213,7 +218,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
             },
             style: "solid",
           },
-        },
+        } as any,
       });
 
       districtLayer.current = new FeatureLayer({
@@ -249,7 +254,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
               font: { family: "Arial", size: 9 },
               haloColor: [43, 43, 43, 255],
               haloSize: 1,
-            },
+            } as any,
           },
         ],
         renderer: {
@@ -277,7 +282,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
               style: "short-dot",
             },
           },
-        },
+        } as any,
       });
 
       map.current = new Map({
@@ -302,7 +307,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                   color: null,
                   size: 0,
                 },
-              },
+              } as any,
               labelingInfo: [
                 {
                   symbol: {
@@ -314,7 +319,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                     },
                     haloColor: [43, 43, 43, 255],
                     haloSize: 1,
-                  },
+                  } as any,
                   labelExpression: "[NAME]",
                   labelExpressionInfo: { expression: '$feature["NAME"]' },
                   labelPlacement: "center-center",
@@ -336,13 +341,13 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           ymax: 6275275.0308375666,
           spatialReference: { wkid: 102100, latestWkid: 3857 },
         },
-      });
+      } as any);
 
       mapView?.current?.when(() => {
         setMapViewReady(true);
       });
     }
-  }, [Map, MapView, Basemap, VectorTileLayer, FeatureLayer, viewRef]);
+  }, [viewRef]);
 
   useEffect(() => {
     if (stateId && mapView?.current) {
@@ -352,21 +357,21 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
     }
   }, [mapView, stateId]);
 
-  useEffect(() => {
-    setDefaultOptions({
-      css: "https://js.arcgis.com/4.16/esri/themes/dark/main.css",
-    });
+  // useEffect(() => {
+  //   setDefaultOptions({
+  //     css: "https://js.arcgis.com/4.16/esri/themes/dark/main.css",
+  //   });
 
-    loadModules([
-      "esri/Map",
-      "esri/views/MapView",
-      "esri/Basemap",
-      "esri/layers/VectorTileLayer",
-      "esri/layers/FeatureLayer",
-    ]).then((modules) => {
-      setModulesLoaded(modules);
-    });
-  }, []);
+  //   loadModules([
+  //     "esri/Map",
+  //     "esri/views/MapView",
+  //     "esri/Basemap",
+  //     "esri/layers/VectorTileLayer",
+  //     "esri/layers/FeatureLayer",
+  //   ]).then((modules) => {
+  //     setModulesLoaded(modules);
+  //   });
+  // }, []);
 
   return <div className={styles.map} ref={viewRef}></div>;
 };
