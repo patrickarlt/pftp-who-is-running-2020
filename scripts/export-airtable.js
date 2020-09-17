@@ -226,12 +226,25 @@ async function fetchHouseCandidates() {
     const houseCandidates = await fetchHouseCandidates();
     const senateByState = groupBy(senateCandidates, "stateAbbr");
     const houseByState = groupBy(houseCandidates, "stateAbbr");
+
     const stateWrites = stateAbbrs.map((abbr) => {
       return outputJSON(`./public/data/${abbr}.json`, {
         abbr,
         name: convertAbbrToState(abbr),
         senate: senateByState[abbr],
         house: houseByState[abbr],
+        battleground: senateByState[abbr]
+          ? senateByState[abbr].some((c) => c.battleground)
+          : false,
+        battlegroundDistricts: houseByState[abbr].reduce(
+          (battlegrounds, candidate) => {
+            if (candidate.battleground) {
+              battlegrounds.push(candidate.district);
+            }
+            return battlegrounds;
+          },
+          []
+        ),
       });
     });
     const summaryWrite = outputJSON("./public/data/summary.json", {

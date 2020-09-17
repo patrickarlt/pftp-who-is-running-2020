@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "candidates": "node scripts export-airtable.js"
+    "candidates": "node ./scripts/export-airtable.js"
   },
   "eslintConfig": {
     "extends": "react-app"

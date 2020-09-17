@@ -10,6 +10,9 @@ export interface IStateData {
   name: string;
   senate: ICandidate[];
   house: ICandidate[];
+  houseByDistrict: {};
+  battleground: boolean;
+  battlegroundDistricts: string[];
 }
 
 export interface ICandidate {

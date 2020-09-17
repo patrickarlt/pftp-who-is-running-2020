@@ -16,7 +16,11 @@ const CandidateList: React.FunctionComponent<ICandidateListProps> = function Can
     <>
       <ul className={styles.list}>
         {candidates.map((candidate, index) => (
-          <CandidateListItem candidate={candidate} state={state} />
+          <CandidateListItem
+            key={candidate.slug}
+            candidate={candidate}
+            state={state}
+          />
         ))}
       </ul>
     </>

@@ -21,7 +21,7 @@ const CandidateListItem: React.FunctionComponent<ICandidateListItemProps> = func
     tags.push("BIPOC");
   }
   return (
-    <li key={candidate.slug} className={styles.wrapper}>
+    <li className={styles.wrapper}>
       <Link
         to={
           candidate.district

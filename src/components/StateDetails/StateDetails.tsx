@@ -29,24 +29,38 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
     return null;
   }
 
-  const { name, house, houseByDistrict, senate } = state;
-  console.log({ name, house, houseByDistrict, senate });
+  const {
+    name,
+    house,
+    houseByDistrict,
+    senate,
+    battleground,
+    battlegroundDistricts,
+  } = state;
   return (
     <div>
       <h1 className={styles.title}>{name}</h1>
       {senate && senate.length > 0 ? (
         <>
-          <h2 className={styles.subTitle}>Senate</h2>
+          <h2 className={styles.subTitle}>
+            Senate
+            {battleground ? (
+              <mark className={styles.battleground}>Battleground</mark>
+            ) : null}
+          </h2>
           <CandidateList state={state} candidates={senate} />
         </>
       ) : null}
 
       {house && house.length > 0
         ? Object.keys(houseByDistrict).map((district) => (
-            <If condition={parseInt(district) >= 1}>
+            <If key={district} condition={parseInt(district) >= 1}>
               <h2 className={styles.subTitle}>
                 {district}
                 <sup>{ordinal(district)}</sup> District
+                {battlegroundDistricts.includes(district) ? (
+                  <mark className={styles.battleground}>Battleground</mark>
+                ) : null}
               </h2>
               <CandidateList
                 state={state}
