@@ -1,4 +1,66 @@
+.wrapper {
+  padding: 2rem;
+}
+
 .title {
+  padding: 1rem 2rem 0;
   font-weight: 800;
   color: var(--pftp-teal-accent-1);
+  margin: 0;
+  text-align: center;
+}
+
+.subHeader {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.imageWrapper {
+  margin: 0 auto;
+  border: 3px solid;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.15);
+  box-sizing: border-box;
+  grid-area: image;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.infoLine {
+  margin: 0;
+}
+.dot {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.democrat {
+  border-color: var(--pftp-blue-accent-1);
+  background-color: var(--pftp-blue-accent-1);
+}
+
+.republican {
+  border-color: var(--pftp-red-accent-1);
+  background-color: var(--pftp-red-accent-1);
+}
+
+.independant {
+  border-color: var(--pftp-green-accent-1);
+  background-color: var(--pftp-green-accent-1);
+}
+
+.other {
+  border-color: var(--pftp-purple-accent-1);
+  background-color: var(--pftp-purple-accent-1);
 }

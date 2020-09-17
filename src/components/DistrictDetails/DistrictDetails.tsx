@@ -1,7 +1,7 @@
 import React from "react";
 import { ICandidate, IStateData } from "../../utils/requests";
-import { Link } from "@reach/router";
 import { If } from "react-extras";
+import CandidateList from "../CandidateList/CandidateList";
 
 import styles from "./DistrictDetails.module.css";
 
@@ -44,41 +44,16 @@ export const DistrictDetails: React.FunctionComponent<IDistrictDetailsProps> = f
       </h1>
       {senate && senate.length > 0 ? (
         <>
-          <h2>Senate</h2>
-          <ul>
-            {senate.map((candidate, index) => (
-              <li key={candidate.slug}>
-                <Link to={`/state/${state.abbr}/candidates/${candidate.slug}/`}>
-                  {candidate.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2 className={styles.subTitle}>Senate</h2>
+          <CandidateList state={state} candidates={senate} />
         </>
       ) : null}
       {house && house.length > 0 ? (
         <>
-          <h2>House</h2>
-          <ul>
-            {house.map((candidate, index) => (
-              <li key={candidate.slug}>
-                <Link
-                  to={`/state/${state.abbr}/districts/${candidate.district}/candidates/${candidate.slug}/`}
-                >
-                  {candidate.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2 className={styles.subTitle}>House</h2>
+          <CandidateList state={state} candidates={house} />
         </>
       ) : null}
-      <button
-        onClick={() => {
-          window.history.back();
-        }}
-      >
-        Back
-      </button>{" "}
     </div>
   );
 };

@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./StateDetails.module.css";
-import { Link } from "@reach/router";
 import { IStateData } from "../../hooks/useStateQuery";
-
+import CandidateList from "../CandidateList/CandidateList";
 import { If } from "react-extras";
 
 const ordinal = function (i: number | string) {
@@ -37,48 +36,25 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
       <h1 className={styles.title}>{name}</h1>
       {senate && senate.length > 0 ? (
         <>
-          <h2>Senate</h2>
-          <ul>
-            {senate.map((candidate, index) => (
-              <li key={candidate.slug}>
-                <Link to={`/state/${state.abbr}/candidates/${candidate.slug}/`}>
-                  {candidate.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2 className={styles.subTitle}>Senate</h2>
+          <CandidateList state={state} candidates={senate} />
         </>
       ) : null}
 
       {house && house.length > 0
         ? Object.keys(houseByDistrict).map((district) => (
             <If condition={parseInt(district) >= 1}>
-              <h2>
+              <h2 className={styles.subTitle}>
                 {district}
                 <sup>{ordinal(district)}</sup> District
               </h2>
-              <ul>
-                {houseByDistrict[district].map((candidate, index) => (
-                  <li key={candidate.slug}>
-                    <Link
-                      to={`/state/${state.abbr}/districts/${candidate.district}/candidates/${candidate.slug}/`}
-                    >
-                      {candidate.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <CandidateList
+                state={state}
+                candidates={houseByDistrict[district]}
+              />
             </If>
           ))
         : null}
-
-      <button
-        onClick={() => {
-          window.history.back();
-        }}
-      >
-        Back
-      </button>
     </div>
   );
 };

@@ -1,0 +1,117 @@
+.wrapper + .wrapper {
+}
+
+.wrapper {
+  margin: 2rem;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper + .wrapper {
+  /* margin-top: 2rem; */
+  /* border-top: 1px solid var(--pftp-gray-1); */
+}
+
+.link {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  display: grid;
+  grid-template-areas: "image content";
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr;
+  color: var(--pftp-text-1);
+  text-decoration: none;
+  grid-gap: 1rem;
+}
+
+.link:hover,
+.link:focus {
+  color: var(--pftp-text-1);
+}
+
+.moreInfo {
+  color: var(--pftp-yellow-accent-1);
+}
+
+.link:focus {
+  outline: 2px solid var(--pftp-yellow-accent-1);
+  outline-offset: 1rem;
+}
+
+.link:hover .moreInfo,
+.link:focus .moreInfo {
+  filter: brightness(120%);
+}
+
+.link:hover .imageWrapper,
+.link:focus .imageWrapper {
+  border-color: var(--pftp-yellow-accent-1);
+  filter: brightness(120%) grayscale(0);
+}
+
+.link:hover .image,
+.link:focus .image {
+  filter: grayscale(0);
+}
+
+.imageWrapper {
+  border: 3px solid;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.15);
+  box-sizing: border-box;
+  grid-area: image;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.image {
+  filter: grayscale(100%);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.infoLine {
+  margin: 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.democrat {
+  border-color: var(--pftp-blue-accent-1);
+  background-color: var(--pftp-blue-accent-1);
+}
+
+.republican {
+  border-color: var(--pftp-red-accent-1);
+  background-color: var(--pftp-red-accent-1);
+}
+
+.independant {
+  border-color: var(--pftp-green-accent-1);
+  background-color: var(--pftp-green-accent-1);
+}
+
+.other {
+  border-color: var(--pftp-purple-accent-1);
+  background-color: var(--pftp-purple-accent-1);
+}
+
+.content {
+  grid-column: content;
+}

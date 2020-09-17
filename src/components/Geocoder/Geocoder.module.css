@@ -1,8 +1,93 @@
 .label {
+  font-size: 0.925rem;
+  color: var(--pftp-gray-1);
+  grid-area: label;
 }
 
 .input {
+  flex: 1 1 auto;
+  background: var(--pftp-background-1);
+  border: 2px solid var(--pftp-text-1);
+  border-right: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: var(--pftp-text-1);
+  box-sizing: border-box;
+  appearance: none;
+}
+
+.input:placeholder {
+  color: var(--pftp-text-1);
+  font-style: italic;
+}
+
+.input:focus {
+  border-color: var(--pftp-yellow-accent-1);
+  outline: none;
+}
+
+.input[disabled],
+.input[disabled]:focus {
+  border-color: var(--pftp-gray-1);
+  outline: none;
+}
+
+.button {
+  flex: 0 0 auto;
+  padding: 0.5rem;
+  appearance: none;
+  background: var(--pftp-background-1);
+  border: 2px solid var(--pftp-yellow-accent-1);
+  color: var(--pftp-text-1);
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.button[disabled] {
+  border-color: var(--pftp-gray-1);
+}
+
+.button svg {
+  fill: var(--pftp-yellow-accent-1);
+  width: 2rem;
+  height: 2rem;
 }
 
 .menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
+  margin: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.menuItemSelected,
+.menuItem:hover {
+  outline: 2px solid var(--pftp-yellow-accent-1);
+  background: var(--pftp-background-1);
+}
+
+.menuContainer {
+  background: var(--pftp-background-2);
+  padding: 0;
+  border: 2px solid var(--pftp-text-1);
+  border-top: 0;
+  box-sizing: border-box;
+}
+
+.loader {
+  margin: 2rem auto;
+}
+
+.loader svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.grid {
+  display: flex;
 }

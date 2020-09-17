@@ -2,122 +2,82 @@ import React, { useState } from "react";
 import styles from "./FilterSidebar.module.css";
 import { navigate } from "@reach/router";
 import { getStateDistrictForLatLng } from "../../utils/requests";
+import { Accordion } from "react-accessible-accordion";
+import AccordionItem from "../AccordionItem/AccordionItem";
 
 import { default as Geocoder, GeocodeCandidate } from "../Geocoder/Geocoder";
-import StateDropdown from "../StateDropdown/StateDropdown";
-
-const statesByAbbr: { [index: string]: string } = {
-  AZ: "Arizona",
-  AL: "Alabama",
-  AK: "Alaska",
-  AR: "Arkansas",
-  CA: "California",
-  CO: "Colorado",
-  CT: "Connecticut",
-  DC: "District of Columbia",
-  DE: "Delaware",
-  FL: "Florida",
-  GA: "Georgia",
-  HI: "Hawaii",
-  ID: "Idaho",
-  IL: "Illinois",
-  IN: "Indiana",
-  IA: "Iowa",
-  KS: "Kansas",
-  KY: "Kentucky",
-  LA: "Louisiana",
-  ME: "Maine",
-  MD: "Maryland",
-  MA: "Massachusetts",
-  MI: "Michigan",
-  MN: "Minnesota",
-  MS: "Mississippi",
-  MO: "Missouri",
-  MT: "Montana",
-  NE: "Nebraska",
-  NV: "Nevada",
-  NH: "New Hampshire",
-  NJ: "New Jersey",
-  NM: "New Mexico",
-  NY: "New York",
-  NC: "North Carolina",
-  ND: "North Dakota",
-  OH: "Ohio",
-  OK: "Oklahoma",
-  OR: "Oregon",
-  PA: "Pennsylvania",
-  RI: "Rhode Island",
-  SC: "South Carolina",
-  SD: "South Dakota",
-  TN: "Tennessee",
-  TX: "Texas",
-  UT: "Utah",
-  VT: "Vermont",
-  VA: "Virginia",
-  WA: "Washington",
-  WV: "West Virginia",
-  WI: "Wisconsin",
-  WY: "Wyoming",
-};
 
 export interface IFilterSidebarProps {}
 
-export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = function FilterSidebar({
-  children,
-}) {
+export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = function FilterSidebar() {
   const [disabled, setDisabled] = useState(false);
+
   function handleGeocode(result: GeocodeCandidate) {
-    getStateDistrictForLatLng(result.location.y, result.location.x).then(
+    setDisabled(true);
+    return getStateDistrictForLatLng(result.location.y, result.location.x).then(
       ({ state, district }) => {
+        setDisabled(false);
         navigate(`/state/${state}/districts/${district}/`);
       }
     );
   }
-  function handleOnSelect(e: React.ChangeEvent) {
-    navigate(`/state/${(e.target as HTMLSelectElement).value.toLowerCase()}/`);
+
+  function handleState(state: string) {
+    navigate(`/state/${state.toLowerCase()}/`);
+    return Promise.resolve();
   }
+
   function handleLocation() {
     setDisabled(true);
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        if (position && position.coords) {
-          getStateDistrictForLatLng(
-            position.coords.latitude,
-            position.coords.longitude
-          ).then(({ state, district }) => {
-            navigate(`/state/${state}/districts/${district}/`);
-          });
-        } else {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position && position.coords) {
+            getStateDistrictForLatLng(
+              position.coords.latitude,
+              position.coords.longitude
+            ).then(({ state, district }) => {
+              navigate(`/state/${state}/districts/${district}/`);
+              resolve();
+            });
+          } else {
+            setDisabled(false);
+            resolve();
+          }
+        },
+        () => {
           setDisabled(false);
+          resolve();
         }
-      },
-      () => {
-        setDisabled(false);
-      }
-    );
+      );
+    });
   }
   return (
     <div>
       <h1 className={styles.title}>Find your candidates</h1>
-      <Geocoder handleGeocode={handleGeocode} />
-      <hr />
-      <button onClick={handleLocation} disabled={disabled}>
-        Use my location
-      </button>
-      <hr />
-      <StateDropdown />
-      <select onChange={handleOnSelect} defaultValue="">
-        <option disabled value="">
-          Select a state
-        </option>
-        {Object.keys(statesByAbbr).map((abbr) => {
-          return (
-            <option value={abbr} key={abbr}>
-              {statesByAbbr[abbr]}
-            </option>
-          );
-        })}
-      </select>
+      <Accordion
+        allowMultipleExpanded
+        allowZeroExpanded
+        preExpanded={["location"]}
+      >
+        <AccordionItem title="Location" uuid="location">
+          <Geocoder
+            disabled={disabled}
+            handleGeocode={handleGeocode}
+            handleState={handleState}
+            handleLocation={handleLocation}
+          />
+        </AccordionItem>
+        <AccordionItem title="Election Level" uuid="election-level">
+          Election Level Filter
+        </AccordionItem>
+        <AccordionItem title="Party Affiliation" uuid="party-affiliation">
+          Party Affiliation Filter
+        </AccordionItem>
+        <AccordionItem title="Race &amp; Gender" uuid="race-and-gender">
+          Race &amp; Gender Filter
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 };

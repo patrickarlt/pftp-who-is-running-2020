@@ -1,0 +1,36 @@
+.accordionItem + .accordionItem {
+  margin-top: 2rem;
+}
+
+.accordionPanel {
+  padding: 1rem 0;
+}
+
+.accordionHeader {
+  font-weight: 800;
+  color: var(--pftp-white);
+  font-size: 2rem;
+  cursor: pointer;
+  transform: color;
+}
+
+.accordionHeader:hover {
+  color: var(--pftp-yellow-accent-1);
+}
+
+.accordionButton:focus {
+  outline-offset: 2px;
+  outline: 2px solid var(--pftp-yellow-accent-1);
+}
+
+.accordionButton {
+}
+
+.accordionButton:after {
+  float: right;
+  content: "+";
+}
+
+.accordionButton.expanded:after {
+  content: "-";
+}
