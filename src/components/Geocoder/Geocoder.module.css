@@ -43,6 +43,25 @@
   box-sizing: border-box;
 }
 
+.clearButton {
+  position: absolute;
+  right: 3rem;
+  padding: 0.5rem;
+  appearance: none;
+  color: var(--pftp-text-1);
+  background: transparent;
+  font-weight: 600;
+  border: none;
+  font-size: 2rem;
+  line-height: 32px;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.clearButton:hover {
+  color: var(--pftp-yellow-accent-1);
+}
+
 .button[disabled] {
   border-color: var(--pftp-gray-1);
 }
@@ -90,4 +109,5 @@
 
 .grid {
   display: flex;
+  position: relative;
 }

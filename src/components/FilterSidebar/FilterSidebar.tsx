@@ -38,6 +38,7 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
               position.coords.longitude
             ).then(({ state, district }) => {
               navigate(`/state/${state}/districts/${district}/`);
+              setDisabled(false);
               resolve();
             });
           } else {

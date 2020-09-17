@@ -39,20 +39,13 @@
   outline-offset: 1rem;
 }
 
+.link:hover .image,
+.link:focus .image,
 .link:hover .moreInfo,
-.link:focus .moreInfo {
-  filter: brightness(120%);
-}
-
+.link:focus .moreInfo,
 .link:hover .imageWrapper,
 .link:focus .imageWrapper {
-  border-color: var(--pftp-yellow-accent-1);
-  filter: brightness(120%) grayscale(0);
-}
-
-.link:hover .image,
-.link:focus .image {
-  filter: grayscale(0);
+  filter: brightness(110%) grayscale(0);
 }
 
 .imageWrapper {

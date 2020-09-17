@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import CandidateList from "./CandidateList";
+import CandidateListItem from "./CandidateList";
 
 test("renders", () => {
-  const { getByText } = render(<CandidateList />);
+  const { getByText } = render(<CandidateListItem />);
   const textElement = getByText(/Test/i);
   expect(textElement).toBeInTheDocument();
 });

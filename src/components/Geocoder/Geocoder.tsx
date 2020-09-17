@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useCombobox } from "downshift";
 import {
   suggest,
@@ -78,6 +78,8 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
   handleState,
   disabled,
 }) {
+  const inputRef = useRef<HTMLInputElement>();
+
   const [busy, setBusy] = useState<boolean>(false);
   const locationItem = {
     type: "location",
@@ -98,6 +100,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
     closeMenu,
     inputValue,
     setInputValue,
+    reset,
   } = useCombobox({
     items: inputItems,
     itemToString: (item) => {
@@ -156,7 +159,6 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
   });
 
   function handleItemSelect(selectedItem: any) {
-    console.log("handleItemSelect", { selectedItem });
     setBusy(true);
     switch (selectedItem.type) {
       case "address":
@@ -173,6 +175,9 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
           .then(() => {
             setBusy(false);
             closeMenu();
+          })
+          .catch((e) => {
+            setBusy(false);
           });
         break;
       case "location":
@@ -212,6 +217,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
         <div className={styles.grid} ref={setReferenceElement as any}>
           <input
             {...getInputProps({
+              ref: inputRef as any,
               onFocus: () => {
                 openMenu();
               },
@@ -222,6 +228,20 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
             autoComplete="off"
             placeholder="State or address&hellip;"
           />
+          <button
+            type="button"
+            aria-label="clear"
+            className={styles.clearButton}
+            disabled={disabled}
+            onClick={() => {
+              reset();
+              setInputItems([locationItem]);
+              openMenu();
+              inputRef.current?.focus();
+            }}
+          >
+            x
+          </button>
           <button
             type="submit"
             aria-label="search"
