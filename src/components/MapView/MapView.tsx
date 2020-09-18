@@ -36,6 +36,9 @@ function applyDistrictEffect(
   stateId: string,
   districtId: string
 ) {
+  if (!mapView?.current) {
+    return;
+  }
   mapView.current.whenLayerView(layer.current).then((layerView: any) => {
     if (districtId && stateId) {
       layerView.effect = {
@@ -67,6 +70,9 @@ function applyStateEffect(
   stateId: string,
   districtId: string
 ) {
+  if (!mapView?.current) {
+    return;
+  }
   mapView.current.whenLayerView(layer.current).then((layerView: any) => {
     if (stateId && !districtId) {
       layerView.effect = {
@@ -134,6 +140,20 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
   const viewRef = useRef(null);
 
   useEffect(() => {
+    if (stateId || (stateId && districtId)) {
+      queryExtent(stateId, districtId, stateLayer, districtLayer).then(
+        (result: any) => {
+          if (result.extent) {
+            mapView.current.ui.padding.right = 320;
+
+            mapView.current.goTo(result.extent);
+          }
+        }
+      );
+    }
+  }, [stateId, districtId, stateLayer, districtLayer, mapViewReady, mapView]);
+
+  useEffect(() => {
     if (mapView.current) {
       mapView.current.on("click", (e: any) => {
         mapView.current.hitTest(e).then((hitResult: any) => {
@@ -147,7 +167,6 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           if (!results?.length) {
             navigate("/");
           }
-
           const stateResult = results.find(
             (r: any) => r.layer.id === stateLayer.current.id
           );
@@ -172,35 +191,29 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           }
         });
       });
-
-      applyDistrictEffect(mapView, districtLayer, stateId, districtId);
-      applyDistrictEffect(mapView, districtLayerOutlines, stateId, districtId);
-      applyStateEffect(mapView, stateLayer, stateId, districtId);
-      applyStateEffect(mapView, stateLayerOutlines, stateId, districtId);
-      if (stateId || (stateId && districtId)) {
-        queryExtent(stateId, districtId, stateLayer, districtLayer).then(
-          (result: any) => {
-            if (result.extent) {
-              mapView.current.ui.padding.right = 320;
-
-              mapView.current.goTo(result.extent);
-            }
-          }
-        );
-      }
     }
-  }, [
-    stateId,
-    districtId,
-    stateLayer,
-    districtLayer,
-    districtLayerOutlines,
-    stateLayerOutlines,
-    mapViewReady,
-    mapView,
-  ]);
+  }, [mapView, mapViewReady]);
 
   useEffect(() => {
+    applyStateEffect(mapView, stateLayer, stateId, districtId);
+  }, [stateLayer, stateId, districtId, mapView, mapViewReady]);
+
+  useEffect(() => {
+    applyStateEffect(mapView, stateLayerOutlines, stateId, districtId);
+  }, [stateLayerOutlines, stateId, districtId, mapView, mapViewReady]);
+
+  useEffect(() => {
+    applyDistrictEffect(mapView, districtLayer, stateId, districtId);
+  }, [districtLayer, stateId, districtId, mapView, mapViewReady]);
+
+  useEffect(() => {
+    applyDistrictEffect(mapView, districtLayerOutlines, stateId, districtId);
+  }, [districtLayerOutlines, stateId, districtId, mapView, mapViewReady]);
+
+  useEffect(() => {
+    if (map.current) {
+      return;
+    }
     if (MapView && Map && viewRef) {
       stateLayer.current = new FeatureLayer({
         url: stateBoundriesService,
