@@ -11,3 +11,13 @@
   border-top: 1px solid var(--pftp-gray-1);
   font-size: 1.25rem;
 }
+
+.battleground {
+  text-transform: uppercase;
+  float: right;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background: var(--pftp-yellow-accent-1);
+  color: var(--pftp-background-1);
+}

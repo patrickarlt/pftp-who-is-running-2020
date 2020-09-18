@@ -32,6 +32,7 @@ export const DistrictDetails: React.FunctionComponent<IDistrictDetailsProps> = f
   state,
   district,
 }) {
+  const { battleground, battlegroundDistricts } = state;
   return (
     <div>
       <h1 className={styles.title}>
@@ -44,13 +45,23 @@ export const DistrictDetails: React.FunctionComponent<IDistrictDetailsProps> = f
       </h1>
       {senate && senate.length > 0 ? (
         <>
-          <h2 className={styles.subTitle}>Senate</h2>
+          <h2 className={styles.subTitle}>
+            Senate
+            {battleground ? (
+              <mark className={styles.battleground}>Battleground</mark>
+            ) : null}
+          </h2>
           <CandidateList state={state} candidates={senate} />
         </>
       ) : null}
       {house && house.length > 0 ? (
         <>
-          <h2 className={styles.subTitle}>House</h2>
+          <h2 className={styles.subTitle}>
+            House{" "}
+            {battlegroundDistricts.includes((district as unknown) as string) ? (
+              <mark className={styles.battleground}>Battleground</mark>
+            ) : null}
+          </h2>
           <CandidateList state={state} candidates={house} />
         </>
       ) : null}

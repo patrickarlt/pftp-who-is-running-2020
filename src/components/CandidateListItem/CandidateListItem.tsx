@@ -37,7 +37,12 @@ const CandidateListItem: React.FunctionComponent<ICandidateListItemProps> = func
           )}
         >
           <div
-            style={{ backgroundImage: `url("${candidate.image}")` }}
+            style={{
+              backgroundImage: `url("${
+                candidate.image ||
+                "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
+              }")`,
+            }}
             className={classNames(styles.image)}
           />
         </div>
