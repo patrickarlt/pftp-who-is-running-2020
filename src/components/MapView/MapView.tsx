@@ -245,12 +245,12 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                               type: "CIMSolidStroke",
                               enable: true,
                               width: 3,
-                              color: [145, 113, 32, 65],
+                              color: [145, 113, 32, 85],
                             },
                           ],
                         },
                         rotation: 0, // rotation of the lines
-                        separation: 9, // distance between lines in hatch fill
+                        separation: 6, // distance between lines in hatch fill
                       },
                     ],
                   },
@@ -332,12 +332,12 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                               type: "CIMSolidStroke",
                               enable: true,
                               width: 3,
-                              color: [145, 113, 32, 65],
+                              color: [145, 113, 32, 85],
                             },
                           ],
                         },
                         rotation: 0, // rotation of the lines
-                        separation: 9, // distance between lines in hatch fill
+                        separation: 6, // distance between lines in hatch fill
                       },
                     ],
                   },
