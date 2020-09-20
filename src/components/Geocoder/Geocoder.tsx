@@ -152,7 +152,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
       {
         name: "offset",
         options: {
-          offset: [0, -1],
+          offset: [0, 0],
         },
       },
     ],
@@ -228,31 +228,78 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
             autoComplete="off"
             placeholder="State or address&hellip;"
           />
-          <button
-            type="button"
-            aria-label="clear"
-            className={styles.clearButton}
-            disabled={disabled}
-            onClick={() => {
-              reset();
-              setInputItems([locationItem]);
-              openMenu();
-              inputRef.current?.focus();
-            }}
-          >
-            x
-          </button>
-          <button
-            type="submit"
-            aria-label="search"
-            className={styles.button}
-            disabled={disabled}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-              <path d="M28.996 28.29l-9.595-9.596.255-.256a9.3 9.3 0 1 0-1.218 1.218l.256-.255 9.595 9.595zm-11.265-9.34a8.328 8.328 0 1 1 1.156-1.15z" />
-              <path fill="none" d="M0 0h32v32H0z" />
-            </svg>
-          </button>
+          {inputValue && inputValue.length ? (
+            <button
+              tabIndex={0}
+              type="button"
+              aria-label="clear"
+              className={classNames(styles.button, styles.clearButton)}
+              disabled={disabled}
+              onClick={() => {
+                reset();
+                setInputItems([locationItem]);
+                openMenu();
+                inputRef.current?.focus();
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                data-name="Layer 1"
+                viewBox="0 0 24 24"
+              >
+                <defs />
+                <defs>
+                  <mask
+                    id="a"
+                    width="24"
+                    height="24"
+                    x="0"
+                    y="0"
+                    maskUnits="userSpaceOnUse"
+                  >
+                    <path fill="#fff" d="M0 0h24v24H0z" />
+                  </mask>
+                </defs>
+                <g mask="url(#a)">
+                  <path d="M17.59 5L12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+                </g>
+              </svg>
+            </button>
+          ) : (
+            <button
+              tabIndex={0}
+              type="submit"
+              aria-label="search"
+              className={classNames(styles.button, styles.searchButton)}
+              disabled={disabled}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                data-name="Layer 1"
+                viewBox="0 0 24 24"
+              >
+                <defs />
+                <defs>
+                  <mask
+                    id="a"
+                    width="24"
+                    height="24"
+                    x=".21"
+                    y=".7"
+                    maskUnits="userSpaceOnUse"
+                  >
+                    <path fill="#fff" d="M.21.7h24v24h-24z" />
+                  </mask>
+                </defs>
+                <g mask="url(#a)">
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.59 13.17a6 6 0 10-1.42 1.42l5.72 5.71 1.41-1.41-5.71-5.72zm-2.06-6.3a4 4 0 11-5.66 0 4 4 0 015.66 0z"
+                  />
+                </g>
+              </svg>
+            </button>
+          )}
         </div>
 
         <label {...getLabelProps()} className={styles.label}>
@@ -286,6 +333,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
               <li
                 className={classNames(styles.menuItem, {
                   [styles.menuItemSelected]: highlightedIndex === index,
+                  [styles.locationIcon]: item.magicKey === "GEOCODE",
                 })}
                 key={`${item.magicKey}${index}`}
                 {...getItemProps({
@@ -293,7 +341,6 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
                   index,
                 })}
                 onClick={() => {
-                  console.log("handleClick", { item });
                   handleItemSelect(item);
                 }}
               >

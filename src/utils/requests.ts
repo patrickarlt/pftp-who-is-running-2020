@@ -74,3 +74,33 @@ export function getStateDistrictForLatLng(lat: number, lng: number) {
     return { state, district };
   });
 }
+
+export function getMapData(): Promise<IMapSummary> {
+  return axios.get(`/data/summary.json`).then(({ data }) => data);
+}
+
+export interface IMapSummary {
+  senate: IMarkers[];
+  house: IMarkers[];
+}
+
+export interface IMarkers {
+  labelPoint: ILabelPoint;
+  candidates: IMapSummaryCandidate[];
+}
+
+export interface IMapSummaryCandidate {
+  stateAbbr: string;
+  district: number | null;
+  party: string;
+  name: string;
+  image: string;
+  slug: string;
+}
+
+export interface ILabelPoint {
+  state: string;
+  district?: string;
+  x: number;
+  y: number;
+}

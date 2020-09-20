@@ -4,3 +4,68 @@
   height: 100%;
   background: #282a2c;
 }
+
+.marker {
+  pointer-events: all;
+}
+
+.dot {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+  margin: 2px;
+}
+
+.markerInner {
+  display: flex;
+  flex-wrap: wrap;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+}
+
+.imageWrapper {
+  display: block;
+  margin: 0.125rem;
+  border: 2px solid transparent;
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.25),
+    0 0 2px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  grid-area: image;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  grid-row: auto;
+  grid-column: auto;
+}
+
+.image {
+  filter: grayscale(100%);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.democrat {
+  border-color: var(--pftp-blue-accent-1);
+  background-color: var(--pftp-blue-accent-1);
+}
+
+.republican {
+  border-color: var(--pftp-red-accent-1);
+  background-color: var(--pftp-red-accent-1);
+}
+
+.independent {
+  border-color: var(--pftp-green-accent-1);
+  background-color: var(--pftp-green-accent-1);
+}
+
+.other {
+  border-color: var(--pftp-purple-accent-1);
+  background-color: var(--pftp-purple-accent-1);
+}

@@ -14,6 +14,7 @@ export function useDistrictQuery(stateId?: string, districtId?: string) {
   return useQuery<IDistrictQuery>(
     ["candidate", districtId, stateQuery.data],
     (key, districtId, stateData) => {
+      districtId = parseInt(districtId);
       return {
         state: stateQuery.data as IStateData,
         district: parseInt(districtId, 10),
