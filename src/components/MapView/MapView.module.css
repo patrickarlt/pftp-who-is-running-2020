@@ -16,7 +16,6 @@
   height: 100%;
   border-radius: 50%;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
-  margin: 2px;
 }
 
 .tooltip .dot {
@@ -24,6 +23,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
+  margin-right: 0.25rem;
   box-shadow: none;
 }
 

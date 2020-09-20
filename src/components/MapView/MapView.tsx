@@ -36,8 +36,8 @@ const initialExtent = {
 function calculateSizeHouse(zoom: number) {
   const minZoom = 2;
   const maxZoom = 10;
-  const minSize = 2;
-  const maxSize = 16;
+  const minSize = 1;
+  const maxSize = 18;
   const result = Math.round(
     ((zoom - minZoom) / (maxZoom - minZoom)) * (maxSize - minSize) + minSize
   );
@@ -47,7 +47,7 @@ function calculateSizeHouse(zoom: number) {
 function calculateSizeSenate(zoom: number) {
   const minZoom = 2;
   const maxZoom = 10;
-  const minSize = 9;
+  const minSize = 8;
   const maxSize = 56;
   const result = Math.round(
     ((zoom - minZoom) / (maxZoom - minZoom)) * (maxSize - minSize) + minSize
@@ -378,11 +378,15 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       this.el = null;
     },
     render({ state }: any) {
+      console.log("render");
       const extentChanged =
         JSON.stringify(state.extent) !== JSON.stringify(this.previousExtent);
       // console.log("render", { extentEqual, zoom: state.zoom });
       const scaleChanged = this.previousScale !== state.scale;
       if (scaleChanged) {
+        console.log("scaleChanged");
+        this.previousScale = state.scale;
+
         for (const marker of this.layer.markers) {
           const items = marker.candidates;
           const size =
@@ -400,14 +404,6 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
           const columns = calculateColumns(items);
           const remainder = items % columns;
 
-          // console.log({
-          //   remainder,
-          //   columns,
-          //   col: `repeat(auto-fill, minmax(${size}px, 1fr))`,
-          //   row: `repeat(auto-fill, minmax(${size}px, 1fr))`,
-          //   gap: `${gap}px`,
-          // });
-
           innerWrapper.className = `
               ${styles.markerInner}
               ${styles[`remainder${remainder}`]} 
@@ -420,6 +416,8 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
         }
       }
       if (extentChanged) {
+        console.log("extentChanged");
+
         this.previousExtent = state.extent;
         for (const marker of this.layer.markers) {
           let [x, y] = state.toScreen(pt, marker.point.x, marker.point.y);
@@ -437,6 +435,8 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
         this.layer.state !== this.previousState ||
         this.layer.district !== this.previousDistrict
       ) {
+        console.log("district/extent changed");
+
         this.previousState = this.layer.state;
         this.previousDistrict = this.layer.district;
         for (const marker of this.layer.markers) {
@@ -756,7 +756,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                 outline: {
                   type: "simple-line",
                   color: [145, 113, 32, 255],
-                  width: 2,
+                  width: 1,
                   style: "solid",
                 },
                 style: "solid",
@@ -779,7 +779,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                         // light blue outline around the polygon
                         type: "CIMSolidStroke",
                         enable: true,
-                        width: 2,
+                        width: 1,
                         color: [145, 113, 32, 255],
                       },
                       {
@@ -853,7 +853,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                         enable: true, // must be set to true in order for the symbol layer to be visible
                         capStyle: "Butt",
                         joinStyle: "Round",
-                        width: 1,
+                        width: 0.5,
                         color: [145, 113, 32, 255],
                       },
                     ],
@@ -878,13 +878,13 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                         effects: [
                           {
                             type: "CIMGeometricEffectDashes",
-                            dashTemplate: [2, 4], // width of dashes and spacing between the dashes
+                            dashTemplate: [1, 2], // width of dashes and spacing between the dashes
                           },
                         ],
                         enable: true, // must be set to true in order for the symbol layer to be visible
                         capStyle: "Butt",
                         joinStyle: "Round",
-                        width: 1,
+                        width: 0.5,
                         color: [145, 113, 32, 255],
                       },
                       {
