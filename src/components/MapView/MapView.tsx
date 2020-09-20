@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import ReactDOM from "react-dom";
 import styles from "./MapView.module.css";
 import { setDefaultOptions, loadModules } from "esri-loader";
 import { useMatch, navigate } from "@reach/router";
@@ -15,8 +14,8 @@ const districtBoundriesService =
   "https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/Congressional_District_Boundries_(Census)/FeatureServer/0";
 const humanGeographyBaseStyle =
   "https://ourcommunity.maps.arcgis.com/sharing/rest/content/items/d7397603e9274052808839b70812be50/resources/styles/root.json";
-const humanGeographyDetailStyle =
-  "https://ourcommunity.maps.arcgis.com/sharing/rest/content/items/ee63d0411e274a25bfaf3c9be10a88c6/resources/styles/root.json";
+// const humanGeographyDetailStyle =
+//   "https://ourcommunity.maps.arcgis.com/sharing/rest/content/items/ee63d0411e274a25bfaf3c9be10a88c6/resources/styles/root.json";
 const humanGeographyLabelsStyle =
   "https://ourcommunity.maps.arcgis.com/sharing/rest/content/items/769db83429944e00b8c0e72b7945559c/resources/styles/root.json";
 
