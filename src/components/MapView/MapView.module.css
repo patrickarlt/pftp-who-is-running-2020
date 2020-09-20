@@ -6,16 +6,26 @@
 }
 
 .marker {
-  pointer-events: all;
+  pointer-events: none;
 }
 
 .dot {
+  pointer-events: all;
   display: block;
   width: 9px;
   height: 9px;
   border-radius: 50%;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
   margin: 2px;
+}
+
+.tooltip .dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: none;
+  margin: 0 0.5rem 0 0;
 }
 
 .markerInner {
@@ -26,6 +36,7 @@
 }
 
 .imageWrapper {
+  pointer-events: all;
   display: block;
   margin: 0.125rem;
   border: 2px solid transparent;
@@ -41,7 +52,76 @@
   grid-column: auto;
 }
 
+.tooltipHeader {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.infoLine {
+  margin: 0;
+}
+
+.tooltip {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  color: var(--pftp-white);
+  text-decoration: none;
+  background: var(--pftp-background-1);
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-template-rows: 1fr;
+  grid-template-areas: "image content";
+  grid-gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.tooltip .imageWrapper {
+  grid-area: image;
+  width: 3rem;
+  height: 3rem;
+  border-width: 3px;
+}
+
+.tooltipContent {
+  grid-area: content;
+}
+
+.arrow,
+.arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  z-index: -1;
+}
+
+.arrow::before {
+  content: "";
+  transform: rotate(45deg);
+  background: var(--pftp-background-1);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.tooltipWrapper[data-popper-placement^="top"] .arrow {
+  bottom: -4px;
+}
+
+.tooltipWrapper[data-popper-placement^="bottom"] .arrow {
+  top: -4px;
+}
+
+.tooltipWrapper[data-popper-placement^="left"] .arrow {
+  right: -4px;
+}
+
+.tooltipWrapper[data-popper-placement^="right"] .arrow {
+  left: -4px;
+}
+
+.tooltip:hover .image {
+  filter: grayscale(0);
+}
+
 .image {
+  pointer-events: none;
   filter: grayscale(100%);
   width: 100%;
   height: 100%;

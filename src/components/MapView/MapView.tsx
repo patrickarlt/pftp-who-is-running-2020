@@ -6,6 +6,7 @@ import { useMatch, navigate } from "@reach/router";
 import { useQuery } from "react-query";
 import { getMapData, IMapSummary } from "../../utils/requests";
 import { createPopper } from "@popperjs/core";
+import { statesByAbbr } from "../../utils/states";
 export interface IMapViewProps {}
 
 const stateBoundriesService =
@@ -32,6 +33,16 @@ const initialExtent = {
   ymax: 6275275.0308375666,
   spatialReference: { wkid: 102100, latestWkid: 3857 },
 };
+
+function getOffice(district: any) {
+  if (district === "null") {
+    return "Senate";
+  }
+  if (district === "0") {
+    return "House Representative - At Large";
+  }
+  return `${district}${ordinal(district)} District`;
+}
 
 function applyDistrictEffect(
   mapView: any,
@@ -64,6 +75,21 @@ function applyDistrictEffect(
     } else {
       layerView.effect = undefined;
     }
+  });
+}
+
+function applyMarkerEffect(
+  mapView: any,
+  layer: any,
+  stateId: string,
+  districtId: string
+) {
+  if (!mapView?.current) {
+    return;
+  }
+  mapView.current.whenLayerView(layer.current).then((layerView: any) => {
+    layer.current.state = stateId;
+    layer.current.district = districtId;
   });
 }
 
@@ -133,52 +159,192 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       this.el.style.pointerEvents = "none";
       this.view.ui.add(this.el, "manual");
       this.layer.watch("markers", () => this.requestRender());
-      // this.el.addEventListener("click", (e: MouseEvent) => {
-      //   navigate((e.target as HTMLAnchorElement).href);
-      //   e.preventDefault();
-      // });
-      // const tooltip = document.createElement("div");
-      // document.body.appendChild(tooltip);
+      this.layer.watch("state", () => this.requestRender());
+      this.layer.watch("district", () => this.requestRender());
 
-      // const popperInstance = createPopper(this.el, tooltip, {
-      //   placement: "top",
-      // });
+      this.el.addEventListener("click", (e: MouseEvent) => {
+        if ((e.target as HTMLElement).matches("a")) {
+          navigate((e.target as HTMLAnchorElement).href);
+          e.preventDefault();
+        }
+      });
+      this.tooltip = document.createElement("div");
+      this.tooltip.style.zIndex = "1";
+      this.tooltip.style.pointerEvents = "all";
+      this.tooltip.classList.add(styles.tooltipWrapper);
+      this.el.appendChild(this.tooltip);
+      this.tooltip.innerHTML = `
+        <div class="${styles.arrow}" data-popper-arrow></div>
+      `;
+      this.tooltipContent = document.createElement("div");
+      this.tooltip.appendChild(this.tooltipContent);
+      this.tooltip.addEventListener("click", (e: MouseEvent) => {
+        const link: HTMLAnchorElement = this.tooltip.querySelector("a");
+        if (link) {
+          navigate(link.href);
+        }
 
-      // this.el.addEventListener(
-      //   "mouseenter",
-      //   (e: any) => {
-      //     tooltip.style.display = "block";
-      //     tooltip.textContent = e.target.href;
+        e.preventDefault();
+      });
+      this.popperInstance = createPopper(this.el, this.tooltip, {
+        placement: "top",
+        modifiers: [
+          { name: "arrow" },
+          {
+            name: "offset",
+            options: {
+              offset: [0, 8],
+            },
+          },
+          {
+            name: "flip",
 
-      //     popperInstance.state.elements.reference = e.target;
-      //     popperInstance.update();
-      //   },
-      //   true
-      // );
+            options: {
+              fallbackPlacements: ["top", "right", "bottom", "left"],
 
-      // this.el.addEventListener(
-      //   "mouseout",
-      //   (e: any) => {
-      //     console.log(e.target);
-      //     tooltip.style.display = "none";
-      //   },
-      //   true
-      // );
-      // console.log(this.el);
+              padding: 16,
+            },
+          },
+          {
+            name: "preventOverflow",
+            options: {
+              padding: 16,
+            },
+          },
+        ],
+      });
+      this.insideTooltip = false;
+      this.tooltip.addEventListener(
+        "mouseenter",
+        () => {
+          this.insideTooltip = true;
+        },
+        true
+      );
+      this.tooltip.addEventListener(
+        "mouseout",
+        (e: any) => {
+          if ((e.target as HTMLElement).matches("a")) {
+            this.insideTooltip = false;
+            this.currentTooltip = null;
+            this.tooltip.style.display = "none";
+          }
+        },
+        true
+      );
+      this.el.addEventListener(
+        "mouseenter",
+        (e: any) => {
+          if ((e.target as HTMLElement).matches(`a[id]`)) {
+            this.currentTooltip = e.target.href;
+            this.tooltip.style.display = "block";
+            const {
+              image,
+              name,
+              district,
+              stateAbbr,
+              party,
+            } = e.target.dataset;
+
+            this.tooltipContent.innerHTML = `
+              <a href="${e.target.href}" class="${styles.tooltip}">
+                <div class="${styles.imageWrapper} ${
+              styles[party.toLowerCase()]
+            }">
+                  <div style="background-image: url('${image}');" class="${
+              styles.image
+            }"></div>
+                </div>
+                <div class="${styles.tooltipContent}">
+                  <h5 class="${styles.tooltipHeader}">${name}</h5>
+                  <p class="${styles.infoLine}"><span class="${styles.dot} ${
+              styles[party.toLowerCase()]
+            }"></span>${party}</p>
+                  <p class="${styles.infoLine}">
+                  ${
+                    statesByAbbr.find((s) => s.abbr === stateAbbr.toUpperCase())
+                      ?.name
+                  } - ${getOffice(district)}
+                  </p>
+                </div>
+              </a>
+              `;
+            this.popperInstance.state.elements.reference = e.target;
+            this.popperInstance.update();
+          }
+        },
+        true
+      );
+
+      this.el.addEventListener(
+        "mouseout",
+        (e: any) => {
+          setTimeout(() => {
+            if (
+              (e.target as HTMLElement).matches("a") &&
+              !this.insideTooltip &&
+              this.currentTooltip === e.target.href
+            ) {
+              this.tooltip.style.display = "none";
+            }
+          }, 500);
+        },
+        true
+      );
     },
     detach() {
       this.view.ui.remove(this.el);
       this.el = null;
     },
     render({ state }: any) {
-      for (const marker of this.layer.markers) {
-        let [x, y] = state.toScreen(pt, marker.point.x, marker.point.y);
-        x = Math.round(x) / window.devicePixelRatio;
-        y = Math.round(y) / window.devicePixelRatio;
+      if (
+        JSON.stringify(state.extent) !== JSON.stringify(this.previousExtent)
+      ) {
+        this.previousExtent = state.extent;
+        for (const marker of this.layer.markers) {
+          let [x, y] = state.toScreen(pt, marker.point.x, marker.point.y);
+          x = Math.round(x) / window.devicePixelRatio;
+          y = Math.round(y) / window.devicePixelRatio;
+          marker.node.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+          this.popperInstance.update();
+          if (!marker.node.parentElement) {
+            this.el.appendChild(marker.node);
+          }
+        }
+      }
+      if (
+        this.layer.state !== this.previousState ||
+        this.layer.district !== this.previousDistrict
+      ) {
+        this.previousState = this.layer.state;
+        this.previousDistrict = this.layer.district;
+        for (const marker of this.layer.markers) {
+          if (this.layer.state && !this.layer.district) {
+            if (marker.state !== this.layer.state) {
+              marker.node.style.opacity = "0.35";
+            } else {
+              marker.node.style.opacity = "1";
+            }
+          }
 
-        marker.node.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-        if (!marker.node.parentElement) {
-          this.el.appendChild(marker.node);
+          if (this.layer.state && this.layer.district) {
+            if (
+              marker.state !== this.layer.state &&
+              marker.district !== this.layer.district
+            ) {
+              marker.node.style.opacity = "0.35";
+            } else {
+              marker.node.style.opacity = "1";
+            }
+          }
+
+          if (!this.layer.state && !this.layer.district) {
+            marker.node.style.opacity = "1";
+          }
+
+          if (!marker.node.parentElement) {
+            this.el.appendChild(marker.node);
+          }
         }
       }
     },
@@ -195,6 +361,20 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
     MarkerLayerView,
   };
 }
+
+const ordinal = function (d: number) {
+  if (d > 3 && d < 21) return "th";
+  switch (d % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+};
 
 export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapView({
   children,
@@ -242,7 +422,6 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
     });
 
     const markerLayer = new MarkerLayer();
-    console.log(mapData.data);
     const senateMarkers = mapData.data.senate
       .map(({ candidates, labelPoint }) => {
         const container = document.createElement("div");
@@ -288,27 +467,25 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           const image = document.createElement("div");
           image.style.backgroundImage = `url(${candidate.image})`;
           image.classList.add(styles.image);
+
           const wrapper = document.createElement("a");
           wrapper.dataset.image = candidate.image;
           wrapper.dataset.name = candidate.name;
           wrapper.dataset.party = candidate.party;
           wrapper.dataset.stateAbbr = candidate.stateAbbr;
-          wrapper.dataset.district = candidate.district + "";
+          wrapper.dataset.district = candidate.district + "" || "null";
           const href = `/state/${candidate.stateAbbr}/candidates/${candidate.slug}/`;
-          wrapper.id = candidate.slug;
+          wrapper.id = `senate-${candidate.slug}`;
           wrapper.href = href;
           wrapper.title = candidate.name;
           wrapper.classList.add(styles.imageWrapper);
           wrapper.classList.add(styles[candidate.party.toLowerCase()]);
           wrapper.appendChild(image);
           containerInner.appendChild(wrapper);
-
-          const tooltip = document.createElement("div");
-          tooltip.textContent = candidate.name;
-          tooltip.style.display = "none";
-          document.body.appendChild(tooltip);
         });
         return {
+          state: labelPoint.state,
+          district: labelPoint.district,
           point: new Point({
             latitude: labelPoint.y,
             longitude: labelPoint.x,
@@ -362,12 +539,20 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           const wrapper = document.createElement("a");
           const href = `/state/${candidate.stateAbbr}/district/${candidate.district}/candidates/${candidate.slug}/`;
           wrapper.href = href;
+          wrapper.dataset.image = candidate.image;
+          wrapper.dataset.name = candidate.name;
+          wrapper.dataset.party = candidate.party;
+          wrapper.dataset.stateAbbr = candidate.stateAbbr;
+          wrapper.dataset.district = candidate.district + "";
           wrapper.title = candidate.name;
+          wrapper.id = `house-${candidate.slug}`;
           wrapper.classList.add(styles.dot);
           wrapper.classList.add(styles[candidate.party.toLowerCase()]);
           containerInner.appendChild(wrapper);
         });
         return {
+          state: labelPoint.state,
+          district: labelPoint.district,
           point: new Point({
             latitude: labelPoint.y,
             longitude: labelPoint.x,
@@ -404,6 +589,20 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
    */
   useEffect(() => {
     if (mapView.current) {
+      mapView.current.on("pointer-move", (e: any) => {
+        mapView.current.hitTest(e).then((hitResult: any) => {
+          const results = hitResult.results
+            .map((r: any) => ({
+              attributes: r.graphic.attributes,
+              layer: r.graphic.layer,
+            }))
+            .filter((r: any) => r.layer.type === "feature");
+
+          mapView.current.container.style.cursor = results?.length
+            ? "pointer"
+            : "default";
+        });
+      });
       mapView.current.on("click", (e: any) => {
         mapView.current.hitTest(e).then((hitResult: any) => {
           const results = hitResult.results
@@ -453,6 +652,10 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
   useEffect(() => {
     applyDistrictEffect(mapView, districtLayer, stateId, districtId);
   }, [districtLayer, stateId, districtId, mapView, mapViewReady]);
+
+  useEffect(() => {
+    applyMarkerEffect(mapView, markerLayerRef, stateId, districtId);
+  }, [markerLayerRef, stateId, districtId, mapView, mapViewReady]);
 
   /**
    * Create map, map view and layers
