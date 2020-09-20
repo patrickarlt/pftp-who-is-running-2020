@@ -12,8 +12,8 @@
 .dot {
   pointer-events: all;
   display: block;
-  width: 9px;
-  height: 9px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
   margin: 2px;
@@ -21,31 +21,28 @@
 
 .tooltip .dot {
   display: inline-block;
-  width: 9px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   box-shadow: none;
-  margin: 0 0.5rem 0 0;
 }
 
 .markerInner {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-rows: 1fr;
   transform: translate(-50%, -50%);
-  justify-content: center;
 }
 
 .imageWrapper {
   pointer-events: all;
   display: block;
-  margin: 0.125rem;
   border: 2px solid transparent;
   box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.25),
     0 0 2px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
   grid-area: image;
-  width: 32px;
-  height: 32px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   overflow: hidden;
   grid-row: auto;
@@ -148,4 +145,33 @@
 .other {
   border-color: var(--pftp-purple-accent-1);
   background-color: var(--pftp-purple-accent-1);
+}
+
+/* 3 */
+.remainder1.columns2 a:nth-last-child(-0n + 1) {
+  transform: translate(50%, 0);
+}
+
+/* 13 */
+.remainder1.columns4 a:nth-last-child(-0n + 1) {
+  transform: translate(200%, 0);
+}
+
+/* 14 */
+.remainder2.columns3 a:nth-last-child(-0n + 1) {
+  transform: translate(66%, 0);
+}
+.remainder2.columns3 a:nth-last-child(-0n + 2) {
+  transform: translate(66%, 0);
+}
+
+/* 19 */
+.remainder-3.columns4 a:nth-last-child(-0n + 1) {
+  transform: translate(66%, 0);
+}
+.remainder3.columns4 a:nth-last-child(-0n + 2) {
+  transform: translate(66%, 0);
+}
+.remainder3.columns4 a:nth-last-child(-0n + 3) {
+  transform: translate(66%, 0);
 }

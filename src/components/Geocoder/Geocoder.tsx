@@ -240,7 +240,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
                 </defs>
                 <g mask="url(#a)">
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M14.59 13.17a6 6 0 10-1.42 1.42l5.72 5.71 1.41-1.41-5.71-5.72zm-2.06-6.3a4 4 0 11-5.66 0 4 4 0 015.66 0z"
                   />
                 </g>
