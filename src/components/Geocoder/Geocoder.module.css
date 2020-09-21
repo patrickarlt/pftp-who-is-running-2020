@@ -96,6 +96,7 @@ button.button:focus {
   border: 1px solid var(--pftp-gray-1);
   border-top: none;
   box-sizing: border-box;
+  z-index: 50;
 }
 
 .locationIcon {
