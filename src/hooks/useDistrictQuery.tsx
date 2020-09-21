@@ -9,8 +9,12 @@ export interface IDistrictQuery {
   district: number;
 }
 
-export function useDistrictQuery(stateId?: string, districtId?: string) {
-  const stateQuery = useStateQuery(stateId);
+export function useDistrictQuery(
+  stateId?: string,
+  districtId?: string,
+  filters?: any
+) {
+  const stateQuery = useStateQuery(stateId, filters);
   return useQuery<IDistrictQuery>(
     ["candidate", districtId, stateQuery.data],
     (key, districtId, stateData) => {

@@ -4,14 +4,15 @@ import { navigate } from "@reach/router";
 import { getStateDistrictForLatLng } from "../../utils/requests";
 import { Accordion } from "react-accessible-accordion";
 import AccordionItem from "../AccordionItem/AccordionItem";
-
+import { useFilterContext } from "../FilterContext/FilterContext";
 import { default as Geocoder, GeocodeCandidate } from "../Geocoder/Geocoder";
 
 export interface IFilterSidebarProps {}
 
 export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = function FilterSidebar() {
   const [disabled, setDisabled] = useState(false);
-
+  const { setFilterValue, ...filters } = useFilterContext();
+  console.log({ filters });
   function handleGeocode(result: GeocodeCandidate) {
     setDisabled(true);
     return getStateDistrictForLatLng(result.location.y, result.location.x).then(
@@ -53,6 +54,35 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
       );
     });
   }
+
+  function handleChange(filter: string) {
+    return function () {
+      console.log(filter, filters[filter]);
+      setFilterValue(filter, !filters[filter]);
+    };
+  }
+
+  const Checkbox: React.FunctionComponent<{ name: string }> = function ({
+    name,
+    children,
+  }) {
+    return (
+      <label className={styles.checkboxLabel}>
+        <div className={styles.checkboxControl}>
+          <input
+            type="checkbox"
+            className={styles.checkboxInput}
+            name={name}
+            onChange={handleChange(name)}
+            checked={filters[name]}
+          />
+          <div className={styles.checkboxGraphic}></div>
+        </div>
+        <div className={styles.checkboxText}>{children}</div>
+      </label>
+    );
+  };
+
   return (
     <div>
       <h1 className={styles.title}>Find your candidates</h1>
@@ -70,13 +100,18 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
           />
         </AccordionItem>
         <AccordionItem title="Election Level" uuid="election-level">
-          Election Level Filter
+          <Checkbox name="house">House</Checkbox>
+          <Checkbox name="senate">Senate</Checkbox>
         </AccordionItem>
         <AccordionItem title="Party Affiliation" uuid="party-affiliation">
-          Party Affiliation Filter
+          <Checkbox name="democrat">Democrat</Checkbox>
+          <Checkbox name="republican">Republican</Checkbox>
+          <Checkbox name="independent">Independent</Checkbox>
+          <Checkbox name="other">Other</Checkbox>
         </AccordionItem>
         <AccordionItem title="Race &amp; Gender" uuid="race-and-gender">
-          Race &amp; Gender Filter
+          <Checkbox name="woman">Woman</Checkbox>
+          <Checkbox name="bipoc">BIPOC</Checkbox>
         </AccordionItem>
       </Accordion>
     </div>

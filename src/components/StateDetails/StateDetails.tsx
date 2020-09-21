@@ -3,6 +3,7 @@ import styles from "./StateDetails.module.css";
 import { IStateData } from "../../hooks/useStateQuery";
 import CandidateList from "../CandidateList/CandidateList";
 import { If } from "react-extras";
+import CloseButton from "../CloseButton/CloseButton";
 
 const ordinal = function (i: number | string) {
   const d = typeof i === "string" ? parseInt(i) : i;
@@ -39,6 +40,8 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
   } = state;
   return (
     <div>
+      <CloseButton />
+
       <h1 className={styles.title}>{name}</h1>
       {senate && senate.length > 0 ? (
         <>

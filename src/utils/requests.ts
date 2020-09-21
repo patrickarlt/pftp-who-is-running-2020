@@ -37,7 +37,9 @@ export interface ICandidate {
 }
 
 export function getStateData(stateAbbr: string): Promise<IStateData> {
-  return axios.get(`/data/${stateAbbr}.json`).then(({ data }) => data);
+  return axios
+    .get(`/data/${stateAbbr}.json`)
+    .then(({ data }) => Object.assign({ senate: [], house: [] }, data));
 }
 
 export function getStateDistrictForLatLng(lat: number, lng: number) {
@@ -96,6 +98,8 @@ export interface IMapSummaryCandidate {
   name: string;
   image: string;
   slug: string;
+  woman: boolean;
+  bipoc: boolean;
 }
 
 export interface ILabelPoint {

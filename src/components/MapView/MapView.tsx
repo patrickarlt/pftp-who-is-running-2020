@@ -2,10 +2,11 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "./MapView.module.css";
 import { setDefaultOptions, loadModules } from "esri-loader";
 import { useMatch, navigate } from "@reach/router";
-import { useQuery } from "react-query";
-import { getMapData, IMapSummary } from "../../utils/requests";
 import { createPopper } from "@popperjs/core";
 import { statesByAbbr } from "../../utils/states";
+import { useMapSummaryQuery } from "../../hooks/useMapSummaryQuery";
+import { useFilterContext } from "../FilterContext/FilterContext";
+
 export interface IMapViewProps {}
 
 const stateBoundriesService =
@@ -526,9 +527,8 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
   const districtMatch = useMatch("/state/:stateId/districts/:districtId/*");
   const { stateId, districtId } = Object.assign({}, stateMatch, districtMatch);
   const viewRef = useRef(null);
-  const mapData = useQuery<IMapSummary>("map", () => {
-    return getMapData();
-  });
+  const { setFilterValue, ...filters } = useFilterContext();
+  const mapQuery = useMapSummaryQuery(filters);
 
   /**
    * Build marker nodes
@@ -536,12 +536,16 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
   useEffect(() => {
     if (
       !mapViewReady ||
-      mapData.isLoading ||
-      mapData.isError ||
-      !mapData.data ||
-      markerLayerRef.current
+      mapQuery.isLoading ||
+      mapQuery.isError ||
+      !mapQuery.data ||
+      !markerLayerRef
     ) {
       return;
+    }
+    if (markerLayerRef.current) {
+      map.current.layers.remove(markerLayerRef.current);
+      markerLayerRef.current = null;
     }
     const { MarkerLayer } = initMarkerLayer({
       Layer,
@@ -549,7 +553,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
     });
 
     const markerLayer = new MarkerLayer();
-    const senateMarkers = mapData.data.senate
+    const senateMarkers = mapQuery.data.senate
       .map(({ candidates, labelPoint }) => {
         const container = document.createElement("div");
         container.style.position = "absolute";
@@ -596,7 +600,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
         };
       })
       .flat();
-    const houseMarkers = mapData.data.house
+    const houseMarkers = mapQuery.data.house
       .map(({ candidates, labelPoint }) => {
         const container = document.createElement("div");
         container.style.position = "absolute";
@@ -606,7 +610,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
         container.appendChild(containerInner);
         candidates.forEach((candidate) => {
           const wrapper = document.createElement("a");
-          const href = `/state/${candidate.stateAbbr}/district/${candidate.district}/candidates/${candidate.slug}/`;
+          const href = `/state/${candidate.stateAbbr}/districts/${candidate.district}/candidates/${candidate.slug}/`;
           wrapper.href = href;
           wrapper.dataset.image = candidate.image;
           wrapper.dataset.name = candidate.name;
@@ -640,7 +644,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
     markerLayer.markers = [...houseMarkers, ...senateMarkers];
     map.current.layers.add(markerLayer);
     markerLayerRef.current = markerLayer;
-  }, [Layer, BaseLayerView2D, Point, mapView, map, mapViewReady, mapData]);
+  }, [Layer, BaseLayerView2D, Point, mapView, map, mapViewReady, mapQuery]);
 
   /**
    * Query the query and refocus to extent when stateId or districtId change.

@@ -14,12 +14,16 @@
 
 .sidebar {
   grid-area: sidebar;
-  padding: 2rem;
   background: var(--pftp-background-1);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 2rem;
 }
 
+.shadow {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
 .map {
   grid-area: map;
   position: relative;
@@ -29,7 +33,7 @@
 .results {
   grid-area: results;
   background: var(--pftp-background-1);
-  box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.5);
   overflow: auto;
+  min-height: 100%;
   box-sizing: border-box;
 }

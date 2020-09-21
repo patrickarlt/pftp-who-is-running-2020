@@ -1,24 +1,30 @@
-.wrapper {
-  padding: 2rem;
-}
-
 .title {
-  padding: 1rem 2rem 0;
-  font-weight: 800;
+  composes: bold from "../../shared.css";
+  padding: 2rem;
   color: var(--pftp-teal-accent-1);
   margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.25;
   text-align: center;
 }
 
-.subHeader {
+.subTitle {
+  composes: bold from "../../shared.css";
+  padding: 1rem 2rem 0.5rem 2rem;
+  margin: 0;
+  border-top: 1px solid var(--pftp-gray-1);
   font-size: 1.25rem;
-  font-weight: 800;
+}
+
+.container {
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--pftp-gray-1);
 }
 
 .imageWrapper {
-  margin: 0 auto;
+  margin: 3rem auto 0;
   border: 4px solid;
-  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.25);
   box-sizing: border-box;
   grid-area: image;
   width: 8rem;
@@ -34,9 +40,11 @@
   background-position: center center;
   background-repeat: no-repeat;
 }
+
 .infoLine {
-  margin: 0;
+  margin: 0.125rem 0;
 }
+
 .dot {
   display: inline-block;
   width: 0.75rem;

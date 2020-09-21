@@ -3,10 +3,9 @@ import { RouteComponentProps } from "@reach/router";
 
 import DistrictDetails from "../DistrictDetails/DistrictDetails";
 import { useDistrictQuery } from "../../hooks/useDistrictQuery";
-// import styles from "./DistrictRoute.module.css";
 import PanelLoadingIndicator from "../PanelLoadingIndicator/PanelLoadingIndicator";
 import PanelError from "../PanelError/PanelError";
-
+import { useFilterContext } from "../FilterContext/FilterContext";
 interface IDistrictRouteProps extends RouteComponentProps {
   stateId?: string;
   districtId?: string;
@@ -16,9 +15,11 @@ const DistrictRoute: React.FunctionComponent<IDistrictRouteProps> = function Dis
   stateId,
   districtId,
 }) {
+  const { setFilterValue, ...filters } = useFilterContext();
   const { isLoading, isError, data, error } = useDistrictQuery(
     stateId,
-    districtId
+    districtId,
+    filters
   );
 
   if (isError) {

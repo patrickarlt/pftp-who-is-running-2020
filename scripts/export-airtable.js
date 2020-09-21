@@ -455,6 +455,8 @@ async function generateLabelPoints({ senate, house }) {
               name: candidate.name,
               image: candidate.image,
               slug: candidate.slug,
+              woman: candidate.woman,
+              bipoc: candidate.bipoc,
             })),
           };
         }),
@@ -481,6 +483,9 @@ async function generateLabelPoints({ senate, house }) {
                     name: candidate.name,
                     image: candidate.image,
                     slug: candidate.slug,
+
+                    woman: candidate.woman,
+                    bipoc: candidate.bipoc,
                   })
                 ),
               };

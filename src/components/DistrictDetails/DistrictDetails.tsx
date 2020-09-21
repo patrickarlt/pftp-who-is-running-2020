@@ -2,6 +2,7 @@ import React from "react";
 import { ICandidate, IStateData } from "../../utils/requests";
 import { If } from "react-extras";
 import CandidateList from "../CandidateList/CandidateList";
+import CloseButton from "../CloseButton/CloseButton";
 
 import styles from "./DistrictDetails.module.css";
 
@@ -35,6 +36,8 @@ export const DistrictDetails: React.FunctionComponent<IDistrictDetailsProps> = f
   const { battleground, battlegroundDistricts } = state;
   return (
     <div>
+      <CloseButton />
+
       <h1 className={styles.title}>
         {state.name}
         <If condition={district >= 1}>

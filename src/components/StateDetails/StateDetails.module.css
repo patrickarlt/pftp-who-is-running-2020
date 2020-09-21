@@ -1,11 +1,14 @@
 .title {
+  composes: bold from "../../shared.css";
   padding: 2rem;
-  font-weight: 800;
   color: var(--pftp-teal-accent-1);
   margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.25;
 }
 
 .subTitle {
+  composes: bold from "../../shared.css";
   padding: 1rem 2rem 0.5rem 2rem;
   margin: 0;
   border-top: 1px solid var(--pftp-gray-1);
@@ -13,6 +16,8 @@
 }
 
 .battleground {
+  composes: medium from "../../shared.css";
+
   text-transform: uppercase;
   float: right;
   font-size: 0.75rem;

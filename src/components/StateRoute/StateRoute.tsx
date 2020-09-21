@@ -6,6 +6,7 @@ import PanelLoadingIndicator from "../PanelLoadingIndicator/PanelLoadingIndicato
 // import styles from "./StateRoute.module.css";
 import { useStateQuery } from "../../hooks/useStateQuery";
 import PanelError from "../PanelError/PanelError";
+import { useFilterContext } from "../FilterContext/FilterContext";
 
 interface IStateRouteProps extends RouteComponentProps {
   stateId?: string;
@@ -14,7 +15,8 @@ interface IStateRouteProps extends RouteComponentProps {
 const StateRoute: React.FunctionComponent<IStateRouteProps> = function StateRoute({
   stateId,
 }) {
-  const { isLoading, isError, data, error } = useStateQuery(stateId);
+  const { setFilterValue, ...filters } = useFilterContext();
+  const { isLoading, isError, data, error } = useStateQuery(stateId, filters);
 
   if (isError) {
     return <PanelError error={error} />;

@@ -20,9 +20,10 @@ export function useCandidateQuery(
       if (districtId) {
         const candidate = stateData.house.find(
           (candidate: ICandidate) =>
-            candidate.slug === candidateId && candidate.district === districtId
+            candidate.slug === candidateId &&
+            candidate.district + "" === districtId
         );
-
+        console.log({ stateData, stateId, districtId });
         if (!candidate || !stateData) {
           throw new Error("Candidate not found.");
         }

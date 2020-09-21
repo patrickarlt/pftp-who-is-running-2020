@@ -46,14 +46,15 @@
 }
 
 .imageWrapper {
-  border: 3px solid transparent;
-  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.15);
+  border: 4px solid transparent;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.25);
   box-sizing: border-box;
   grid-area: image;
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
   overflow: hidden;
+  margin-top: 0.25rem;
 }
 
 .image {
@@ -66,12 +67,14 @@
 }
 
 .title {
+  composes: bold from "../../shared.css";
   font-size: 1.25rem;
+  line-height: 1.25;
   margin: 0;
 }
 
 .infoLine {
-  margin: 0;
+  margin: 0.125rem 0;
 }
 
 .dot {

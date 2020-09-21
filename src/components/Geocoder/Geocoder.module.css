@@ -25,9 +25,9 @@
   appearance: none;
 }
 
-.input:placeholder {
+.input::placeholder {
+  font-family: "FuturaBT W05 Book Italic";
   color: var(--pftp-text-1);
-  font-style: italic;
 }
 
 .input:focus {
