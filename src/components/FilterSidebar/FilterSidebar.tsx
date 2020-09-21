@@ -6,6 +6,7 @@ import { Accordion } from "react-accessible-accordion";
 import AccordionItem from "../AccordionItem/AccordionItem";
 import { useFilterContext } from "../FilterContext/FilterContext";
 import { default as Geocoder, GeocodeCandidate } from "../Geocoder/Geocoder";
+import { classNames } from "react-extras";
 
 export interface IFilterSidebarProps {}
 
@@ -104,10 +105,22 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
           <Checkbox name="senate">Senate</Checkbox>
         </AccordionItem>
         <AccordionItem title="Party Affiliation" uuid="party-affiliation">
-          <Checkbox name="democrat">Democrat</Checkbox>
-          <Checkbox name="republican">Republican</Checkbox>
-          <Checkbox name="independent">Independent</Checkbox>
-          <Checkbox name="other">Other</Checkbox>
+          <Checkbox name="democrat">
+            <span className={classNames(styles.dot, styles.democrat)}></span>{" "}
+            Democrat
+          </Checkbox>
+          <Checkbox name="republican">
+            <span className={classNames(styles.dot, styles.republican)}></span>
+            Republican
+          </Checkbox>
+          <Checkbox name="independent">
+            <span className={classNames(styles.dot, styles.independent)}></span>
+            Independent
+          </Checkbox>
+          <Checkbox name="other">
+            <span className={classNames(styles.dot, styles.other)}></span>
+            Other
+          </Checkbox>
         </AccordionItem>
         <AccordionItem title="Race &amp; Gender" uuid="race-and-gender">
           <Checkbox name="woman">Woman</Checkbox>
