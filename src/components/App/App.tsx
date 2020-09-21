@@ -10,6 +10,7 @@ import { If, classNames } from "react-extras";
 import "overlayscrollbars/css/OverlayScrollbars.css";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import styles from "./App.module.css";
+import All from "../All/All";
 
 export interface IAppProps extends RouteComponentProps {}
 
@@ -17,11 +18,13 @@ export const App: React.FunctionComponent<IAppProps> = function App({
   children,
 }) {
   const match = useMatch("/state/:stateId/*");
+  const allMatch = useMatch("/all/");
+
   return (
     <FilterContext>
       <div
         className={classNames(styles.layout, {
-          [styles.layoutResults]: !!match?.stateId,
+          [styles.layoutResults]: !!match?.stateId || !!allMatch,
         })}
       >
         <OverlayScrollbarsComponent
@@ -35,12 +38,13 @@ export const App: React.FunctionComponent<IAppProps> = function App({
         <div className={styles.map}>
           <MapView />
         </div>
-        <If condition={!!match?.stateId}>
+        <If condition={!!match?.stateId || !!allMatch}>
           <OverlayScrollbarsComponent
             className={styles.shadow}
             options={{ className: "os-theme-light" }}
           >
             <Router className={styles.results}>
+              <All path="/all/" />
               <StateRoute path="/state/:stateId/*" />
               <CandidateRoute path="/state/:stateId/candidates/:candidateId/" />
               <CandidateRoute path="/state/:stateId/districts/:districtId/candidates/:candidateId/" />

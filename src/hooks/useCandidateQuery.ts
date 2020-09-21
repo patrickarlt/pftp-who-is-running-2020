@@ -23,7 +23,7 @@ export function useCandidateQuery(
             candidate.slug === candidateId &&
             candidate.district + "" === districtId
         );
-        console.log({ stateData, stateId, districtId });
+
         if (!candidate || !stateData) {
           throw new Error("Candidate not found.");
         }

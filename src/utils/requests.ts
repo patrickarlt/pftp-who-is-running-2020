@@ -38,7 +38,7 @@ export interface ICandidate {
 
 export function getStateData(stateAbbr: string): Promise<IStateData> {
   return axios
-    .get(`/data/${stateAbbr}.json`)
+    .get(`/data/${stateAbbr}-data.json`)
     .then(({ data }) => Object.assign({ senate: [], house: [] }, data));
 }
 

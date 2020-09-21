@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useCombobox } from "downshift";
 import {
   suggest,
@@ -54,7 +54,6 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
       return item?.text;
     },
     onStateChange: (change) => {
-      console.log({ change });
       if (
         change.type === useCombobox.stateChangeTypes.InputKeyDownEnter &&
         change.selectedItem
@@ -99,7 +98,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
       {
         name: "offset",
         options: {
-          offset: [0, 0],
+          offset: [0, 1],
         },
       },
     ],
@@ -151,7 +150,12 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
         break;
     }
   }
-
+  useEffect(() => {
+    if (inputRef && inputRef.current) {
+      console.log("focus");
+      inputRef.current.focus();
+    }
+  });
   return (
     <div>
       <form
@@ -173,6 +177,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
             value={inputValue || ""}
             className={styles.input}
             autoComplete="off"
+            autoFocus
             placeholder="State or address&hellip;"
           />
           {inputValue && inputValue.length ? (

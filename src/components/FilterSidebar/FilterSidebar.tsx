@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./FilterSidebar.module.css";
-import { navigate } from "@reach/router";
+import { navigate, Link } from "@reach/router";
 import { getStateDistrictForLatLng } from "../../utils/requests";
 import { Accordion } from "react-accessible-accordion";
 import AccordionItem from "../AccordionItem/AccordionItem";
@@ -13,7 +13,7 @@ export interface IFilterSidebarProps {}
 export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = function FilterSidebar() {
   const [disabled, setDisabled] = useState(false);
   const { setFilterValue, ...filters } = useFilterContext();
-  console.log({ filters });
+
   function handleGeocode(result: GeocodeCandidate) {
     setDisabled(true);
     return getStateDistrictForLatLng(result.location.y, result.location.x).then(
@@ -58,7 +58,6 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
 
   function handleChange(filter: string) {
     return function () {
-      console.log(filter, filters[filter]);
       setFilterValue(filter, !filters[filter]);
     };
   }
@@ -85,7 +84,7 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
   };
 
   return (
-    <div>
+    <div className={styles.grid}>
       <h1 className={styles.title}>Find your candidates</h1>
       <Accordion
         allowMultipleExpanded
@@ -127,6 +126,9 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
           <Checkbox name="bipoc">BIPOC</Checkbox>
         </AccordionItem>
       </Accordion>
+      <Link to="/all/" className={styles.button}>
+        Explore All Candidates
+      </Link>
     </div>
   );
 };

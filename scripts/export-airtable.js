@@ -125,38 +125,6 @@ const abbrByState = {
   wyoming: "WY",
 };
 
-let popperInstance = null;
-
-function create(marker, tooltip) {
-  popperInstance = createPopper(button, tooltip, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 8],
-        },
-      },
-    ],
-  });
-}
-
-function destroy() {
-  if (popperInstance) {
-    popperInstance.destroy();
-    popperInstance = null;
-  }
-}
-
-function show() {
-  tooltip.setAttribute("data-show", "");
-  create();
-}
-
-function hide() {
-  tooltip.removeAttribute("data-show");
-  destroy();
-}
-
 const stateAbbrs = Object.keys(statesByAbbr).map((abbr) => abbr.toLowerCase());
 
 function convertStateToAbbr(input) {
@@ -423,7 +391,7 @@ async function generateLabelPoints({ senate, house }) {
     console.log({ labelPoints });
 
     const stateWrites = stateAbbrs.map((abbr) => {
-      return outputJSON(`./public/data/${abbr}.json`, {
+      return outputJSON(`./public/data/${abbr}-data.json`, {
         abbr,
         name: convertAbbrToState(abbr),
         senate: senateByState[abbr],
@@ -496,17 +464,12 @@ async function generateLabelPoints({ senate, house }) {
       { spaces: 2 }
     );
     const sitemapWrite = outputJSON("./public/data/sitemap.json", {
-      states: senateCandidates.map((candidate) => ({
-        stateAbbr: candidate.stateAbbr,
-      })),
-      house: houseCandidates.map((candidate) => ({
-        stateAbbr: candidate.stateAbbr,
-        district: candidate.district,
-        party: candidate.party,
-        name: candidate.name,
-        image: candidate.image,
-        slug: candidate.slug,
-      })),
+      states: stateAbbrs.map((abbr) => {
+        return {
+          abbr,
+          name: convertAbbrToState(abbr),
+        };
+      }),
     });
     await Promise.all([
       ...stateWrites,

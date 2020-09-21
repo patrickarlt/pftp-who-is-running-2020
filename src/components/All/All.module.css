@@ -1,0 +1,51 @@
+.title {
+  composes: bold from "../../shared.css";
+  padding: 2rem;
+  color: var(--pftp-teal-accent-1);
+  margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.25;
+}
+
+.subTitle {
+  composes: bold from "../../shared.css";
+  padding: 1rem 2rem 1rem 2rem;
+  margin: 0;
+  border-top: 1px solid var(--pftp-gray-1);
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: block;
+  box-sizing: border-box;
+}
+
+.subTitle:hover,
+.subTitle:focus {
+  filter: brightness(120%);
+  background: var(--pftp-gray-2);
+}
+
+.subTitle:focus {
+  outline: 2px solid var(--pftp-yellow-accent-1);
+  outline-offset: -4px;
+}
+
+.battleground {
+  composes: medium from "../../shared.css";
+  text-transform: uppercase;
+  float: right;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background: var(--pftp-yellow-accent-1);
+  color: var(--pftp-background-1);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  margin: 0;
+  padding: 0;
+}

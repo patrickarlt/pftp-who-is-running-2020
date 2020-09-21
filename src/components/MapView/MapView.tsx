@@ -333,9 +333,10 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
                 <div class="${styles.imageWrapper} ${
               styles[party.toLowerCase()]
             }">
-                  <div style="background-image: url('${image}');" class="${
-              styles.image
-            }"></div>
+                  <div style="background-image: url('${
+                    image ||
+                    "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
+                  }');" class="${styles.image}"></div>
                 </div>
                 <div class="${styles.tooltipContent}">
                   <h5 class="${styles.tooltipHeader}">${name}</h5>
@@ -379,11 +380,17 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       this.el = null;
     },
     render({ state }: any) {
-      console.log("render");
       const extentChanged =
-        JSON.stringify(state.extent) !== JSON.stringify(this.previousExtent);
-      // console.log("render", { extentEqual, zoom: state.zoom });
+        !this.previousExtent ||
+        state.extent.xmin !== this.previousExtent.xmin ||
+        state.extent.ymin !== this.previousExtent.ymin ||
+        state.extent.xmax !== this.previousExtent.xmax ||
+        state.extent.ymax !== this.previousExtent.ymax;
+
       const scaleChanged = this.previousScale !== state.scale;
+      const stateChanged = this.layer.state !== this.previousState;
+      const districtChanged = this.layer.district !== this.previousDistrict;
+
       if (scaleChanged) {
         console.log("scaleChanged");
         this.previousScale = state.scale;
@@ -432,10 +439,7 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
         this.popperInstance.update();
       }
 
-      if (
-        this.layer.state !== this.previousState ||
-        this.layer.district !== this.previousDistrict
-      ) {
+      if (stateChanged || districtChanged) {
         console.log("district/extent changed");
 
         this.previousState = this.layer.state;
@@ -564,7 +568,10 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
         container.appendChild(containerInner);
         candidates.forEach((candidate) => {
           const image = document.createElement("div");
-          image.style.backgroundImage = `url(${candidate.image})`;
+          image.style.backgroundImage = `url(${
+            candidate.image ||
+            "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
+          })`;
           image.classList.add(styles.image);
 
           const wrapper = document.createElement("a");
@@ -612,7 +619,9 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           const wrapper = document.createElement("a");
           const href = `/state/${candidate.stateAbbr}/districts/${candidate.district}/candidates/${candidate.slug}/`;
           wrapper.href = href;
-          wrapper.dataset.image = candidate.image;
+          wrapper.dataset.image =
+            candidate.image ||
+            "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250";
           wrapper.dataset.name = candidate.name;
           wrapper.dataset.party = candidate.party;
           wrapper.dataset.stateAbbr = candidate.stateAbbr;

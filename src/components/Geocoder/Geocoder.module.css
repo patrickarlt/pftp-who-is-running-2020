@@ -16,7 +16,7 @@
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--pftp-gray-3);
+  border-bottom: 2px solid var(--pftp-gray-3);
   line-height: 1.5;
   font-size: 1rem;
   padding: 0.5rem;
@@ -33,6 +33,7 @@
 .input:focus {
   border-color: var(--pftp-yellow-accent-1);
   outline: none;
+  /* background-color: var(--pftp-gray-2); */
 }
 
 .input[disabled],
@@ -43,6 +44,7 @@
 
 .button {
   background: var(--pftp-background-1);
+  background: transparent;
   position: absolute;
   appearance: none;
   border: none;
@@ -67,6 +69,7 @@ button.button:focus {
   fill: inherit;
   width: 2rem;
   height: 2rem;
+  margin-top: 0.25rem;
 }
 
 .menu {
