@@ -1,0 +1,13 @@
+.link svg {
+  fill: var(--pftp-text-1);
+  position: absolute;
+  width: 2rem;
+  width: 2rem;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+}
+
+.link:hover svg {
+  fill: var(--pftp-yellow-accent-1);
+}

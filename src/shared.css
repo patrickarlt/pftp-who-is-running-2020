@@ -1,0 +1,40 @@
+.light {
+  font-family: "FuturaBT W05 Light", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.025ch;
+}
+
+.book {
+  font-family: "FuturaBT W05 Book", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.025ch;
+}
+
+.medium {
+  font-family: "FuturaBT W05 Medium", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.025ch;
+}
+
+.bold {
+  font-family: "FuturaBT W05 Bold", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.025ch;
+}
+
+.heavy {
+  font-family: "FuturaBT W05 Heavy", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.025ch;
+}
+
+.book-italic {
+  font-family: "FuturaBT W05 Book Italic", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.025ch;
+}
+
+.medium-italic {
+  font-family: "FuturaBT W05 Medium Italic", Helvetica, Arial, sans-serif;
+
+  letter-spacing: 0.025ch;
+}
+
+.bold-italic {
+  font-family: "FuturaBT W05 Bold Italic", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.025ch;
+}
