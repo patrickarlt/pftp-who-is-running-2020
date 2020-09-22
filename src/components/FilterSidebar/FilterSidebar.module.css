@@ -114,7 +114,9 @@
 .resetButton {
   background: transparent;
   color: var(--pftp-yellow-accent-1);
-  composes: medium from "../../shared.css";
+  composes: bold from "../../shared.css";
+  letter-spacing: 0.25ch;
+  font-size: 0.925rem;
   width: 100%;
   display: block;
   text-align: center;
