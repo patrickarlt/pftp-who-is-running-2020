@@ -98,12 +98,40 @@
   box-sizing: border-box;
   text-decoration: none;
   margin-top: 2rem;
+  cursor: pointer;
 }
 
 .button:hover {
   filter: brightness(120%);
 }
 
+.submitButton:focus,
+.button:focus {
+  outline: 2px solid var(--pftp-yellow-accent-1);
+  outline-offset: 4px;
+}
+
+.resetButton {
+  background: transparent;
+  color: var(--pftp-yellow-accent-1);
+  composes: medium from "../../shared.css";
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 0.75rem;
+  text-transform: lowercase;
+  border: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.resetButton:hover {
+  filter: brightness(120%);
+}
+
+.resetButton:focus,
 .submitButton:focus,
 .button:focus {
   outline: 2px solid var(--pftp-yellow-accent-1);
@@ -123,6 +151,7 @@
   text-decoration: none;
   margin-top: 2rem;
   border: none;
+  cursor: pointer;
 }
 
 .button:hover {

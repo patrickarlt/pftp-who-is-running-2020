@@ -132,6 +132,7 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
           <Checkbox name="woman">Woman</Checkbox>
           <Checkbox name="bipoc">BIPOC</Checkbox>
         </AccordionItem>
+
         {mobile && (
           <button
             className={styles.submitButton}
@@ -150,6 +151,21 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
             Find Candidates
           </button>
         )}
+        <button
+          className={styles.resetButton}
+          onClick={() => {
+            setFilterValue("democrat", true);
+            setFilterValue("republican", true);
+            setFilterValue("independent", true);
+            setFilterValue("other", true);
+            setFilterValue("senate", true);
+            setFilterValue("house", true);
+            setFilterValue("woman", false);
+            setFilterValue("bipoc", false);
+          }}
+        >
+          Reset Filters
+        </button>
       </Accordion>
 
       <Link to="/all/" className={styles.button}>
