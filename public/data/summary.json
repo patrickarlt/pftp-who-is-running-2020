@@ -2,162 +2,6 @@
   "senate": [
     {
       "labelPoint": {
-        "state": "al",
-        "x": -86.68074,
-        "y": 32.57636
-      },
-      "candidates": [
-        {
-          "stateAbbr": "al",
-          "district": null,
-          "party": "Democrat",
-          "name": "Doug Jones ",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Doug_Jones_2017.jpg",
-          "slug": "doug-jones",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "al",
-          "district": null,
-          "party": "Republican",
-          "name": "Tommy Tuberville ",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tuberville.png",
-          "slug": "tommy-tuberville",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "ak",
-        "x": -131.06383221528847,
-        "y": 57.50516971918868
-      },
-      "candidates": [
-        {
-          "stateAbbr": "ak",
-          "district": null,
-          "party": "Other",
-          "name": "Jed Whittaker ",
-          "image": "https://www.ourcampaigns.com/images/candidates/Candidate321.jpg",
-          "slug": "jed-whittaker",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ak",
-          "district": null,
-          "party": "Independent",
-          "name": "Sid Hill ",
-          "image": "https://pbs.twimg.com/profile_images/378800000111018872/a60d20b6088dd1402a4882f6fa93e534_400x400.jpeg",
-          "slug": "sid-hill",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ak",
-          "district": null,
-          "party": "Republican",
-          "name": "Daniel S. Sullivan",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DanielSSullivan.jpg",
-          "slug": "daniel-s-sullivan",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ak",
-          "district": null,
-          "party": "Independent",
-          "name": "Al Gross",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AlGross.jpg",
-          "slug": "al-gross",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ak",
-          "district": null,
-          "party": "Independent",
-          "name": "John Howe",
-          "image": "https://cloudfront-us-east-1.images.arcpublishing.com/gray/SXNKEN2Q4FNIXF5BG6UXFTGXG4.jpg",
-          "slug": "john-howe",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "az",
-        "x": -111.66558814245225,
-        "y": 34.29089386036121
-      },
-      "candidates": [
-        {
-          "stateAbbr": "az",
-          "district": null,
-          "party": "Republican",
-          "name": "Martha McSally",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Martha_McSally_official_congressional_photo.jpg",
-          "slug": "martha-mcsally",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "az",
-          "district": null,
-          "party": "Democrat",
-          "name": "Mark Kelly",
-          "image": "https://mediad.publicbroadcasting.net/p/knau/files/styles/x_large/public/201905/mark_kelly.jpg",
-          "slug": "mark-kelly",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "az",
-          "district": null,
-          "party": "Democrat",
-          "name": "Mohammad Arif ",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Arif.jpg",
-          "slug": "mohammad-arif",
-          "woman": false,
-          "bipoc": true
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "ar",
-        "x": -92.43873532762525,
-        "y": 34.89936156212617
-      },
-      "candidates": [
-        {
-          "stateAbbr": "ar",
-          "district": null,
-          "party": "Republican",
-          "name": "Tom Cotton",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tom_Cotton.jpg",
-          "slug": "tom-cotton",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ar",
-          "district": null,
-          "party": "Other",
-          "name": "Ricky Dale Harrington Jr.",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/harrington.jpg",
-          "slug": "ricky-dale-harrington-jr",
-          "woman": false,
-          "bipoc": true
-        }
-      ]
-    },
-    {
-      "labelPoint": {
         "state": "co",
         "x": -105.54661704278988,
         "y": 38.99859478789911
@@ -166,51 +10,11 @@
         {
           "stateAbbr": "co",
           "district": null,
-          "party": "Republican",
-          "name": "Cory Gardner",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t31.0-8/s960x960/10842069_853804314666257_8108614998055374889_o.jpg?_nc_cat=104&_nc_sid=85a577&_nc_ohc=aZ5jOxgsXNsAX8wEJQL&_nc_ht=scontent-ort2-2.xx&tp=7&oh=ad6a6a6b614f3c181f423d8ba43c0463&oe=5F68DCC8",
-          "slug": "cory-gardner",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "co",
-          "district": null,
-          "party": "Democrat",
-          "name": "John Hickenlooper",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/69179560_10156296054641437_5336780084013432832_o.jpg?_nc_cat=1&_nc_sid=85a577&_nc_ohc=Bi8WXOVJ2gwAX-NIjXH&_nc_ht=scontent-ort2-2.xx&tp=6&oh=21937b3c9277a3b2081996b6bf512dd7&oe=5F693387",
-          "slug": "john-hickenlooper",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "co",
-          "district": null,
-          "party": "Other",
-          "name": "Raymon Doane",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Raymon_Doane.jpg",
-          "slug": "raymon-doane",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "co",
-          "district": null,
           "party": "Other",
           "name": "Bruce Lohmiller",
           "slug": "bruce-lohmiller",
           "woman": false,
           "bipoc": false
-        },
-        {
-          "stateAbbr": "co",
-          "district": null,
-          "party": "Other",
-          "name": "Stephan \"Seku\" Evans",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Stephan_Seku_Evans.jpg",
-          "slug": "stephan-seku-evans",
-          "woman": false,
-          "bipoc": true
         },
         {
           "stateAbbr": "co",
@@ -239,54 +43,45 @@
           "slug": "danny-skelly",
           "woman": false,
           "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "de",
-        "x": -75.38744,
-        "y": 38.8528
-      },
-      "candidates": [
-        {
-          "stateAbbr": "de",
-          "district": null,
-          "party": "Democrat",
-          "name": "Chris Coons",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Chris_Andrew_Coons.jpg",
-          "slug": "chris-coons",
-          "woman": false,
-          "bipoc": false
         },
         {
-          "stateAbbr": "de",
-          "district": null,
-          "party": "Republican",
-          "name": "Lauren Witzke",
-          "image": "https://pbs.twimg.com/profile_images/1306003530831081473/nyat98wZ_400x400.jpg",
-          "slug": "lauren-witzke",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "de",
-          "district": null,
-          "party": "Independent",
-          "name": "Mark Turley",
-          "image": "https://www.turley2020.com/wp-content/uploads/2019/11/mark.png",
-          "slug": "mark-turley",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "de",
+          "stateAbbr": "co",
           "district": null,
           "party": "Other",
-          "name": "Nadine Frost",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Nadine_Frost_Head_Shot.png",
-          "slug": "nadine-frost",
-          "woman": true,
+          "name": "Raymon Doane",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Raymon_Doane.jpg",
+          "slug": "raymon-doane",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "co",
+          "district": null,
+          "party": "Other",
+          "name": "Stephan \"Seku\" Evans",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Stephan_Seku_Evans.jpg",
+          "slug": "stephan-seku-evans",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "co",
+          "district": null,
+          "party": "Republican",
+          "name": "Cory Gardner",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/250/450/Cory_Gardner__Official_Portrait__112th_Congress-7_fixed.jpg",
+          "slug": "cory-gardner",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "co",
+          "district": null,
+          "party": "Democrat",
+          "name": "John Hickenlooper",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/John_Hickenlooper_June_2019.jpg/1200px-John_Hickenlooper_June_2019.jpg",
+          "slug": "john-hickenlooper",
+          "woman": false,
           "bipoc": false
         }
       ]
@@ -301,40 +96,9 @@
         {
           "stateAbbr": "ga",
           "district": null,
-          "party": "Republican",
-          "name": "David Perdue",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/David_Perdue_official_Senate_photo.jpg",
-          "slug": "david-perdue",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
           "party": "Democrat",
-          "name": "Jon Ossoff",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jon_Ossoff.png",
-          "slug": "jon-ossoff",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Other",
-          "name": "Shane Hazel",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/shanehazel2.png",
-          "slug": "shane-hazel",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Republican",
-          "name": "Kelly Loeffler",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/0__3__fixed.jpg",
-          "slug": "kelly-loeffler",
+          "name": "Joy Felicia Slade",
+          "slug": "joy-felicia-slade",
           "woman": true,
           "bipoc": false
         },
@@ -351,69 +115,30 @@
         {
           "stateAbbr": "ga",
           "district": null,
-          "party": "Democrat",
-          "name": "Jamesia James",
-          "image": "https://static.wixstatic.com/media/a27d24_0b19f8ac018549aab77aabcfe67b5e95~mv2.jpg/v1/fit/w_1024,h_872,al_c,q_80/file.jpg",
-          "slug": "jamesia-james",
-          "woman": true,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Democrat",
-          "name": "Tamara Johnson-Shealey",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/tjs.jpg",
-          "slug": "tamara-johnson-shealey",
-          "woman": true,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Democrat",
-          "name": "Matt Lieberman",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/MattLieberman-min.PNG",
-          "slug": "matt-lieberman",
+          "party": "Independent",
+          "name": "Rod Mack",
+          "image": "https://imageprocessor.digital.vistaprint.com/crop/0,0,862x862/maxWidth/1000/http://uploads.documents.cimpress.io/v1/uploads/5c440f9f-eeb1-432e-b14a-24b5fc7536ed~110/original?tenant=vbu-digital",
+          "slug": "rod-mack",
           "woman": false,
-          "bipoc": false
+          "bipoc": true
         },
         {
           "stateAbbr": "ga",
           "district": null,
-          "party": "Democrat",
-          "name": "Joy Felicia Slade",
-          "slug": "joy-felicia-slade",
+          "party": "Republican",
+          "name": "Kelly Loeffler",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/0__3__fixed.jpg",
+          "slug": "kelly-loeffler",
           "woman": true,
           "bipoc": false
         },
         {
           "stateAbbr": "ga",
           "district": null,
-          "party": "Democrat",
-          "name": "Ed Tarver",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/EdTarver.jpg",
-          "slug": "ed-tarver",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Democrat",
-          "name": "Raphael Warnock",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Raphael_Warnock.jpg",
-          "slug": "raphael-warnock",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Democrat",
-          "name": "Richard Dien Winfield",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/fullsizeoutput_1205.jpeg",
-          "slug": "richard-dien-winfield",
+          "party": "Independent",
+          "name": "Allen Buckley",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Allen_Buckley.jpg",
+          "slug": "allen-buckley",
           "woman": false,
           "bipoc": false
         },
@@ -421,9 +146,29 @@
           "stateAbbr": "ga",
           "district": null,
           "party": "Republican",
-          "name": "Doug Collins",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DougCollins.jpg",
-          "slug": "doug-collins",
+          "name": "Annette Davis Jackson",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Annette_Davis_Jackson.jpg",
+          "slug": "annette-davis-jackson",
+          "woman": true,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Other",
+          "name": "Brian Slowinski",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Brian_Slowinski.jpg",
+          "slug": "brian-slowinski",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Republican",
+          "name": "David Perdue",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/David_Perdue_official_Senate_photo.jpg",
+          "slug": "david-perdue",
           "woman": false,
           "bipoc": false
         },
@@ -441,49 +186,9 @@
           "stateAbbr": "ga",
           "district": null,
           "party": "Republican",
-          "name": "Annette Davis Jackson",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Annette_Davis_Jackson.jpg",
-          "slug": "annette-davis-jackson",
-          "woman": true,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Republican",
-          "name": "A. Wayne Johnson",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/waynejohnson.jpg",
-          "slug": "a-wayne-johnson",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Republican",
-          "name": "Kandiss Taylor",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/KandissTaylor.jpg",
-          "slug": "kandiss-taylor",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Other",
-          "name": "John Fortuin",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/John_Fortuin.jpg",
-          "slug": "john-fortuin",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ga",
-          "district": null,
-          "party": "Other",
-          "name": "Brian Slowinski",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Brian_Slowinski.jpg",
-          "slug": "brian-slowinski",
+          "name": "Doug Collins",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DougCollins.jpg",
+          "slug": "doug-collins",
           "woman": false,
           "bipoc": false
         },
@@ -500,10 +205,60 @@
         {
           "stateAbbr": "ga",
           "district": null,
-          "party": "Independent",
-          "name": "Allen Buckley",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Allen_Buckley.jpg",
-          "slug": "allen-buckley",
+          "party": "Democrat",
+          "name": "Ed Tarver",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/EdTarver.jpg",
+          "slug": "ed-tarver",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Democrat",
+          "name": "Richard Dien Winfield",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/fullsizeoutput_1205.jpeg",
+          "slug": "richard-dien-winfield",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Other",
+          "name": "John Fortuin",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/John_Fortuin.jpg",
+          "slug": "john-fortuin",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Democrat",
+          "name": "Jon Ossoff",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jon_Ossoff.png",
+          "slug": "jon-ossoff",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Republican",
+          "name": "Kandiss Taylor",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/KandissTaylor.jpg",
+          "slug": "kandiss-taylor",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Democrat",
+          "name": "Matt Lieberman",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/MattLieberman-min.PNG",
+          "slug": "matt-lieberman",
           "woman": false,
           "bipoc": false
         },
@@ -520,6 +275,36 @@
         {
           "stateAbbr": "ga",
           "district": null,
+          "party": "Democrat",
+          "name": "Raphael Warnock",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Raphael_Warnock.jpg",
+          "slug": "raphael-warnock",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Other",
+          "name": "Shane Hazel",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/shanehazel2.png",
+          "slug": "shane-hazel",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Democrat",
+          "name": "Tamara Johnson-Shealey",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/tjs.jpg",
+          "slug": "tamara-johnson-shealey",
+          "woman": true,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
           "party": "Independent",
           "name": "Valencia Stovall",
           "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Valencia_Stovall.jpg",
@@ -530,10 +315,311 @@
         {
           "stateAbbr": "ga",
           "district": null,
+          "party": "Republican",
+          "name": "A. Wayne Johnson",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/waynejohnson.jpg",
+          "slug": "a-wayne-johnson",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ga",
+          "district": null,
+          "party": "Democrat",
+          "name": "Jamesia James",
+          "image": "https://static.wixstatic.com/media/a27d24_0b19f8ac018549aab77aabcfe67b5e95~mv2.jpg/v1/fit/w_1024,h_872,al_c,q_80/file.jpg",
+          "slug": "jamesia-james",
+          "woman": true,
+          "bipoc": true
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "ky",
+        "x": -85.93143029197083,
+        "y": 37.79957875912408
+      },
+      "candidates": [
+        {
+          "stateAbbr": "ky",
+          "district": null,
+          "party": "Other",
+          "name": "Randall Lee Teegarden",
+          "slug": "randall-lee-teegarden",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ky",
+          "district": null,
+          "party": "Other",
+          "name": "Brad Barron",
+          "image": "https://pbs.twimg.com/profile_images/1215189974028447744/Zl40_bot_400x400.jpg",
+          "slug": "brad-barron",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ky",
+          "district": null,
+          "party": "Republican",
+          "name": "Mitch McConnell",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/1024px-Mitch_McConnell_official_portrait_112th_Congress.jpg",
+          "slug": "mitch-mcconnell",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ky",
+          "district": null,
+          "party": "Democrat",
+          "name": "Amy McGrath",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/amy.jpg",
+          "slug": "amy-mcgrath",
+          "woman": true,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "la",
+        "x": -92.48350249999999,
+        "y": 31.459752499999997
+      },
+      "candidates": [
+        {
+          "stateAbbr": "la",
+          "district": null,
           "party": "Independent",
-          "name": "Rod Mack",
-          "image": "https://imageprocessor.digital.vistaprint.com/crop/0,0,862x862/maxWidth/1000/http://uploads.documents.cimpress.io/v1/uploads/5c440f9f-eeb1-432e-b14a-24b5fc7536ed~110/original?tenant=vbu-digital",
-          "slug": "rod-mack",
+          "name": "Reno Jean Daret III",
+          "slug": "reno-jean-daret-iii",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Independent",
+          "name": "Melinda Mary Price",
+          "slug": "melinda-mary-price",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Other",
+          "name": "Aaron Sigler",
+          "image": "https://candidates.lplouisiana.org/aaron_sigler/profile.jpg",
+          "slug": "aaron-sigler",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Democrat",
+          "name": "Antoine Pierce",
+          "image": "https://images.squarespace-cdn.com/content/v1/5e8b52cb99f8fa3aecc1af10/1586903454017-JKJJPG7IRRAXU4ZV9DV6/ke17ZwdGBToddI8pDm48kGpTPPi2U9pFbuYTPd-q_OZZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIMBNLOJKNrOA6z2aX6RwOeUH00gdm_T7BxMfUXR5K4u8KMshLAGzx4R3EDFOm1kBS/78331674_1238496836342614_7529915356014444544_n.jpg?format=1500w",
+          "slug": "antoine-pierce",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Independent",
+          "name": "Beryl Billiot",
+          "image": "https://pbs.twimg.com/profile_images/794589685255311362/Cu3IDdP9_400x400.jpg",
+          "slug": "beryl-billiot",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Democrat",
+          "name": "Peter Wenstrup",
+          "image": "https://pbs.twimg.com/profile_images/1271682410200080386/SgdKVWwZ_400x400.jpg",
+          "slug": "peter-wenstrup",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Democrat",
+          "name": "Adrian Perkins",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AdrianPerkins.jpg",
+          "slug": "adrian-perkins",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Republican",
+          "name": "Bill Cassidy",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Bill_Cassidy_official_Senate_photo.jpg",
+          "slug": "bill-cassidy",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Democrat",
+          "name": "Derrick Edwards",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Derrick_Edwards.jpg",
+          "slug": "derrick-edwards",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Republican",
+          "name": "Dustin Murphy",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DustinMurphy2.jpeg",
+          "slug": "dustin-murphy",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Independent",
+          "name": "Jamar Myers-Montgomery",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jamar_Montgomery.jpeg",
+          "slug": "jamar-myers-montgomery",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Independent",
+          "name": "John Paul Bourgeois",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/JohnPaulBourgeois.jpg",
+          "slug": "john-paul-bourgeois",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Independent",
+          "name": "M.V. Mendoza",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/M.V._Mendoza.png",
+          "slug": "mv-mendoza",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Independent",
+          "name": "Xan John",
+          "image": "https://static.wixstatic.com/media/23443d_7cce0060aa7244f1b176fb1f3a135b87~mv2.jpg/v1/fill/w_396,h_591,al_c,q_80,usm_0.66_1.00_0.01/IMG_9945_Facetune_27-07-2020-17-46-18_jp.webp",
+          "slug": "xan-john",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "la",
+          "district": null,
+          "party": "Democrat",
+          "name": "David Drew Knight",
+          "image": "https://www.nvsos.gov/silverstate2018pri/_static/_images/headshots/7773.jpg",
+          "slug": "david-drew-knight",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "mn",
+        "x": -94.65977312499999,
+        "y": 46.81013312500001
+      },
+      "candidates": [
+        {
+          "stateAbbr": "mn",
+          "district": null,
+          "party": "Other",
+          "name": "Kevin O'Connor",
+          "slug": "kevin-oconnor",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "mn",
+          "district": null,
+          "party": "Other",
+          "name": "Oliver Steinberg",
+          "image": "https://jackherershero.org/wp-content/uploads/2020/07/0408.jpg",
+          "slug": "oliver-steinberg",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "mn",
+          "district": null,
+          "party": "Republican",
+          "name": "Jason Lewis",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jason_Lewis.png",
+          "slug": "jason-lewis",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "mn",
+          "district": null,
+          "party": "Democrat",
+          "name": "Tina Smith",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tina_Smith-1.jpg",
+          "slug": "tina-smith",
+          "woman": true,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "ms",
+        "x": -89.65217366953361,
+        "y": 32.71547916334114
+      },
+      "candidates": [
+        {
+          "stateAbbr": "ms",
+          "district": null,
+          "party": "Other",
+          "name": "Jimmy Edwards",
+          "slug": "jimmy-edwards",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ms",
+          "district": null,
+          "party": "Republican",
+          "name": "Cindy Hyde-Smith",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cindy_Hyde-Smith.jpg",
+          "slug": "cindy-hyde-smith",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ms",
+          "district": null,
+          "party": "Democrat",
+          "name": "Mike Espy",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mike_Espy-min.jpg",
+          "slug": "mike-espy",
           "woman": false,
           "bipoc": true
         }
@@ -541,48 +627,291 @@
     },
     {
       "labelPoint": {
-        "state": "id",
-        "x": -115.30659000000001,
-        "y": 43.9365
+        "state": "ne",
+        "x": -99.55239,
+        "y": 41.5003
       },
       "candidates": [
         {
-          "stateAbbr": "id",
+          "stateAbbr": "ne",
           "district": null,
-          "party": "Republican",
-          "name": "Jim Risch",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jim_Risch.jpg",
-          "slug": "jim-risch",
+          "party": "Democrat",
+          "name": "Preston Love Jr",
+          "slug": "preston-love-jr",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "id",
+          "stateAbbr": "ne",
+          "district": null,
+          "party": "Republican",
+          "name": "Ben Sasse",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ben_Sasse_Official_photo.jpg",
+          "slug": "ben-sasse",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ne",
           "district": null,
           "party": "Democrat",
-          "name": "Paulette E. Jordan",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Paulette_E._Jordan.jpeg",
-          "slug": "paulette-e-jordan",
+          "name": "Chris Janicek",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ChrisJ.jpg",
+          "slug": "chris-janicek",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ne",
+          "district": null,
+          "party": "Other",
+          "name": "Gene Siadek",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/GeneSiadek.jpg",
+          "slug": "gene-siadek",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "tn",
+        "x": -86.08543499999998,
+        "y": 35.833335000000005
+      },
+      "candidates": [
+        {
+          "stateAbbr": "tn",
+          "district": null,
+          "party": "Independent",
+          "name": "Steven Hooper",
+          "slug": "steven-hooper",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tn",
+          "district": null,
+          "party": "Independent",
+          "name": "Eric William Stansberry",
+          "slug": "eric-william-stansberry",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tn",
+          "district": null,
+          "party": "Independent",
+          "name": "Elizabeth McLeod",
+          "image": "https://mcleodforsenate.com/wp-content/uploads/2020/02/Main-Photo.jpg",
+          "slug": "elizabeth-mcleod",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tn",
+          "district": null,
+          "party": "Independent",
+          "name": "Aaron James",
+          "image": "https://pbs.twimg.com/profile_images/1274853398056185861/ZE99UF1F_400x400.jpg",
+          "slug": "aaron-james",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tn",
+          "district": null,
+          "party": "Democrat",
+          "name": "Marquita Bradshaw",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/80182230_marquita_head_shot_1.jpg",
+          "slug": "marquita-bradshaw",
           "woman": true,
           "bipoc": true
         },
         {
-          "stateAbbr": "id",
+          "stateAbbr": "tn",
           "district": null,
-          "party": "Other",
-          "name": "Ray Writz",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ray_Writz.jpg",
-          "slug": "ray-writz",
+          "party": "Independent",
+          "name": "Ronnie Henley",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/80182230_win_20181213_14_31_09_pro.jpg",
+          "slug": "ronnie-henley",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "id",
+          "stateAbbr": "tn",
+          "district": null,
+          "party": "Republican",
+          "name": "Bill Hagerty",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/BillHagerty.jpeg",
+          "slug": "bill-hagerty",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tn",
           "district": null,
           "party": "Independent",
-          "name": "Natalie Fleming",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Natalie_Fleming.jpg",
-          "slug": "natalie-fleming",
+          "name": "Dean Hill",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Dean_Hill_Photo_9.28.18.jpg",
+          "slug": "dean-hill",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tn",
+          "district": null,
+          "party": "Independent",
+          "name": "Jeffrey Grunau",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jeffrey_Grunau.jpg",
+          "slug": "jeffrey-grunau",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tn",
+          "district": null,
+          "party": "Independent",
+          "name": "Yomi Faparusi",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/YomiFaparusi2.jpg",
+          "slug": "yomi-faparusi",
+          "woman": false,
+          "bipoc": true
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "nm",
+        "x": -106.10978849122206,
+        "y": 34.42094680457959
+      },
+      "candidates": [
+        {
+          "stateAbbr": "nm",
+          "district": null,
+          "party": "Other",
+          "name": "Bob Walsh",
+          "image": "http://www.walshforsenate2020.us/wp-content/uploads/2020/03/Bob_Walsh_for_Senate_2020_Headshot_720x-214x300.png",
+          "slug": "bob-walsh",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "nm",
+          "district": null,
+          "party": "Democrat",
+          "name": "Ben Ray Luján",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ben_Ray_Lujan.jpg",
+          "slug": "ben-ray-lujan",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "nm",
+          "district": null,
+          "party": "Republican",
+          "name": "Mark Ronchetti",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RonchettiHeadshot.jpg",
+          "slug": "mark-ronchetti",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "ak",
+        "x": -131.06383221528847,
+        "y": 57.50516971918868
+      },
+      "candidates": [
+        {
+          "stateAbbr": "ak",
+          "district": null,
+          "party": "Independent",
+          "name": "John Howe",
+          "image": "https://cloudfront-us-east-1.images.arcpublishing.com/gray/SXNKEN2Q4FNIXF5BG6UXFTGXG4.jpg",
+          "slug": "john-howe",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ak",
+          "district": null,
+          "party": "Independent",
+          "name": "Sid Hill ",
+          "image": "https://pbs.twimg.com/profile_images/378800000111018872/a60d20b6088dd1402a4882f6fa93e534_400x400.jpeg",
+          "slug": "sid-hill",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ak",
+          "district": null,
+          "party": "Independent",
+          "name": "Al Gross",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AlGross.jpg",
+          "slug": "al-gross",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ak",
+          "district": null,
+          "party": "Republican",
+          "name": "Daniel S. Sullivan",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DanielSSullivan.jpg",
+          "slug": "daniel-s-sullivan",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ak",
+          "district": null,
+          "party": "Other",
+          "name": "Jed Whittaker ",
+          "image": "https://www.ourcampaigns.com/images/candidates/Candidate321.jpg",
+          "slug": "jed-whittaker",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "az",
+        "x": -111.66558814245225,
+        "y": 34.29089386036121
+      },
+      "candidates": [
+        {
+          "stateAbbr": "az",
+          "district": null,
+          "party": "Democrat",
+          "name": "Mark Kelly",
+          "image": "https://mediad.publicbroadcasting.net/p/knau/files/styles/x_large/public/201905/mark_kelly.jpg",
+          "slug": "mark-kelly",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "az",
+          "district": null,
+          "party": "Democrat",
+          "name": "Mohammad Arif ",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Arif.jpg",
+          "slug": "mohammad-arif",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "az",
+          "district": null,
+          "party": "Republican",
+          "name": "Martha McSally",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Martha_McSally_official_congressional_photo.jpg",
+          "slug": "martha-mcsally",
           "woman": true,
           "bipoc": false
         }
@@ -590,58 +919,68 @@
     },
     {
       "labelPoint": {
-        "state": "il",
-        "x": -89.14734870006512,
-        "y": 40.12464495407108
+        "state": "nj",
+        "x": -74.72512,
+        "y": 39.62713
       },
       "candidates": [
         {
-          "stateAbbr": "il",
+          "stateAbbr": "nj",
+          "district": null,
+          "party": "Independent",
+          "name": "Daniel Burke",
+          "image": "https://pbs.twimg.com/profile_images/1152617793633869825/g3AxQHhc_400x400.jpg",
+          "slug": "daniel-burke",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "nj",
           "district": null,
           "party": "Democrat",
-          "name": "Dick Durbin ",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Richard_Durbin.jpg",
-          "slug": "dick-durbin",
+          "name": "Cory Booker",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cory_Booker.jpg",
+          "slug": "cory-booker",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "nj",
+          "district": null,
+          "party": "Independent",
+          "name": "Luis Vergara",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/EdVergara.jpeg",
+          "slug": "luis-vergara",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "il",
+          "stateAbbr": "nj",
+          "district": null,
+          "party": "Other",
+          "name": "Madelyn Hoffman",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Madelyn-Hoffman.JPG",
+          "slug": "madelyn-hoffman",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "nj",
+          "district": null,
+          "party": "Independent",
+          "name": "Veronica Fernandez",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mar312020948PM_80182230_RoniSally055-min.jpg",
+          "slug": "veronica-fernandez",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "nj",
           "district": null,
           "party": "Republican",
-          "name": "Mark Curran",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/mc.jpg",
-          "slug": "mark-curran",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "il",
-          "district": null,
-          "party": "Other",
-          "name": "David Black",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/David_Black_AG.jpg",
-          "slug": "david-black",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "il",
-          "district": null,
-          "party": "Other",
-          "name": "Danny Malouf",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Danny_Malouf.jpg",
-          "slug": "danny-malouf",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "il",
-          "district": null,
-          "party": "Other",
-          "name": "Willie Wilson",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Willie_Wilson.png",
-          "slug": "willie-wilson",
+          "name": "Rik Mehta",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Rik_Mehta.jpeg",
+          "slug": "rik-mehta",
           "woman": false,
           "bipoc": true
         }
@@ -649,49 +988,293 @@
     },
     {
       "labelPoint": {
-        "state": "ia",
-        "x": -93.50118441115411,
-        "y": 42.07613916560128
+        "state": "ma",
+        "x": -70.96049000000001,
+        "y": 42.037549999999996
       },
       "candidates": [
         {
-          "stateAbbr": "ia",
-          "district": null,
-          "party": "Republican",
-          "name": "Joni Ernst",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Joni_Ernst_Official_photo_portrait_114th_Congress.jpg",
-          "slug": "joni-ernst",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ia",
+          "stateAbbr": "ma",
           "district": null,
           "party": "Democrat",
-          "name": "Theresa Greenfield",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Theresa_Greenfield_.jpg",
-          "slug": "theresa-greenfield",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ia",
-          "district": null,
-          "party": "Other",
-          "name": "Rick Stewart",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Rickstewart.jpg",
-          "slug": "rick-stewart",
+          "name": "Edward J. Markey",
+          "image": "https://pbs.twimg.com/profile_images/1181319893162967040/ZpAIvuyu_400x400.jpg",
+          "slug": "edward-j-markey",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "ia",
+          "stateAbbr": "ma",
+          "district": null,
+          "party": "Republican",
+          "name": "Kevin O'Connor",
+          "image": "https://www.kocforsenate.com/uploads/about-03-cir.png",
+          "slug": "kevin-oconnor",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "de",
+        "x": -75.38744,
+        "y": 38.8528
+      },
+      "candidates": [
+        {
+          "stateAbbr": "de",
+          "district": null,
+          "party": "Republican",
+          "name": "Lauren Witzke",
+          "image": "https://pbs.twimg.com/profile_images/1306003530831081473/nyat98wZ_400x400.jpg",
+          "slug": "lauren-witzke",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "de",
+          "district": null,
+          "party": "Democrat",
+          "name": "Chris Coons",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Chris_Andrew_Coons.jpg",
+          "slug": "chris-coons",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "de",
+          "district": null,
+          "party": "Other",
+          "name": "Nadine Frost",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Nadine_Frost_Head_Shot.png",
+          "slug": "nadine-frost",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "de",
           "district": null,
           "party": "Independent",
-          "name": "Suzanne Herzog",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Sherzog.JPG",
-          "slug": "suzanne-herzog",
+          "name": "Mark Turley",
+          "image": "https://www.turley2020.com/wp-content/uploads/2019/11/mark.png",
+          "slug": "mark-turley",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "or",
+        "x": -120.60669418152898,
+        "y": 43.94220119570998
+      },
+      "candidates": [
+        {
+          "stateAbbr": "or",
+          "district": null,
+          "party": "Other",
+          "name": "Gary Dye",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/20180827_175808_Film1.jpg",
+          "slug": "gary-dye",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "or",
+          "district": null,
+          "party": "Other",
+          "name": "Ibrahim Taher",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ibrahim_Taher.jpg",
+          "slug": "ibrahim-taher",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "or",
+          "district": null,
+          "party": "Democrat",
+          "name": "Jeff Merkley",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jeff_Merkley.jpg",
+          "slug": "jeff-merkley",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "or",
+          "district": null,
+          "party": "Republican",
+          "name": "Jo Rae Perkins",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jo_Rae_Perkins.jpg",
+          "slug": "jo-rae-perkins",
           "woman": true,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "nh",
+        "x": -71.56950457526133,
+        "y": 43.67878701947331
+      },
+      "candidates": [
+        {
+          "stateAbbr": "nh",
+          "district": null,
+          "party": "Republican",
+          "name": "Bryant \"Corky\" Messner",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/81795995_165643004790785_4885515807322275840_n.jpg",
+          "slug": "bryant-corky-messner",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "nh",
+          "district": null,
+          "party": "Other",
+          "name": "Justin O'Donnell",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Justin_O_Donnell-6_fixed.PNG",
+          "slug": "justin-odonnell",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "nh",
+          "district": null,
+          "party": "Democrat",
+          "name": "Jeanne Shaheen",
+          "image": "https://www.shaheen.senate.gov/imo/media/image/biobanner.jpg",
+          "slug": "jeanne-shaheen",
+          "woman": true,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "ok",
+        "x": -97.51096390744267,
+        "y": 35.58477888515531
+      },
+      "candidates": [
+        {
+          "stateAbbr": "ok",
+          "district": null,
+          "party": "Democrat",
+          "name": "Abby Broyles",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AbbyBroyles.jpg",
+          "slug": "abby-broyles",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ok",
+          "district": null,
+          "party": "Independent",
+          "name": "April Nesbit",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/April_Nesbit1.jpg",
+          "slug": "april-nesbit",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ok",
+          "district": null,
+          "party": "Republican",
+          "name": "Jim Inhofe",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jim_Inhofe_official_photo.jpg",
+          "slug": "jim-inhofe",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ok",
+          "district": null,
+          "party": "Independent",
+          "name": "Joan Farr",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Joan_Farr.jpg",
+          "slug": "joan-farr",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ok",
+          "district": null,
+          "party": "Other",
+          "name": "Robert Murphy",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RobertMurphy.jpg",
+          "slug": "robert-murphy",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "ri",
+        "x": -71.57368703703705,
+        "y": 41.449848148148156
+      },
+      "candidates": [
+        {
+          "stateAbbr": "ri",
+          "district": null,
+          "party": "Republican",
+          "name": "Allen Waters",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Allen_Waters_01.jpg",
+          "slug": "allen-waters",
+          "woman": false,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "ri",
+          "district": null,
+          "party": "Democrat",
+          "name": "Jack Reed",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jack_Reed.jpg",
+          "slug": "jack-reed",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "va",
+        "x": -78.66153467718573,
+        "y": 37.512689883193865
+      },
+      "candidates": [
+        {
+          "stateAbbr": "va",
+          "district": null,
+          "party": "Independent",
+          "name": "Al Mina",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AlMina.jpg",
+          "slug": "al-mina",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "va",
+          "district": null,
+          "party": "Republican",
+          "name": "Daniel Gade",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Daniel_Gade.jpeg",
+          "slug": "daniel-gade",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "va",
+          "district": null,
+          "party": "Democrat",
+          "name": "Mark Warner",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mark_Warner.jpg",
+          "slug": "mark-warner",
+          "woman": false,
           "bipoc": false
         }
       ]
@@ -737,47 +1320,38 @@
     },
     {
       "labelPoint": {
-        "state": "ky",
-        "x": -85.93143029197083,
-        "y": 37.79957875912408
+        "state": "sc",
+        "x": -80.86429696205442,
+        "y": 33.87797044091369
       },
       "candidates": [
         {
-          "stateAbbr": "ky",
+          "stateAbbr": "sc",
           "district": null,
-          "party": "Republican",
-          "name": "Mitch McConnell",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/1024px-Mitch_McConnell_official_portrait_112th_Congress.jpg",
-          "slug": "mitch-mcconnell",
+          "party": "Other",
+          "name": "Bill Bledsoe",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Bill_Bledsoe.png",
+          "slug": "bill-bledsoe",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "ky",
+          "stateAbbr": "sc",
           "district": null,
           "party": "Democrat",
-          "name": "Amy McGrath",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/amy.jpg",
-          "slug": "amy-mcgrath",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ky",
-          "district": null,
-          "party": "Other",
-          "name": "Brad Barron",
-          "image": "https://pbs.twimg.com/profile_images/1215189974028447744/Zl40_bot_400x400.jpg",
-          "slug": "brad-barron",
+          "name": "Jaime Harrison",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/jaimeharrison.jpg",
+          "slug": "jaime-harrison",
           "woman": false,
-          "bipoc": false
+          "bipoc": true
         },
         {
-          "stateAbbr": "ky",
+          "stateAbbr": "sc",
           "district": null,
-          "party": "Other",
-          "name": "Randall Lee Teegarden",
-          "slug": "randall-lee-teegarden",
+          "party": "Republican",
+          "name": "Lindsey Graham",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Lindsey_Graham.jpg",
+          "slug": "lindsey-graham",
           "woman": false,
           "bipoc": false
         }
@@ -785,156 +1359,77 @@
     },
     {
       "labelPoint": {
-        "state": "la",
-        "x": -92.48350249999999,
-        "y": 31.459752499999997
+        "state": "nc",
+        "x": -79.12805908363787,
+        "y": 35.52600260817642
       },
       "candidates": [
         {
-          "stateAbbr": "la",
+          "stateAbbr": "nc",
           "district": null,
-          "party": "Republican",
-          "name": "Bill Cassidy",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Bill_Cassidy_official_Senate_photo.jpg",
-          "slug": "bill-cassidy",
+          "party": "Democrat",
+          "name": "Cal Cunningham",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cunningham-C-1-e1425052057426-300x300.jpg",
+          "slug": "cal-cunningham",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Democrat",
-          "name": "Derrick Edwards",
-          "image": "https://www.votederrickedwards.com/wp-content/uploads/2020/07/banner.png",
-          "slug": "derrick-edwards",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Democrat",
-          "name": "David Drew Knight",
-          "image": "https://drew2020.com/images/pixel.png",
-          "slug": "david-drew-knight",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Democrat",
-          "name": "Adrian Perkins",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AdrianPerkins.jpg",
-          "slug": "adrian-perkins",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Democrat",
-          "name": "Antoine Pierce",
-          "image": "https://images.squarespace-cdn.com/content/v1/5e8b52cb99f8fa3aecc1af10/1586903454017-JKJJPG7IRRAXU4ZV9DV6/ke17ZwdGBToddI8pDm48kGpTPPi2U9pFbuYTPd-q_OZZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIMBNLOJKNrOA6z2aX6RwOeUH00gdm_T7BxMfUXR5K4u8KMshLAGzx4R3EDFOm1kBS/78331674_1238496836342614_7529915356014444544_n.jpg?format=1500w",
-          "slug": "antoine-pierce",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Democrat",
-          "name": "Peter Wenstrup",
-          "image": "https://pbs.twimg.com/profile_images/1271682410200080386/SgdKVWwZ_400x400.jpg",
-          "slug": "peter-wenstrup",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Republican",
-          "name": "Dustin Murphy",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DustinMurphy2.jpeg",
-          "slug": "dustin-murphy",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "la",
+          "stateAbbr": "nc",
           "district": null,
           "party": "Other",
-          "name": "Aaron Sigler",
-          "image": "https://candidates.lplouisiana.org/aaron_sigler/profile.jpg",
-          "slug": "aaron-sigler",
+          "name": "Kevin E. Hayes",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/KevinEHayes.jpg",
+          "slug": "kevin-e-hayes",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "la",
+          "stateAbbr": "nc",
           "district": null,
-          "party": "Independent",
-          "name": "Beryl Billiot",
-          "image": "https://pbs.twimg.com/profile_images/794589685255311362/Cu3IDdP9_400x400.jpg",
-          "slug": "beryl-billiot",
+          "party": "Republican",
+          "name": "Thom Tillis",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Senator_Thom_Tillis_Official_Portrait.jpg",
+          "slug": "thom-tillis",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "la",
+          "stateAbbr": "nc",
           "district": null,
-          "party": "Independent",
-          "name": "John Paul Bourgeois",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/JohnPaulBourgeois.jpg",
-          "slug": "john-paul-bourgeois",
+          "party": "Other",
+          "name": "Shannon Bray",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ShannonBray.jpg",
+          "slug": "shannon-bray",
           "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "wy",
+        "x": -107.55391499999999,
+        "y": 42.99942
+      },
+      "candidates": [
+        {
+          "stateAbbr": "wy",
+          "district": null,
+          "party": "Republican",
+          "name": "Cynthia Lummis",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cynthia_Lummis.jpg",
+          "slug": "cynthia-lummis",
+          "woman": true,
           "bipoc": false
         },
         {
-          "stateAbbr": "la",
+          "stateAbbr": "wy",
           "district": null,
-          "party": "Independent",
-          "name": "Reno Jean Daret III",
-          "slug": "reno-jean-daret-iii",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Independent",
-          "name": "Xan John",
-          "image": "https://static.wixstatic.com/media/23443d_7cce0060aa7244f1b176fb1f3a135b87~mv2.jpg/v1/fill/w_396,h_591,al_c,q_80,usm_0.66_1.00_0.01/IMG_9945_Facetune_27-07-2020-17-46-18_jp.webp",
-          "slug": "xan-john",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Independent",
-          "name": "M.V. Mendoza",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/M.V._Mendoza.png",
-          "slug": "mv-mendoza",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Independent",
-          "name": "Jamar Myers-Montgomery",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jamar_Montgomery.jpeg",
-          "slug": "jamar-myers-montgomery",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "la",
-          "district": null,
-          "party": "Independent",
-          "name": "Melinda Mary Price",
-          "slug": "melinda-mary-price",
+          "party": "Democrat",
+          "name": "Merav Ben-David",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/meravbendavid1.jpg",
+          "slug": "merav-ben-david",
           "woman": true,
           "bipoc": false
         }
@@ -942,48 +1437,126 @@
     },
     {
       "labelPoint": {
-        "state": "me",
-        "x": -68.984685,
-        "y": 45.188495
+        "state": "sd",
+        "x": -100.22935903252412,
+        "y": 44.43663632398516
       },
       "candidates": [
         {
-          "stateAbbr": "me",
-          "district": null,
-          "party": "Republican",
-          "name": "Susan Collins",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Susan_Collins.jpg",
-          "slug": "susan-collins",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "me",
+          "stateAbbr": "sd",
           "district": null,
           "party": "Democrat",
-          "name": "Sara Gideon",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Sara_Gideon.jpg",
-          "slug": "sara-gideon",
-          "woman": true,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "me",
-          "district": null,
-          "party": "Independent",
-          "name": "Max Linn",
-          "image": "https://www.mainepublic.org/sites/mpbn/files/styles/medium/public/201804/26088748627_7434313515_o_0.jpg",
-          "slug": "max-linn",
+          "name": "Dan Ahlers",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DanAhlers2.jpg",
+          "slug": "dan-ahlers",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "me",
+          "stateAbbr": "sd",
           "district": null,
-          "party": "Independent",
-          "name": "Lisa Savage",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/lisasavage.jpg",
-          "slug": "lisa-savage",
+          "party": "Republican",
+          "name": "Mike Rounds",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mike_Rounds_official_Senate_portrait.jpg",
+          "slug": "mike-rounds",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "il",
+        "x": -89.14734870006512,
+        "y": 40.12464495407108
+      },
+      "candidates": [
+        {
+          "stateAbbr": "il",
+          "district": null,
+          "party": "Other",
+          "name": "Danny Malouf",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Danny_Malouf.jpg",
+          "slug": "danny-malouf",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "il",
+          "district": null,
+          "party": "Other",
+          "name": "David Black",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/David_Black_AG.jpg",
+          "slug": "david-black",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "il",
+          "district": null,
+          "party": "Republican",
+          "name": "Mark Curran",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/mc.jpg",
+          "slug": "mark-curran",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "il",
+          "district": null,
+          "party": "Democrat",
+          "name": "Dick Durbin ",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Richard_Durbin.jpg",
+          "slug": "dick-durbin",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "il",
+          "district": null,
+          "party": "Other",
+          "name": "Willie Wilson",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Willie_Wilson.png",
+          "slug": "willie-wilson",
+          "woman": false,
+          "bipoc": true
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "wv",
+        "x": -80.61606555193178,
+        "y": 38.6404538742039
+      },
+      "candidates": [
+        {
+          "stateAbbr": "wv",
+          "district": null,
+          "party": "Other",
+          "name": "David Moran",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/David_Moran.png",
+          "slug": "david-moran",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "wv",
+          "district": null,
+          "party": "Democrat",
+          "name": "Paula Jean Swearengin",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Paulajeanswearengin.png",
+          "slug": "paula-jean-swearengin",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "wv",
+          "district": null,
+          "party": "Republican",
+          "name": "Shelley Moore Capito",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Shelley_Moore_Capito.jpeg",
+          "slug": "shelley-moore-capito",
           "woman": true,
           "bipoc": false
         }
@@ -991,28 +1564,87 @@
     },
     {
       "labelPoint": {
-        "state": "ma",
-        "x": -70.96049000000001,
-        "y": 42.037549999999996
+        "state": "tx",
+        "x": -97.98215437500001,
+        "y": 30.502686875000002
       },
       "candidates": [
         {
-          "stateAbbr": "ma",
+          "stateAbbr": "tx",
           "district": null,
-          "party": "Democrat",
-          "name": "Edward J. Markey",
-          "image": "https://pbs.twimg.com/profile_images/1181319893162967040/ZpAIvuyu_400x400.jpg",
-          "slug": "edward-j-markey",
+          "party": "Other",
+          "name": "David B. Collins",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DavidBCollins.jpeg",
+          "slug": "david-b-collins",
           "woman": false,
           "bipoc": false
         },
         {
-          "stateAbbr": "ma",
+          "stateAbbr": "tx",
           "district": null,
           "party": "Republican",
-          "name": "Kevin O'Connor",
-          "image": "https://www.kocforsenate.com/uploads/about-03-cir.png",
-          "slug": "kevin-oconnor",
+          "name": "John Cornyn",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/John_Cornyn.jpg",
+          "slug": "john-cornyn",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tx",
+          "district": null,
+          "party": "Other",
+          "name": "Kerry McKennon",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Kerry_McKennon.jpg",
+          "slug": "kerry-mckennon",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tx",
+          "district": null,
+          "party": "Democrat",
+          "name": "Mary Jennings Hegar",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/MJ_Hegar_Headshot.jpg",
+          "slug": "mary-jennings-hegar",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "tx",
+          "district": null,
+          "party": "Other",
+          "name": "Ricardo Turullols-Bonilla",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ricardo-Turullols-Bonilla.jpg",
+          "slug": "ricardo-turullols-bonilla",
+          "woman": false,
+          "bipoc": true
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "al",
+        "x": -86.68074,
+        "y": 32.57636
+      },
+      "candidates": [
+        {
+          "stateAbbr": "al",
+          "district": null,
+          "party": "Democrat",
+          "name": "Doug Jones ",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Doug_Jones_2017.jpg",
+          "slug": "doug-jones",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "al",
+          "district": null,
+          "party": "Republican",
+          "name": "Tommy Tuberville ",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tuberville.png",
+          "slug": "tommy-tuberville",
           "woman": false,
           "bipoc": false
         }
@@ -1025,6 +1657,16 @@
         "y": 43.76173624999999
       },
       "candidates": [
+        {
+          "stateAbbr": "mi",
+          "district": null,
+          "party": "Other",
+          "name": "Doug Dern",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Doug-Dern.jpg",
+          "slug": "doug-dern",
+          "woman": false,
+          "bipoc": false
+        },
         {
           "stateAbbr": "mi",
           "district": null,
@@ -1059,16 +1701,6 @@
           "stateAbbr": "mi",
           "district": null,
           "party": "Other",
-          "name": "Doug Dern",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Doug-Dern.jpg",
-          "slug": "doug-dern",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "mi",
-          "district": null,
-          "party": "Other",
           "name": "Valerie Willis",
           "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Valerie_Willis.jpeg",
           "slug": "valerie-willis",
@@ -1079,47 +1711,28 @@
     },
     {
       "labelPoint": {
-        "state": "mn",
-        "x": -94.65977312499999,
-        "y": 46.81013312500001
+        "state": "ar",
+        "x": -92.43873532762525,
+        "y": 34.89936156212617
       },
       "candidates": [
         {
-          "stateAbbr": "mn",
+          "stateAbbr": "ar",
           "district": null,
-          "party": "Democrat",
-          "name": "Tina Smith",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tina_Smith-1.jpg",
-          "slug": "tina-smith",
-          "woman": true,
-          "bipoc": false
+          "party": "Other",
+          "name": "Ricky Dale Harrington Jr.",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/harrington.jpg",
+          "slug": "ricky-dale-harrington-jr",
+          "woman": false,
+          "bipoc": true
         },
         {
-          "stateAbbr": "mn",
+          "stateAbbr": "ar",
           "district": null,
           "party": "Republican",
-          "name": "Jason Lewis",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jason_Lewis.png",
-          "slug": "jason-lewis",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "mn",
-          "district": null,
-          "party": "Other",
-          "name": "Oliver Steinberg",
-          "image": "https://jackherershero.org/wp-content/uploads/2020/07/0408.jpg",
-          "slug": "oliver-steinberg",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "mn",
-          "district": null,
-          "party": "Other",
-          "name": "Kevin O'Connor",
-          "slug": "kevin-oconnor",
+          "name": "Tom Cotton",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Tom_Cotton.jpg",
+          "slug": "tom-cotton",
           "woman": false,
           "bipoc": false
         }
@@ -1127,37 +1740,146 @@
     },
     {
       "labelPoint": {
-        "state": "ms",
-        "x": -89.65217366953361,
-        "y": 32.71547916334114
+        "state": "id",
+        "x": -115.30659000000001,
+        "y": 43.9365
       },
       "candidates": [
         {
-          "stateAbbr": "ms",
+          "stateAbbr": "id",
           "district": null,
           "party": "Republican",
-          "name": "Cindy Hyde-Smith",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cindy_Hyde-Smith.jpg",
-          "slug": "cindy-hyde-smith",
+          "name": "Jim Risch",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jim_Risch.jpg",
+          "slug": "jim-risch",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "id",
+          "district": null,
+          "party": "Independent",
+          "name": "Natalie Fleming",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Natalie_Fleming.jpg",
+          "slug": "natalie-fleming",
           "woman": true,
           "bipoc": false
         },
         {
-          "stateAbbr": "ms",
+          "stateAbbr": "id",
           "district": null,
           "party": "Democrat",
-          "name": "Mike Espy",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mike_Espy-min.jpg",
-          "slug": "mike-espy",
-          "woman": false,
+          "name": "Paulette E. Jordan",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Paulette_E._Jordan.jpeg",
+          "slug": "paulette-e-jordan",
+          "woman": true,
           "bipoc": true
         },
         {
-          "stateAbbr": "ms",
+          "stateAbbr": "id",
           "district": null,
           "party": "Other",
-          "name": "Jimmy Edwards",
-          "slug": "jimmy-edwards",
+          "name": "Ray Writz",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ray_Writz.jpg",
+          "slug": "ray-writz",
+          "woman": false,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "ia",
+        "x": -93.50118441115411,
+        "y": 42.07613916560128
+      },
+      "candidates": [
+        {
+          "stateAbbr": "ia",
+          "district": null,
+          "party": "Republican",
+          "name": "Joni Ernst",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Joni_Ernst_Official_photo_portrait_114th_Congress.jpg",
+          "slug": "joni-ernst",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ia",
+          "district": null,
+          "party": "Other",
+          "name": "Rick Stewart",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Rickstewart.jpg",
+          "slug": "rick-stewart",
+          "woman": false,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ia",
+          "district": null,
+          "party": "Independent",
+          "name": "Suzanne Herzog",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Sherzog.JPG",
+          "slug": "suzanne-herzog",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "ia",
+          "district": null,
+          "party": "Democrat",
+          "name": "Theresa Greenfield",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Theresa_Greenfield_.jpg",
+          "slug": "theresa-greenfield",
+          "woman": true,
+          "bipoc": false
+        }
+      ]
+    },
+    {
+      "labelPoint": {
+        "state": "me",
+        "x": -68.984685,
+        "y": 45.188495
+      },
+      "candidates": [
+        {
+          "stateAbbr": "me",
+          "district": null,
+          "party": "Independent",
+          "name": "Lisa Savage",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/lisasavage.jpg",
+          "slug": "lisa-savage",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "me",
+          "district": null,
+          "party": "Democrat",
+          "name": "Sara Gideon",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Sara_Gideon.jpg",
+          "slug": "sara-gideon",
+          "woman": true,
+          "bipoc": true
+        },
+        {
+          "stateAbbr": "me",
+          "district": null,
+          "party": "Republican",
+          "name": "Susan Collins",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Susan_Collins.jpg",
+          "slug": "susan-collins",
+          "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "me",
+          "district": null,
+          "party": "Independent",
+          "name": "Max Linn",
+          "image": "https://www.mainepublic.org/sites/mpbn/files/styles/medium/public/201804/26088748627_7434313515_o_0.jpg",
+          "slug": "max-linn",
           "woman": false,
           "bipoc": false
         }
@@ -1197,728 +1919,6 @@
           "name": "Wendie Fredrickson",
           "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/wfredrickson.jpg",
           "slug": "wendie-fredrickson",
-          "woman": true,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "ne",
-        "x": -99.55239,
-        "y": 41.5003
-      },
-      "candidates": [
-        {
-          "stateAbbr": "ne",
-          "district": null,
-          "party": "Republican",
-          "name": "Ben Sasse",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ben_Sasse_Official_photo.jpg",
-          "slug": "ben-sasse",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ne",
-          "district": null,
-          "party": "Democrat",
-          "name": "Chris Janicek",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ChrisJ.jpg",
-          "slug": "chris-janicek",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ne",
-          "district": null,
-          "party": "Other",
-          "name": "Gene Siadek",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/GeneSiadek.jpg",
-          "slug": "gene-siadek",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ne",
-          "district": null,
-          "party": "Democrat",
-          "name": "Preston Love Jr",
-          "slug": "preston-love-jr",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "nh",
-        "x": -71.56950457526133,
-        "y": 43.67878701947331
-      },
-      "candidates": [
-        {
-          "stateAbbr": "nh",
-          "district": null,
-          "party": "Democrat",
-          "name": "Jeanne Shaheen",
-          "image": "https://www.shaheen.senate.gov/imo/media/image/biobanner.jpg",
-          "slug": "jeanne-shaheen",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "nh",
-          "district": null,
-          "party": "Republican",
-          "name": "Bryant \"Corky\" Messner",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/81795995_165643004790785_4885515807322275840_n.jpg",
-          "slug": "bryant-corky-messner",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "nh",
-          "district": null,
-          "party": "Other",
-          "name": "Justin O'Donnell",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Justin_O_Donnell-6_fixed.PNG",
-          "slug": "justin-odonnell",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "nj",
-        "x": -74.72512,
-        "y": 39.62713
-      },
-      "candidates": [
-        {
-          "stateAbbr": "nj",
-          "district": null,
-          "party": "Democrat",
-          "name": "Cory Booker",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cory_Booker.jpg",
-          "slug": "cory-booker",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "nj",
-          "district": null,
-          "party": "Republican",
-          "name": "Rik Mehta",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Rik_Mehta.jpeg",
-          "slug": "rik-mehta",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "nj",
-          "district": null,
-          "party": "Other",
-          "name": "Madelyn Hoffman",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Madelyn-Hoffman.JPG",
-          "slug": "madelyn-hoffman",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "nj",
-          "district": null,
-          "party": "Independent",
-          "name": "Daniel Burke",
-          "image": "https://pbs.twimg.com/profile_images/1152617793633869825/g3AxQHhc_400x400.jpg",
-          "slug": "daniel-burke",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "nj",
-          "district": null,
-          "party": "Independent",
-          "name": "Veronica Fernandez",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mar312020948PM_80182230_RoniSally055-min.jpg",
-          "slug": "veronica-fernandez",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "nj",
-          "district": null,
-          "party": "Independent",
-          "name": "Luis Vergara",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/EdVergara.jpeg",
-          "slug": "luis-vergara",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "nm",
-        "x": -106.10978849122206,
-        "y": 34.42094680457959
-      },
-      "candidates": [
-        {
-          "stateAbbr": "nm",
-          "district": null,
-          "party": "Democrat",
-          "name": "Ben Ray Luján",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ben_Ray_Lujan.jpg",
-          "slug": "ben-ray-lujan",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "nm",
-          "district": null,
-          "party": "Republican",
-          "name": "Mark Ronchetti",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RonchettiHeadshot.jpg",
-          "slug": "mark-ronchetti",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "nm",
-          "district": null,
-          "party": "Other",
-          "name": "Bob Walsh",
-          "image": "http://www.walshforsenate2020.us/wp-content/uploads/2020/03/Bob_Walsh_for_Senate_2020_Headshot_720x-214x300.png",
-          "slug": "bob-walsh",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "nc",
-        "x": -79.12805908363787,
-        "y": 35.52600260817642
-      },
-      "candidates": [
-        {
-          "stateAbbr": "nc",
-          "district": null,
-          "party": "Republican",
-          "name": "Thom Tillis",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Senator_Thom_Tillis_Official_Portrait.jpg",
-          "slug": "thom-tillis",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "nc",
-          "district": null,
-          "party": "Democrat",
-          "name": "Cal Cunningham",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cunningham-C-1-e1425052057426-300x300.jpg",
-          "slug": "cal-cunningham",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "nc",
-          "district": null,
-          "party": "Other",
-          "name": "Kevin E. Hayes",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/KevinEHayes.jpg",
-          "slug": "kevin-e-hayes",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "nc",
-          "district": null,
-          "party": "Other",
-          "name": "Shannon Bray",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/ShannonBray.jpg",
-          "slug": "shannon-bray",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "ok",
-        "x": -97.51096390744267,
-        "y": 35.58477888515531
-      },
-      "candidates": [
-        {
-          "stateAbbr": "ok",
-          "district": null,
-          "party": "Republican",
-          "name": "Jim Inhofe",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jim_Inhofe_official_photo.jpg",
-          "slug": "jim-inhofe",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ok",
-          "district": null,
-          "party": "Democrat",
-          "name": "Abby Broyles",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AbbyBroyles.jpg",
-          "slug": "abby-broyles",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ok",
-          "district": null,
-          "party": "Other",
-          "name": "Robert Murphy",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RobertMurphy.jpg",
-          "slug": "robert-murphy",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ok",
-          "district": null,
-          "party": "Independent",
-          "name": "Joan Farr",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Joan_Farr.jpg",
-          "slug": "joan-farr",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ok",
-          "district": null,
-          "party": "Independent",
-          "name": "April Nesbit",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/April_Nesbit1.jpg",
-          "slug": "april-nesbit",
-          "woman": true,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "or",
-        "x": -120.60669418152898,
-        "y": 43.94220119570998
-      },
-      "candidates": [
-        {
-          "stateAbbr": "or",
-          "district": null,
-          "party": "Democrat",
-          "name": "Jeff Merkley",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jeff_Merkley.jpg",
-          "slug": "jeff-merkley",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "or",
-          "district": null,
-          "party": "Republican",
-          "name": "Jo Rae Perkins",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jo_Rae_Perkins.jpg",
-          "slug": "jo-rae-perkins",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "or",
-          "district": null,
-          "party": "Other",
-          "name": "Ibrahim Taher",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ibrahim_Taher.jpg",
-          "slug": "ibrahim-taher",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "or",
-          "district": null,
-          "party": "Other",
-          "name": "Gary Dye",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/20180827_175808_Film1.jpg",
-          "slug": "gary-dye",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "ri",
-        "x": -71.57368703703705,
-        "y": 41.449848148148156
-      },
-      "candidates": [
-        {
-          "stateAbbr": "ri",
-          "district": null,
-          "party": "Democrat",
-          "name": "Jack Reed",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jack_Reed.jpg",
-          "slug": "jack-reed",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "ri",
-          "district": null,
-          "party": "Republican",
-          "name": "Allen Waters",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Allen_Waters_01.jpg",
-          "slug": "allen-waters",
-          "woman": false,
-          "bipoc": true
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "sc",
-        "x": -80.86429696205442,
-        "y": 33.87797044091369
-      },
-      "candidates": [
-        {
-          "stateAbbr": "sc",
-          "district": null,
-          "party": "Republican",
-          "name": "Lindsey Graham",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Lindsey_Graham.jpg",
-          "slug": "lindsey-graham",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "sc",
-          "district": null,
-          "party": "Democrat",
-          "name": "Jaime Harrison",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/jaimeharrison.jpg",
-          "slug": "jaime-harrison",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "sc",
-          "district": null,
-          "party": "Other",
-          "name": "Bill Bledsoe",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Bill_Bledsoe.png",
-          "slug": "bill-bledsoe",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "sd",
-        "x": -100.22935903252412,
-        "y": 44.43663632398516
-      },
-      "candidates": [
-        {
-          "stateAbbr": "sd",
-          "district": null,
-          "party": "Republican",
-          "name": "Mike Rounds",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mike_Rounds_official_Senate_portrait.jpg",
-          "slug": "mike-rounds",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "sd",
-          "district": null,
-          "party": "Democrat",
-          "name": "Dan Ahlers",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DanAhlers2.jpg",
-          "slug": "dan-ahlers",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "tn",
-        "x": -86.08543499999998,
-        "y": 35.833335000000005
-      },
-      "candidates": [
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Democrat",
-          "name": "Marquita Bradshaw",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/80182230_marquita_head_shot_1.jpg",
-          "slug": "marquita-bradshaw",
-          "woman": true,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Republican",
-          "name": "Bill Hagerty",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/BillHagerty.jpeg",
-          "slug": "bill-hagerty",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Independent",
-          "name": "Yomi Faparusi",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/YomiFaparusi2.jpg",
-          "slug": "yomi-faparusi",
-          "woman": false,
-          "bipoc": true
-        },
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Independent",
-          "name": "Jeffrey Grunau",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Jeffrey_Grunau.jpg",
-          "slug": "jeffrey-grunau",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Independent",
-          "name": "Ronnie Henley",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/80182230_win_20181213_14_31_09_pro.jpg",
-          "slug": "ronnie-henley",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Independent",
-          "name": "Dean Hill",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Dean_Hill_Photo_9.28.18.jpg",
-          "slug": "dean-hill",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Independent",
-          "name": "Steven Hooper",
-          "slug": "steven-hooper",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Independent",
-          "name": "Aaron James",
-          "image": "https://pbs.twimg.com/profile_images/1274853398056185861/ZE99UF1F_400x400.jpg",
-          "slug": "aaron-james",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Independent",
-          "name": "Elizabeth McLeod",
-          "image": "https://mcleodforsenate.com/wp-content/uploads/2020/02/Main-Photo.jpg",
-          "slug": "elizabeth-mcleod",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tn",
-          "district": null,
-          "party": "Independent",
-          "name": "Eric William Stansberry",
-          "slug": "eric-william-stansberry",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "tx",
-        "x": -97.98215437500001,
-        "y": 30.502686875000002
-      },
-      "candidates": [
-        {
-          "stateAbbr": "tx",
-          "district": null,
-          "party": "Republican",
-          "name": "John Cornyn",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/John_Cornyn.jpg",
-          "slug": "john-cornyn",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tx",
-          "district": null,
-          "party": "Democrat",
-          "name": "Mary Jennings Hegar",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/MJ_Hegar_Headshot.jpg",
-          "slug": "mary-jennings-hegar",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tx",
-          "district": null,
-          "party": "Other",
-          "name": "David B. Collins",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/DavidBCollins.jpeg",
-          "slug": "david-b-collins",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tx",
-          "district": null,
-          "party": "Other",
-          "name": "Kerry McKennon",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Kerry_McKennon.jpg",
-          "slug": "kerry-mckennon",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "tx",
-          "district": null,
-          "party": "Other",
-          "name": "Ricardo Turullols-Bonilla",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Ricardo-Turullols-Bonilla.jpg",
-          "slug": "ricardo-turullols-bonilla",
-          "woman": false,
-          "bipoc": true
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "va",
-        "x": -78.66153467718573,
-        "y": 37.512689883193865
-      },
-      "candidates": [
-        {
-          "stateAbbr": "va",
-          "district": null,
-          "party": "Democrat",
-          "name": "Mark Warner",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Mark_Warner.jpg",
-          "slug": "mark-warner",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "va",
-          "district": null,
-          "party": "Republican",
-          "name": "Daniel Gade",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Daniel_Gade.jpeg",
-          "slug": "daniel-gade",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "va",
-          "district": null,
-          "party": "Independent",
-          "name": "Al Mina",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/AlMina.jpg",
-          "slug": "al-mina",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "wv",
-        "x": -80.61606555193178,
-        "y": 38.6404538742039
-      },
-      "candidates": [
-        {
-          "stateAbbr": "wv",
-          "district": null,
-          "party": "Republican",
-          "name": "Shelley Moore Capito",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Shelley_Moore_Capito.jpeg",
-          "slug": "shelley-moore-capito",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "wv",
-          "district": null,
-          "party": "Democrat",
-          "name": "Paula Jean Swearengin",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Paulajeanswearengin.png",
-          "slug": "paula-jean-swearengin",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "wv",
-          "district": null,
-          "party": "Other",
-          "name": "David Moran",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/David_Moran.png",
-          "slug": "david-moran",
-          "woman": false,
-          "bipoc": false
-        }
-      ]
-    },
-    {
-      "labelPoint": {
-        "state": "wy",
-        "x": -107.55391499999999,
-        "y": 42.99942
-      },
-      "candidates": [
-        {
-          "stateAbbr": "wy",
-          "district": null,
-          "party": "Democrat",
-          "name": "Merav Ben-David",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/meravbendavid1.jpg",
-          "slug": "merav-ben-david",
-          "woman": true,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "wy",
-          "district": null,
-          "party": "Republican",
-          "name": "Cynthia Lummis",
-          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Cynthia_Lummis.jpg",
-          "slug": "cynthia-lummis",
           "woman": true,
           "bipoc": false
         }
@@ -1969,7 +1969,6 @@
           "district": 2,
           "party": "Other",
           "name": "John Page",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/s960x960/72855116_107962063970858_5457292197709742080_o.jpg?_nc_cat=106&_nc_sid=85a577&_nc_ohc=JkfSskTswPsAX9vcImf&_nc_ht=scontent-ort2-2.xx&_nc_tp=7&oh=50ed3fcef1f5571c8edad31a6a680392&oe=5F63EE2E",
           "slug": "john-page",
           "woman": false,
           "bipoc": false
@@ -2199,7 +2198,7 @@
           "district": 3,
           "party": "Republican",
           "name": "Daniel Wood",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/82340461_104717101075329_9187088548275159040_n.jpg?_nc_cat=103&_nc_sid=7aed08&_nc_ohc=fZxStYQl6nAAX-WY6HQ&_nc_ht=scontent-ort2-2.xx&oh=0b9b91c57c8f66cabab837c47c16887c&oe=5F687DF9",
+          "image": "https://pbs.twimg.com/profile_images/1299471762044776448/FhvjYtt5.jpg",
           "slug": "daniel-wood",
           "woman": false,
           "bipoc": false
@@ -2679,7 +2678,7 @@
           "district": 5,
           "party": "Republican",
           "name": "Scott Giblin",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/69694006_112837573424560_8067395994456686592_o.jpg?_nc_cat=109&_nc_sid=85a577&_nc_ohc=0bsxuUuC7KIAX8Xhoez&_nc_ht=scontent-ort2-2.xx&tp=6&oh=bd4b661ccb6ca51999809727b563712f&oe=5F6C7D03",
+          "image": "https://img1.wsimg.com/isteam/ip/71350c5e-6990-4d30-b523-066722ff9b70/69694006_112837573424560_8067395994456686592_o.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:900,h:450,cg:true",
           "slug": "scott-giblin",
           "woman": false,
           "bipoc": false
@@ -2849,7 +2848,7 @@
           "district": 11,
           "party": "Republican",
           "name": "Nisha Sharma",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/76697385_126026075497007_6673452985466486784_n.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=D9Q_4CbloXEAX_ogaf7&_nc_ht=scontent-ort2-2.xx&oh=ef0ec14c766a69bb349c4576217cec1d&oe=5F6C8BBD",
+          "image": "https://d32ytdfpl85vcx.cloudfront.net/146195-square-200-@2x.png",
           "slug": "nisha-sharma",
           "woman": true,
           "bipoc": true
@@ -2969,7 +2968,7 @@
           "district": 15,
           "party": "Republican",
           "name": "Alison Hayden",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/87182966_101009308169561_5622715148037783552_n.jpg?_nc_cat=110&_nc_sid=85a577&_nc_ohc=tqlmxCX6DIcAX_wtQrp&_nc_ht=scontent-ort2-2.xx&oh=35469c75dd94720aa685d0110a20232e&oe=5F6A9061",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Alison_Hayden.JPG",
           "slug": "alison-hayden",
           "woman": true,
           "bipoc": false
@@ -3069,7 +3068,7 @@
           "district": 18,
           "party": "Democrat",
           "name": "Rishi Kumar",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/40064510_1825823897513805_388927641048055808_n.png?_nc_cat=111&_nc_sid=85a577&_nc_ohc=q_DgF0VruQwAX-XxuyT&_nc_ht=scontent-ort2-2.xx&oh=3f9a770a63ccd85cdb8c3649ca82cac1&oe=5F6B4776",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/RishiKumar.jpg",
           "slug": "rishi-kumar",
           "woman": false,
           "bipoc": true
@@ -3119,7 +3118,7 @@
           "district": 20,
           "party": "Republican",
           "name": "Jeff Gorman",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/72775265_116621443082739_8153127089327833088_n.jpg?_nc_cat=106&_nc_sid=85a577&_nc_ohc=Iu83xcpw7l0AX_oJV3T&_nc_ht=scontent-ort2-2.xx&oh=8d496aae54d7cc7e7852d6d389aac1ba&oe=5F64904B",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/JeffGorman.jpg",
           "slug": "jeff-gorman",
           "woman": false,
           "bipoc": false
@@ -3209,7 +3208,7 @@
           "district": 23,
           "party": "Republican",
           "name": "Kevin McCarthy",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/69413704_10156591100573176_2339271371038654464_o.jpg?_nc_cat=1&_nc_sid=85a577&_nc_ohc=-dLZ3f72az8AX-PKM3L&_nc_ht=scontent-ort2-2.xx&tp=6&oh=730aea242dd1439daa31befe917d9a06&oe=5F6C746B",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Kevin_McCarthy%2C_official_photo%2C_116th_Congress.jpg",
           "slug": "kevin-mccarthy",
           "woman": false,
           "bipoc": false
@@ -3219,7 +3218,7 @@
           "district": 23,
           "party": "Democrat",
           "name": "Kim Mangone",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/66296891_2359407034378498_25754887354580992_o.jpg?_nc_cat=104&_nc_sid=85a577&_nc_ohc=PnabQAc-iYkAX-bNR1E&_nc_ht=scontent-ort2-2.xx&tp=6&oh=32e42e21c093cf8f866047f25a3d3b60&oe=5F6CDB41",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/km.JPG",
           "slug": "kim-mangone",
           "woman": true,
           "bipoc": false
@@ -4216,7 +4215,7 @@
           "district": 2,
           "party": "Other",
           "name": "Gary Swing",
-          "image": "data:image/jpeg;base64,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",
+          "image": "https://www.gannett-cdn.com/-mm-/2e3fe0b3ef31b51ed31002079cddbd00082b19a1/c=0-0-720-960&r=537&c=0-0-534-712/local/-/media/2016/10/24/Phoenix/Phoenix/636128732535751792-Gary-Swing.jpeg",
           "slug": "gary-swing",
           "woman": false,
           "bipoc": false
@@ -7621,7 +7620,7 @@
           "district": 3,
           "party": "Democrat",
           "name": "Braylon Harris",
-          "image": "https://twitter.com/Harris4US2020/photo",
+          "image": "https://bloximages.newyork1.vip.townnews.com/theadvocate.com/content/tncms/assets/v3/editorial/7/9e/79ecbb3c-d436-11ea-ad76-07867bd880cd/5f25d240736c3.image.jpg?resize=1200%2C1440",
           "slug": "braylon-harris",
           "woman": false,
           "bipoc": true
@@ -7861,7 +7860,7 @@
           "district": 1,
           "party": "Democrat",
           "name": "Mia Mason",
-          "image": "https://img1.wsimg.com/isteam/ip/3c22209d-20b5-44e3-91f8-535536f868a5/3bc712e3-5dd6-4ba7-840a-21f3ee585bcb.jpeg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:400px,cg:truehttps://img1.wsimg.com/isteam/ip/3c22209d-20b5-44e3-91f8-535536f868a5/Mia_Spring%20(5).jpg",
+          "image": "https://isteam.wsimg.com/ip/3c22209d-20b5-44e3-91f8-535536f868a5/75627571_2770989242935915_4426081854294065152_.jpg/:/rs=w:1534.5px,cg:true,m",
           "slug": "mia-mason",
           "woman": true,
           "bipoc": false
@@ -8041,7 +8040,7 @@
           "district": 6,
           "party": "Independent",
           "name": "Peter James",
-          "image": "https://pjames.us/media/pj.jpg",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Peter_James.jpg",
           "slug": "peter-james",
           "woman": false,
           "bipoc": false
@@ -13325,7 +13324,7 @@
           "district": 3,
           "party": "Republican",
           "name": "Michael Harvey",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/51973055_254997818552907_8527018118592069632_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=eauZPZsugRkAX9C7Ghi&_nc_ht=scontent-ort2-2.xx&oh=9ad211327c654e8d4bf423b1a873bdc3&oe=5F5CEC34",
+          "image": "https://static.wixstatic.com/media/0abc34_07eb92c77d464189874c447507b6306f~mv2_d_1440_2560_s_2.jpg/v1/fill/w_850,h_1059,al_c,q_85,usm_0.66_1.00_0.01/0abc34_07eb92c77d464189874c447507b6306f~mv2_d_1440_2560_s_2.webp",
           "slug": "michael-harvey",
           "woman": false,
           "bipoc": true
@@ -13425,7 +13424,7 @@
           "district": 6,
           "party": "Republican",
           "name": "John Emmons",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/68658127_103522654352082_7404811127709761536_n.jpg?_nc_cat=109&_nc_sid=85a577&_nc_ohc=ShUim2pEwDkAX_WhQX-&_nc_ht=scontent-ort2-2.xx&oh=76dce6f24516201f667b8e62a9cce9ee&oe=5F5CB6F9",
+          "image": "https://pbs.twimg.com/profile_images/2470852108/xeq6d5hr4chpqhxwvh4p.jpeg",
           "slug": "john-emmons",
           "woman": false,
           "bipoc": false
@@ -13475,7 +13474,7 @@
           "district": 7,
           "party": "Republican",
           "name": "Lisa Scheller",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/106061092_297252788351596_8143301478831819652_o.jpg?_nc_cat=111&_nc_sid=85a577&_nc_ohc=-SRRg1XiwuUAX_faBC4&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=d1480b4fcd4f90a4dff041adaa4a49c0&oe=5F5BC132",
+          "image": "https://www.mcall.com/resizer/rSW3zt9cWigqDwF7wWTJzMw2eBA=/1200x1501/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/GAUUFIR2MZCODNGCDUGAUVBRKU.jpg",
           "slug": "lisa-scheller",
           "woman": true,
           "bipoc": false
@@ -13495,7 +13494,7 @@
           "district": 8,
           "party": "Republican",
           "name": "Jim Bognet",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/82752718_116073389928739_7886023906413248512_o.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=byNwvFQi7EMAX9rqCkx&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=a89726f8bac98b50342c69b4f5944457&oe=5F5CCA49",
+          "image": "https://pbs.twimg.com/profile_images/1220089959186649089/898QJf05.jpg",
           "slug": "jim-bognet",
           "woman": false,
           "bipoc": false
@@ -13525,7 +13524,7 @@
           "district": 9,
           "party": "Republican",
           "name": "Dan Meuser",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/s960x960/49211102_797472170594007_7968946943076335616_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=Mq0XvbReIhUAX_QQZRv&_nc_ht=scontent-ort2-2.xx&_nc_tp=7&oh=f66bc01bf168d3ded7d8356d2d50996a&oe=5F5DA7CF",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Rep._Dan_Meuser_official_photo%2C_116th_congress.jpg",
           "slug": "dan-meuser",
           "woman": false,
           "bipoc": false
@@ -13555,7 +13554,7 @@
           "district": 10,
           "party": "Democrat",
           "name": "Eugene DePasquale",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/103971458_10158337634464593_2374329234633344448_o.jpg?_nc_cat=104&_nc_sid=85a577&_nc_ohc=zs0HOyt67-wAX_eMjsR&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=7a0663bf3bbabf59f08d77a02c75b545&oe=5F5DA5C7",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/Auditor_General_Eugene_DePasquale%2C_July_12_2017_%28cropped%29.jpg",
           "slug": "eugene-depasquale",
           "woman": false,
           "bipoc": false
@@ -13565,7 +13564,7 @@
           "district": 10,
           "party": "Republican",
           "name": "Scott Perry",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/83671806_2844376578991945_2940308686419001344_o.jpg?_nc_cat=110&_nc_sid=85a577&_nc_ohc=uQjB7othsvQAX_kGziz&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=ab125df125aa0e1ad2c0579a3a801467&oe=5F5D87BF",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Scott_G._Perry.jpg/190px-Scott_G._Perry.jpg",
           "slug": "scott-perry",
           "woman": false,
           "bipoc": false
@@ -13805,7 +13804,7 @@
           "district": 18,
           "party": "Independent",
           "name": "Donald Nevills",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/81234302_2540807789498718_106095836923953152_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=_wG54_wuATAAX-PcJEn&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=ff9abfcf64907640c635bb8eff2f903e&oe=5F5AC20B",
+          "image": "https://pbs.twimg.com/profile_images/1109563499347361793/QPy9xAWc_400x400.jpg",
           "slug": "donald-nevills",
           "woman": false,
           "bipoc": false
@@ -13854,7 +13853,7 @@
           "district": 1,
           "party": "Independent",
           "name": "Jeffrey Lemire",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-1/p960x960/41815207_103488353951716_7909111692091457536_o.jpg?_nc_cat=108&_nc_sid=dbb9e7&_nc_ohc=xO3_Ly9WMtMAX8Urvj0&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=8ba82d6585257e08e6982905a48e1f6e&oe=5F65AE64",
+          "image": "https://upriseri.com/wp-content/uploads/2018/10/2018-10-09-Providence-Mayoral-Debate-07-e1539138346553.jpg",
           "slug": "jeffrey-lemire",
           "woman": false,
           "bipoc": false
@@ -14380,7 +14379,7 @@
           "district": 6,
           "party": "Democrat",
           "name": "Christopher Finley",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/35151588_224335541499310_5303665615578333184_n.jpg?_nc_cat=111&_nc_sid=85a577&_nc_ohc=Bis6IsjVTpcAX-dSe75&_nc_ht=scontent-ort2-2.xx&oh=029ad65bbd983205ffa43e7f466dfbab&oe=5F6A3C44",
+          "image": "https://cdn2.creativecirclemedia.com/heraldcitizen/original/20180726-114556-phpYP8dx1.jpg",
           "slug": "christopher-finley",
           "woman": false,
           "bipoc": false
@@ -14410,7 +14409,7 @@
           "district": 7,
           "party": "Independent",
           "name": "Ronald Brown ",
-          "image": "https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/p960x960/102311022_122199429510385_9128495966082411283_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=xHAVH70Q1uUAX9pQQqZ&_nc_ht=scontent-dfw5-1.xx&tp=6&oh=23cdca2e01caac7dca604f427f2c8ed2&oe=5F7F2BBB",
+          "image": "https://pbs.twimg.com/profile_images/1269045465275924480/qJ8XzkHY_400x400.jpg",
           "slug": "ronald-brown",
           "woman": false,
           "bipoc": true
@@ -14420,7 +14419,7 @@
           "district": 7,
           "party": "Democrat",
           "name": "Kiran Sreepada ",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/104315313_260327485385830_8596524904714197154_o.png?_nc_cat=109&_nc_sid=85a577&_nc_ohc=TYuUbPx1kO8AX_Lnb8p&_nc_ht=scontent-ort2-2.xx&oh=80e837f1277825fb6ced0374db47f36e&oe=5F698BDC",
+          "image": "https://i0.wp.com/demcastusa.com/wp-content/uploads/2019/10/Kiran-Sreepada-3-Kiran-Sreepada.jpg?fit=1024%2C683&ssl=1",
           "slug": "kiran-sreepada",
           "woman": false,
           "bipoc": true
@@ -14500,7 +14499,7 @@
           "district": 9,
           "party": "Independent",
           "name": "Dennis Clark",
-          "image": "https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-9/64294739_391839974770583_5124567029818327040_n.jpg?_nc_cat=108&_nc_sid=85a577&_nc_ohc=Ig7mssRk770AX8BRqtl&_nc_ht=scontent-dfw5-2.xx&oh=e90e265d6a687cd2f6f87a6f485524cc&oe=5F7F7974",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Dennis_Clark_TN.jpg",
           "slug": "dennis-clark",
           "woman": false,
           "bipoc": true
@@ -14530,7 +14529,6 @@
           "district": 9,
           "party": "Independent",
           "name": "Bobby Lyons",
-          "image": "https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-9/74479733_118235419610837_921429493271232512_n.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=H0FPBbq8b30AX_c-CM9&_nc_ht=scontent-dfw5-2.xx&oh=7aec955a77a7a96e76fdd8dd1a8b3770&oe=5F8037D1",
           "slug": "bobby-lyons",
           "woman": false,
           "bipoc": true
@@ -14680,7 +14678,7 @@
           "district": 4,
           "party": "Other",
           "name": "Lou Antonelli",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/246428_419796958070267_552758137_n.jpg?_nc_cat=111&_nc_sid=85a577&_nc_ohc=mPsv0TXLa6YAX_Fbq-F&_nc_ht=scontent-ort2-2.xx&oh=78398a838c0fd9d061548ea2dac2bfcb&oe=5F610A00",
+          "image": "https://upload.wikimedia.org/wikipedia/en/3/3b/Lou_Antonelli.jpg",
           "slug": "lou-antonelli",
           "woman": false,
           "bipoc": false
@@ -14720,7 +14718,7 @@
           "district": 5,
           "party": "Other",
           "name": "Kevin Hale",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/117190950_1007112906394889_2185902468303600872_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=vIob3HyTJCwAX9_FJ5d&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=27c9377ddaed898786bbef992643f987&oe=5F61EAA9",
+          "image": "https://pbs.twimg.com/profile_images/1176586257859788805/oZYdseSx_400x400.jpg",
           "slug": "kevin-hale",
           "woman": false,
           "bipoc": false
@@ -14760,7 +14758,6 @@
           "district": 6,
           "party": "Other",
           "name": "Melanie Black",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/79645968_106727967502084_6475400515755704320_n.png?_nc_cat=107&_nc_sid=7aed08&_nc_ohc=uzD-RJwU410AX9kAkzQ&_nc_ht=scontent-ort2-2.xx&oh=d024a6090e1f4e941757dec978c62c34&oe=5F618BAD",
           "slug": "melanie-black",
           "woman": true,
           "bipoc": false
@@ -15020,7 +15017,7 @@
           "district": 13,
           "party": "Democrat",
           "name": "Gus Trujillo",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/80875533_125112238973277_7592862860561088512_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=z9kgCq-lJD8AX8QiptD&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=5658cd006c17840d6b23658342acdfc2&oe=5F5EA525",
+          "image": "https://static1.squarespace.com/static/593f5909d482e9b762b70759/t/5e39f61c9a16b072d98793b8/1580856958627/Trujillo.png?format=1500w",
           "slug": "gus-trujillo",
           "woman": false,
           "bipoc": false
@@ -15399,7 +15396,7 @@
           "district": 22,
           "party": "Republican",
           "name": "Troy Nehls",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/44661660_2154186461500773_6270043955941867520_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=1D5DuPG2FYcAX-gsdi9&_nc_oc=AQnNvRc2vkRlsShgSW5uWCCiAUJqz2ZlvrsZsa0HrIrFFRcV5U8yrc8dfHdPqgbbm_8&_nc_ht=scontent-ort2-2.xx&oh=62b225a6004018f894d49c2ba23e6151&oe=5F5EFBBD",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Troy_Nehls.png",
           "slug": "troy-nehls",
           "woman": false,
           "bipoc": false
@@ -15578,7 +15575,7 @@
           "district": 26,
           "party": "Democrat",
           "name": "Carol Iannuzzi",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/s960x960/53439659_281760856083275_748327665403953152_o.jpg?_nc_cat=108&_nc_sid=85a577&_nc_ohc=VHFQuJuF0kAAX8-0ZuF&_nc_ht=scontent-ort2-2.xx&_nc_tp=7&oh=b47cf7c42a1b33660bd3d0bded90ae70&oe=5F5F4449",
+          "image": "https://images.squarespace-cdn.com/content/v1/5c683bd47980b3487d66fc95/1552620891909-US6S4HU7ALQX6SQY5MI0/ke17ZwdGBToddI8pDm48kMXRibDYMhUiookWqwUxEZ97gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0luUmcNM2NMBIHLdYyXL-Jww_XBra4mrrAHD6FMA3bNKOBm5vyMDUBjVQdcIrt03OQ/CarolIannuzzilowres-6.jpg?format=500w",
           "slug": "carol-iannuzzi",
           "woman": true,
           "bipoc": false
@@ -15618,7 +15615,7 @@
           "district": 27,
           "party": "Other",
           "name": "Phil Gray",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/87204024_126601065565128_8851584510773428224_o.jpg?_nc_cat=104&_nc_sid=85a577&_nc_ohc=XxCM3XxBnJ4AX_asw0J&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=dd6f10c4a398e0129172c783c7ca3b75&oe=5F600CC8",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/PhilGray.jpg",
           "slug": "phil-gray",
           "woman": false,
           "bipoc": false
@@ -15658,7 +15655,7 @@
           "district": 28,
           "party": "Republican",
           "name": "Sandra Whitten",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/116434301_1180764752277979_3375324199394536612_n.jpg?_nc_cat=100&_nc_sid=85a577&_nc_ohc=Iqt0Ur1d1wMAX92peq_&_nc_ht=scontent-ort2-2.xx&oh=0ff79e1f5af07c1c7dae458ea2c718df&oe=5F618A9F",
+          "image": "https://s.hdnux.com/photos/01/10/52/25/19047777/3/rawImage.jpg",
           "slug": "sandra-whitten",
           "woman": true,
           "bipoc": false
@@ -15688,7 +15685,7 @@
           "district": 29,
           "party": "Other",
           "name": "Phil Kurtz",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t31.0-8/p960x960/25182103_131569194201536_7054300685017425910_o.jpg?_nc_cat=106&_nc_sid=7aed08&_nc_ohc=GqfWFBAQ76QAX9X24KT&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=77421c4336b09813b73092575ff848ee&oe=5F61603C",
+          "image": "https://www.philkurtzforcongress.com/images/88950/Phil_2020.jpg",
           "slug": "phil-kurtz",
           "woman": false,
           "bipoc": false
@@ -15848,7 +15845,7 @@
           "district": 33,
           "party": "Independent",
           "name": "Renedria Welton",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/91384831_147554806820739_6214039102820450304_n.png?_nc_cat=102&_nc_sid=85a577&_nc_ohc=SENFjaKoQTYAX_f35DB&_nc_oc=AQn810gi7ew-nw-55BU5ePrQTXNMmAsScAMTWfVSHbFNkDgiYfYW2wwIGE1RI4Rn7sg&_nc_ht=scontent-ort2-2.xx&oh=51f73431249f32a542166b200f200811&oe=5F5FA248",
+          "image": "https://pbs.twimg.com/profile_images/1240103416476708865/274YElRO_400x400.jpg",
           "slug": "renedria-welton",
           "woman": true,
           "bipoc": true
@@ -16016,7 +16013,7 @@
           "district": 36,
           "party": "Democrat",
           "name": "Rashad Lewis",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/52920370_571069453394616_1019210312164835328_n.jpg?_nc_cat=110&_nc_sid=85a577&_nc_ohc=trMGKpuBgnIAX9R0f25&_nc_ht=scontent-ort2-2.xx&oh=7f6ab1ecc56fe350ee796878f1e5b210&oe=5F620919",
+          "image": "https://bloximages.newyork1.vip.townnews.com/kjas.com/content/tncms/assets/v3/editorial/7/46/74667cb0-393d-11e9-8532-6b6d1c06a056/5c74528405121.image.jpg",
           "slug": "rashad-lewis",
           "woman": false,
           "bipoc": true
@@ -16056,7 +16053,7 @@
           "district": 1,
           "party": "Democrat",
           "name": "Darren Parry",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/108398213_164349518471648_1489221563596375311_n.jpg?_nc_cat=104&_nc_sid=85a577&_nc_ohc=n5xTI6zacXIAX8fxTS3&_nc_ht=scontent-ort2-2.xx&oh=3d74f013028ef26f6780d281b14c1ee6&oe=5F62D68F",
+          "image": "https://www.cachevalleydaily.com/wp-content/uploads/2020/07/DARREN2.PIX_.jpg",
           "slug": "darren-parry",
           "woman": false,
           "bipoc": true
@@ -16086,7 +16083,7 @@
           "district": 2,
           "party": "Republican",
           "name": "Chris Stewart ",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t31.0-8/s960x960/1076995_343875155745673_1122512333_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=hxhNmrMfWqcAX84KkTs&_nc_ht=scontent-ort2-2.xx&_nc_tp=7&oh=2deaccee8f811eb62a0704eec74989f7&oe=5F62B882",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Chris_Stewart_official_photo.jpg",
           "slug": "chris-stewart",
           "woman": false,
           "bipoc": false
@@ -16096,7 +16093,7 @@
           "district": 2,
           "party": "Other",
           "name": "J. Robert Latham",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/90399549_3611767318865535_1852978689701052416_n.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=j8DupncbL5IAX-hJSFj&_nc_ht=scontent-ort2-2.xx&oh=807ed64fbf0bf0e446b311c0a641e630&oe=5F5F842B",
+          "image": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/J_Robert_Latham.jpg",
           "slug": "j-robert-latham",
           "woman": false,
           "bipoc": false
@@ -16126,7 +16123,7 @@
           "district": 3,
           "party": "Republican",
           "name": "John Curtis",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t31.0-8/p960x960/24068843_1930499546979822_8976380167675978210_o.jpg?_nc_cat=109&_nc_sid=7aed08&_nc_ohc=R_HipdtIgaEAX-0JhD2&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=d1af9835d10cbb9488e57ee776545dad&oe=5F608689",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/John_Curtis_portrait_115th_Congress_%28cropped1%29.jpg/1200px-John_Curtis_portrait_115th_Congress_%28cropped1%29.jpg",
           "slug": "john-curtis",
           "woman": false,
           "bipoc": false
@@ -16156,7 +16153,7 @@
           "district": 3,
           "party": "Democrat",
           "name": "Devin Thorpe",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/11152678_825322950848609_8933391619597303813_n.jpg?_nc_cat=109&_nc_sid=7aed08&_nc_ohc=UoEGd88dGQcAX98_PaE&_nc_ht=scontent-ort2-2.xx&oh=1abbbaa21f88f8837a670178e1f786c9&oe=5F6273E1",
+          "image": "https://etvnews.com/wp-content/uploads/2020/03/Copy-of-Copy-of-devin-thorpe-by-kelsey-farley-2-cropped.jpg",
           "slug": "devin-thorpe",
           "woman": false,
           "bipoc": false
@@ -16226,7 +16223,7 @@
           "district": 0,
           "party": "Democrat",
           "name": "Peter Welch",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t31.0-8/s960x960/10499589_10153044778825884_3502093487129269200_o.jpg?_nc_cat=111&_nc_sid=85a577&_nc_ohc=SZGqRolZq_UAX_CoCfF&_nc_ht=scontent-ort2-2.xx&tp=7&oh=b7c6a0a92ccdec0542ce771870bb1502&oe=5F6A9A28",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Peter_Welch_official_photo.jpg",
           "slug": "peter-welch",
           "woman": false,
           "bipoc": false
@@ -16246,7 +16243,6 @@
           "district": 0,
           "party": "Other",
           "name": "Chris Brimmer",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/100637836_113716090356142_8456023185362518016_n.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=cD0sTaVUryUAX_CRhqb&_nc_ht=scontent-ort2-2.xx&oh=87b4fd79733d4724a7ea0ee62b429da4&oe=5F69FAA6",
           "slug": "chris-brimmer",
           "woman": false,
           "bipoc": false
@@ -16606,7 +16602,7 @@
           "district": 1,
           "party": "Democrat",
           "name": "Suzan DelBene",
-          "image": "https://www.congress.gov/img/member/115_rp_wa_1_delbene_suzan.jpg",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Suzan_DelBene%2C_official_portrait%2C_115th_Congress.jpg",
           "slug": "suzan-delbene",
           "woman": true,
           "bipoc": false
@@ -17266,7 +17262,7 @@
           "district": 0,
           "party": "Republican",
           "name": "Don Young",
-          "image": "https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/p960x960/88036141_10160318165884852_6426493929314582528_o.jpg?_nc_cat=105&_nc_sid=85a577&_nc_ohc=zTbItLW0AOYAX_pmcgJ&_nc_ht=scontent-ort2-2.xx&_nc_tp=6&oh=5ad7f1d33f38d13f2116d00b33e941fe&oe=5F6B57DF",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Don_Young%2C_official_portrait%2C_116th_Congress.jpg",
           "slug": "don-young",
           "woman": false,
           "bipoc": false

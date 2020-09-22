@@ -63,6 +63,7 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
               <h2 className={styles.subTitle}>
                 Representative - <If condition={district === "0"}>At Large</If>
                 <If condition={district !== "0"}>
+                  {district}
                   <sup>{ordinal(district)}</sup> District
                 </If>
                 {battlegroundDistricts.includes(district) ? (

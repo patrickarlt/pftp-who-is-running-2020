@@ -24,6 +24,7 @@
 .battleground {
   composes: medium from "../../shared.css";
   text-transform: uppercase;
+  letter-spacing: 0.1ch;
   float: right;
   font-size: 0.75rem;
   border-radius: 0.25rem;
