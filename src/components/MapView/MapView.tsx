@@ -529,7 +529,6 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
       BaseLayerView2D,
       Point,
       Home,
-      Legend,
       Extent,
     ],
     setModulesLoaded,
@@ -541,25 +540,17 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
   const { setFilterValue, ...filters } = useFilterContext();
   const mapQuery = useMapSummaryQuery(filters);
   const setupView = useCallback(() => {
-    return function setupView() {
-      var legend = new Legend({
-        view: mapView.current,
-      });
+    var homeWidget = new Home({
+      view: mapView.current,
+      viewpoint: new Extent(initialExtentJSON),
+    });
 
-      mapView.current.ui.add(legend, "bottom-left");
-
-      var homeWidget = new Home({
-        view: mapView.current,
-        viewpoint: new Extent(initialExtentJSON),
-      });
-
-      // adds the home widget to the top left corner of the MapmapView.current
-      mapView.current.ui.add(homeWidget, "top-left");
-      mapView?.current?.when(() => {
-        setMapViewReady(true);
-      });
-    };
-  }, [Legend, Home, mapView, Extent]);
+    // adds the home widget to the top left corner of the MapmapView.current
+    mapView.current.ui.add(homeWidget, "top-left");
+    mapView?.current?.when(() => {
+      setMapViewReady(true);
+    });
+  }, [Home, mapView, Extent]);
 
   /**
    * Build marker nodes
@@ -1039,7 +1030,6 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
     FeatureLayer,
     Extent,
     Home,
-    Legend,
     viewRef,
     districtId,
     stateId,
@@ -1075,7 +1065,6 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
       "esri/views/2d/layers/BaseLayerView2D",
       "esri/geometry/Point",
       "esri/widgets/Home",
-      "esri/widgets/Legend",
       "esri/geometry/Extent",
     ]).then((modules) => {
       setModulesLoaded(modules);
