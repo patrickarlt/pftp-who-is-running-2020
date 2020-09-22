@@ -17,8 +17,9 @@ export function useCandidateQuery(
   return useQuery<ICandidateQuery>(
     ["candidate", districtId, candidateId, stateQuery.data],
     (key, districtId, candidateId, stateData) => {
+      let candidate;
       if (districtId) {
-        const candidate = stateData.house.find(
+        candidate = stateData.house.find(
           (candidate: ICandidate) =>
             candidate.slug === candidateId &&
             candidate.district + "" === districtId
@@ -31,12 +32,14 @@ export function useCandidateQuery(
         return { candidate, state: stateQuery.data as IStateData };
       }
 
-      const candidate = stateData.senate.find(
+      candidate = stateData.senate.find(
         (candidate: ICandidate) => candidate.slug === candidateId
       );
 
-      if (!candidate || !stateData) {
-        throw new Error("Candidate not found.");
+      if (!candidate) {
+        candidate = stateData.house.find(
+          (candidate: ICandidate) => candidate.slug === candidateId
+        );
       }
 
       return {

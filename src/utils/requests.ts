@@ -73,6 +73,9 @@ export function getStateDistrictForLatLng(lat: number, lng: number) {
       return result?.features[0]?.attributes.CD116FP;
     }),
   ]).then(([state, district]) => {
+    if (district === "98" || district === "00") {
+      return { state };
+    }
     return { state, district };
   });
 }

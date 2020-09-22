@@ -38,6 +38,8 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
     battleground,
     battlegroundDistricts,
   } = state;
+  console.log(houseByDistrict);
+  // debugger;
   return (
     <div>
       <CloseButton />
@@ -46,7 +48,7 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
       {senate && senate.length > 0 ? (
         <>
           <h2 className={styles.subTitle}>
-            Senate
+            Senator
             {battleground ? (
               <mark className={styles.battleground}>Battleground</mark>
             ) : null}
@@ -57,10 +59,12 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
 
       {house && house.length > 0
         ? Object.keys(houseByDistrict).map((district) => (
-            <If key={district} condition={parseInt(district) >= 1}>
+            <React.Fragment key={district}>
               <h2 className={styles.subTitle}>
-                {district}
-                <sup>{ordinal(district)}</sup> District
+                Representative - <If condition={district === "0"}>At Large</If>
+                <If condition={district !== "0"}>
+                  <sup>{ordinal(district)}</sup> District
+                </If>
                 {battlegroundDistricts.includes(district) ? (
                   <mark className={styles.battleground}>Battleground</mark>
                 ) : null}
@@ -69,7 +73,7 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
                 state={state}
                 candidates={houseByDistrict[district]}
               />
-            </If>
+            </React.Fragment>
           ))
         : null}
     </div>

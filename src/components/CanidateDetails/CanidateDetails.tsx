@@ -36,25 +36,26 @@ export const CanidateDetails: React.FunctionComponent<ICanidateDetailsProps> = f
   return (
     <div className={styles.wrapper}>
       <CloseButton to="../../" />
-
-      <div
-        className={classNames(
-          styles.imageWrapper,
-          styles[candidate.party.toLowerCase()]
-        )}
-      >
+      <div className={styles.titleSection}>
         <div
-          style={{
-            backgroundImage: `url("${
-              candidate.image ||
-              "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
-            }")`,
-          }}
-          className={classNames(styles.image)}
-        />
+          className={classNames(
+            styles.imageWrapper,
+            styles[candidate.party.toLowerCase()]
+          )}
+        >
+          <div
+            style={{
+              backgroundImage: `url("${
+                candidate.image ||
+                "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
+              }")`,
+            }}
+            className={classNames(styles.image)}
+          />
+        </div>
+        <h1 className={styles.title}>{candidate.name}</h1>
       </div>
-      <h1 className={styles.title}>{candidate.name}</h1>
-      <div className={styles.container}>
+      <div className={styles.detailsSection}>
         <h2 className={styles.subHeader}>
           {state.name}
           {candidate.district ? (

@@ -18,6 +18,18 @@
   border: 2px solid transparent;
 }
 
+@media only screen and (max-device-width: 1024px) {
+  .link {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (max-device-width: 560px) {
+  .link {
+    padding: 1rem 2rem;
+  }
+}
+
 .link:hover {
   background: var(--pftp-gray-2);
 }
@@ -55,6 +67,14 @@
   border-radius: 50%;
   overflow: hidden;
   margin-top: 0.25rem;
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .imageWrapper {
+    border: 2px solid transparent;
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .image {

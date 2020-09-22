@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import styles from "./MapView.module.css";
 import { setDefaultOptions, loadModules } from "esri-loader";
 import { useMatch, navigate } from "@reach/router";
@@ -26,12 +26,16 @@ function padWithZeros(num: number | string, size: number) {
   return s;
 }
 
-const initialExtent = {
-  xmin: -13898125.928586934,
-  ymin: 2801775.3891951442,
-  xmax: -7445653.4929134594,
-  ymax: 6275275.0308375666,
-  spatialReference: { wkid: 102100, latestWkid: 3857 },
+// https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/State_Boundries_(Census)/FeatureServer/0/query?where=(STUSPS+%3D+%27CA%27)+OR+(STUSPS+%3D+%27FL%27)+OR+(STUSPS+%3D+%27ME%27)+or+(STUSPS+%3D+%27WA%27)&returnGeometry=true&returnExtentOnly=true&f=pjson&outSr=4326
+const initialExtentJSON = {
+  xmin: -124.84898942267459,
+  ymin: 24.396312300244087,
+  xmax: -66.88544332942061,
+  ymax: 49.002437700125355,
+  spatialReference: {
+    wkid: 4326,
+    latestWkid: 4326,
+  },
 };
 
 function calculateSizeHouse(zoom: number) {
@@ -226,7 +230,6 @@ function queryExtent(
       })
       .catch(console.error.bind(console));
   }
-  return Promise.resolve(initialExtent);
 }
 
 function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
@@ -237,6 +240,7 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       this.el.style.width = "100%";
       this.el.style.height = "100%";
       this.el.style.pointerEvents = "none";
+      this.el.style.zIndex = -1;
       this.view.ui.add(this.el, "manual");
       this.layer.watch("markers", () => this.requestRender());
       this.layer.watch("state", () => this.requestRender());
@@ -440,7 +444,7 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       }
 
       if (stateChanged || districtChanged) {
-        console.log("district/extent changed");
+        console.log("district/state changed");
 
         this.previousState = this.layer.state;
         this.previousDistrict = this.layer.district;
@@ -524,6 +528,9 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
       Layer,
       BaseLayerView2D,
       Point,
+      Home,
+      Legend,
+      Extent,
     ],
     setModulesLoaded,
   ] = useState<any[]>([]);
@@ -533,6 +540,26 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
   const viewRef = useRef(null);
   const { setFilterValue, ...filters } = useFilterContext();
   const mapQuery = useMapSummaryQuery(filters);
+  const setupView = useCallback(() => {
+    return function setupView() {
+      var legend = new Legend({
+        view: mapView.current,
+      });
+
+      mapView.current.ui.add(legend, "bottom-left");
+
+      var homeWidget = new Home({
+        view: mapView.current,
+        viewpoint: new Extent(initialExtentJSON),
+      });
+
+      // adds the home widget to the top left corner of the MapmapView.current
+      mapView.current.ui.add(homeWidget, "top-left");
+      mapView?.current?.when(() => {
+        setMapViewReady(true);
+      });
+    };
+  }, [Legend, Home, mapView, Extent]);
 
   /**
    * Build marker nodes
@@ -659,18 +686,30 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
    * Query the query and refocus to extent when stateId or districtId change.
    */
   useEffect(() => {
-    if (stateId || (stateId && districtId)) {
+    if (
+      (stateId || (stateId && districtId)) &&
+      stateLayer?.current &&
+      districtLayer?.current
+    ) {
       queryExtent(stateId, districtId, stateLayer, districtLayer).then(
         (result: any) => {
           if (result.extent) {
-            mapView.current.ui.padding.right = 320;
-
             mapView.current.goTo(result.extent);
           }
         }
       );
+    } else if (mapView?.current) {
+      mapView.current.goTo(new Extent(initialExtentJSON));
     }
-  }, [stateId, districtId, stateLayer, districtLayer, mapViewReady, mapView]);
+  }, [
+    stateId,
+    districtId,
+    stateLayer,
+    districtLayer,
+    mapViewReady,
+    mapView,
+    Extent,
+  ]);
 
   /**
    * Setup the onClick handler for map layers.
@@ -719,10 +758,10 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           if (districtResult) {
             const state = districtResult.attributes.STATEUSPS.toLowerCase();
             const district = parseInt(districtResult.attributes.CD116FP);
-            if (district > 0) {
-              navigate(`/state/${state}/districts/${district}/`);
-            } else {
+            if (district === 98 || district === 0) {
               navigate(`/state/${state}/`);
+            } else {
+              navigate(`/state/${state}/districts/${district}/`);
             }
           }
         });
@@ -755,7 +794,8 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
     if (MapView && Map && viewRef) {
       stateLayer.current = new FeatureLayer({
         url: stateBoundriesService,
-        outFields: ["FID", "NAME", "BATTLEGROUND", "STUSPS"],
+        definitionExpression: "TERRITORY = 0",
+        outFields: ["FID", "NAME", "BATTLEGROUND", "STUSPS", "TERRITORY"],
         // blendMode: "multiply",
         renderer: {
           type: "unique-value",
@@ -839,7 +879,8 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
 
       districtLayer.current = new FeatureLayer({
         url: districtBoundriesService,
-        outFields: ["FID", "CD116FP", "STATEUSPS", "BATTLEGROUND"],
+        definitionExpression: "TERRITORY = 0",
+        outFields: ["FID", "CD116FP", "STATEUSPS", "BATTLEGROUND", "TERRITORY"],
         renderer: {
           type: "unique-value",
           field: "BATTLEGROUND",
@@ -971,30 +1012,23 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
               container: viewRef.current,
               extent: result.extent,
               constraints: {
-                minZoom: 3,
                 maxZoom: 10,
               },
             });
-
-            mapView?.current?.when(() => {
-              setMapViewReady(true);
-            });
+            setupView();
           }
         );
       } else {
         mapView.current = new MapView({
           map: map.current,
-          resizeAlign: "left",
+          // resizeAlign: "left",
           container: viewRef.current,
-          extent: initialExtent,
+          extent: new Extent(initialExtentJSON),
           constraints: {
-            minZoom: 3,
             maxZoom: 10,
           },
         });
-        mapView?.current?.when(() => {
-          setMapViewReady(true);
-        });
+        setupView();
       }
     }
   }, [
@@ -1003,9 +1037,13 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
     Basemap,
     VectorTileLayer,
     FeatureLayer,
+    Extent,
+    Home,
+    Legend,
     viewRef,
     districtId,
     stateId,
+    setupView,
   ]);
 
   /**
@@ -1036,6 +1074,9 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
       "esri/layers/Layer",
       "esri/views/2d/layers/BaseLayerView2D",
       "esri/geometry/Point",
+      "esri/widgets/Home",
+      "esri/widgets/Legend",
+      "esri/geometry/Extent",
     ]).then((modules) => {
       setModulesLoaded(modules);
     });

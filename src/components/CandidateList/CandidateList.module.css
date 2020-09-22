@@ -3,3 +3,22 @@
   padding: 0;
   list-style: none;
 }
+
+@media only screen and (max-device-width: 1024px) {
+  .list {
+    background: blue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 1rem 1rem;
+  }
+}
+
+@media only screen and (max-device-width: 560px) {
+  .list {
+    background: red;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}

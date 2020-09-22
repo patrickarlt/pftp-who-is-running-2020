@@ -25,11 +25,16 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
     setDisabled(true);
     return getStateDistrictForLatLng(result.location.y, result.location.x).then(
       ({ state, district }) => {
+        console.log({ state, district });
         setDisabled(false);
         if (mobile) {
           setSubmitState({ state, district });
         } else {
-          navigate(`/state/${state}/districts/${district}/`);
+          if (district) {
+            navigate(`/state/${state}/districts/${district}/`);
+          } else {
+            navigate(`/state/${state.toLowerCase()}/`);
+          }
         }
       }
     );
@@ -49,7 +54,11 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
     if (mobile) {
       setSubmitState({ state, district });
     } else {
-      navigate(`/state/${state}/districts/${district}/`);
+      if (district) {
+        navigate(`/state/${state}/districts/${district}/`);
+      } else {
+        navigate(`/state/${state.toLowerCase()}/`);
+      }
     }
     return Promise.resolve();
   }

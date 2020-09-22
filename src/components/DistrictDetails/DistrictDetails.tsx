@@ -60,7 +60,8 @@ export const DistrictDetails: React.FunctionComponent<IDistrictDetailsProps> = f
       {house && house.length > 0 ? (
         <>
           <h2 className={styles.subTitle}>
-            House{" "}
+            Representative - {district}
+            <sup>{ordinal(district)}</sup> District
             {battlegroundDistricts.includes((district as unknown) as string) ? (
               <mark className={styles.battleground}>Battleground</mark>
             ) : null}

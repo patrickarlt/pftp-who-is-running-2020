@@ -55,9 +55,7 @@ const CandidateListItem: React.FunctionComponent<ICandidateListItemProps> = func
                 styles[candidate.party.toLowerCase()]
               )}
             ></span>
-            {candidate.party}
-          </p>
-          <p className={styles.infoLine}>
+            {candidate.party},{" "}
             {candidate.incumbent ? "Incumbent" : "Challenger"}
           </p>
           <If condition={tags.length > 0}>
