@@ -527,7 +527,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
     ],
     setModulesLoaded,
   ] = useState<any[]>([]);
-  const stateMatch = useMatch("/state/:stateId/");
+  const stateMatch = useMatch("/state/:stateId/*");
   const districtMatch = useMatch("/state/:stateId/districts/:districtId/*");
   const { stateId, districtId } = Object.assign({}, stateMatch, districtMatch);
   const viewRef = useRef(null);
@@ -967,10 +967,11 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           (result: any) => {
             mapView.current = new MapView({
               map: map.current,
-              resizeAlign: "left",
+              // resizeAlign: "left",
               container: viewRef.current,
               extent: result.extent,
               constraints: {
+                minZoom: 3,
                 maxZoom: 10,
               },
             });
@@ -987,6 +988,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           container: viewRef.current,
           extent: initialExtent,
           constraints: {
+            minZoom: 3,
             maxZoom: 10,
           },
         });

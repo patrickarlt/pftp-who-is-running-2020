@@ -97,6 +97,32 @@
   border: 2px solid var(--pftp-yellow-accent-1);
   box-sizing: border-box;
   text-decoration: none;
+  margin-top: 2rem;
+}
+
+.button:hover {
+  filter: brightness(120%);
+}
+
+.submitButton:focus,
+.button:focus {
+  outline: 2px solid var(--pftp-yellow-accent-1);
+  outline-offset: 4px;
+}
+
+.submitButton {
+  composes: bold from "../../shared.css";
+  margin-top: auto;
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 0.75rem;
+  text-transform: uppercase;
+  background: var(--pftp-yellow-accent-1);
+  box-sizing: border-box;
+  text-decoration: none;
+  margin-top: 2rem;
+  border: none;
 }
 
 .button:hover {
@@ -110,7 +136,9 @@
 
 .grid {
   display: grid;
-  height: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
   grid-template-columns: 1fr;
   grid-template-rows: min-content 1fr min-content;
+  margin-bottom: 1rem;
 }

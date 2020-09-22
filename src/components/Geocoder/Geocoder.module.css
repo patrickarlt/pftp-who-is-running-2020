@@ -19,7 +19,7 @@
   border-bottom: 2px solid var(--pftp-gray-3);
   line-height: 1.5;
   font-size: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
   color: var(--pftp-text-1);
   box-sizing: border-box;
   appearance: none;
@@ -44,7 +44,6 @@
 
 .button {
   background: var(--pftp-background-1);
-  background: transparent;
   position: absolute;
   appearance: none;
   border: none;
@@ -61,7 +60,7 @@
   fill: var(--pftp-yellow-accent-1);
 }
 
-button.button:focus {
+.button:focus {
   outline: 2px solid var(--pftp-yellow-accent-1);
 }
 

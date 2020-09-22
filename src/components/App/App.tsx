@@ -29,11 +29,9 @@ export const App: React.FunctionComponent<IAppProps> = function App({
       >
         <OverlayScrollbarsComponent
           className={styles.shadow}
-          options={{ className: "os-theme-light" }}
+          options={{ className: classNames("os-theme-light", styles.sidebar) }}
         >
-          <div className={styles.sidebar}>
-            <FilterSidebar />
-          </div>
+          <FilterSidebar />
         </OverlayScrollbarsComponent>
         <div className={styles.map}>
           <MapView />
@@ -41,9 +39,11 @@ export const App: React.FunctionComponent<IAppProps> = function App({
         <If condition={!!match?.stateId || !!allMatch}>
           <OverlayScrollbarsComponent
             className={styles.shadow}
-            options={{ className: "os-theme-light" }}
+            options={{
+              className: classNames("os-theme-light", styles.results),
+            }}
           >
-            <Router className={styles.results}>
+            <Router>
               <All path="/all/" />
               <StateRoute path="/state/:stateId/*" />
               <CandidateRoute path="/state/:stateId/candidates/:candidateId/" />

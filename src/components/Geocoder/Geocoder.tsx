@@ -3,6 +3,7 @@ import { useCombobox } from "downshift";
 import {
   suggest,
   geocode,
+  reverseGeocode,
   IGeocodeResponse,
 } from "@esri/arcgis-rest-geocoding";
 import styles from "./Geocoder.module.css";
@@ -10,12 +11,14 @@ import { usePopper } from "react-popper";
 import { classNames } from "react-extras";
 import Loader from "react-loader-spinner";
 import { statesByAbbr } from "../../utils/states";
+import { getStateDistrictForLatLng } from "../../utils/requests";
+
 export type GeocodeCandidate = IGeocodeResponse["candidates"][0];
 
 export interface IGeocoderProps {
   disabled: boolean;
   handleGeocode?: (r: GeocodeCandidate) => Promise<any>;
-  handleLocation?: () => Promise<any>;
+  handleLocation?: (s: string, d: string) => Promise<any>;
   handleState?: (s: string) => Promise<any>;
 }
 
@@ -127,14 +130,39 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
           });
         break;
       case "location":
-        setInputValue("");
-        if (handleLocation) {
-          handleLocation().then(() => {
+        setBusy(true);
+
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            if (position && position.coords) {
+              reverseGeocode({
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+              }).then((response) => {
+                setInputValue(response.address.LongLabel);
+              });
+              getStateDistrictForLatLng(
+                position.coords.latitude,
+                position.coords.longitude
+              ).then(({ state, district }) => {
+                if (handleLocation) {
+                  handleLocation(state, district).then(() => {
+                    setBusy(false);
+                    selectItem(null);
+                    closeMenu();
+                  });
+                }
+
+                setBusy(false);
+              });
+            } else {
+              setBusy(false);
+            }
+          },
+          () => {
             setBusy(false);
-            selectItem(null);
-            closeMenu();
-          });
-        }
+          }
+        );
 
         break;
       case "state":
@@ -150,12 +178,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
         break;
     }
   }
-  useEffect(() => {
-    if (inputRef && inputRef.current) {
-      console.log("focus");
-      inputRef.current.focus();
-    }
-  });
+
   return (
     <div>
       <form
@@ -177,7 +200,6 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
             value={inputValue || ""}
             className={styles.input}
             autoComplete="off"
-            autoFocus
             placeholder="State or address&hellip;"
           />
           {inputValue && inputValue.length ? (

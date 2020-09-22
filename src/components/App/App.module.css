@@ -19,12 +19,11 @@
   box-sizing: border-box;
   padding: 2rem;
   height: 100%;
-}
-
-.shadow {
+  position: relative;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
+
 .map {
   grid-area: map;
   position: relative;
@@ -37,4 +36,55 @@
   overflow: auto;
   min-height: 100%;
   box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .layoutResults {
+    grid-template-areas: "sidebar results" "sidebar map";
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: 50% 50%;
+  }
+  .sidebar {
+    border-right: 1px solid var(--pftp-gray-1);
+    z-index: 3;
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  .layout {
+    position: relative;
+    display: block;
+  }
+  .sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    z-index: 3;
+  }
+  .map {
+    position: absolute;
+    bottom: 0;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  .results {
+    position: absolute;
+    top: 0;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    min-height: auto;
+  }
+  .layoutResults .sidebar {
+    z-index: 1;
+  }
 }

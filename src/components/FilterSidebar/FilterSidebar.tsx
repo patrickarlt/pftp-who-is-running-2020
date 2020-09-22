@@ -1,59 +1,57 @@
 import React, { useState } from "react";
 import styles from "./FilterSidebar.module.css";
 import { navigate, Link } from "@reach/router";
-import { getStateDistrictForLatLng } from "../../utils/requests";
 import { Accordion } from "react-accessible-accordion";
 import AccordionItem from "../AccordionItem/AccordionItem";
 import { useFilterContext } from "../FilterContext/FilterContext";
 import { default as Geocoder, GeocodeCandidate } from "../Geocoder/Geocoder";
 import { classNames } from "react-extras";
+import { useMediaQuery } from "@react-hook/media-query";
+import { getStateDistrictForLatLng } from "../../utils/requests";
 
 export interface IFilterSidebarProps {}
 
 export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = function FilterSidebar() {
   const [disabled, setDisabled] = useState(false);
+  const [submitState, setSubmitState] = useState<{
+    state: string | null;
+    district: string | null;
+  }>({ state: "", district: "" });
   const { setFilterValue, ...filters } = useFilterContext();
+  const mobile = useMediaQuery("only screen and (max-device-width: 768px)");
 
+  console.log({ mobile });
   function handleGeocode(result: GeocodeCandidate) {
     setDisabled(true);
     return getStateDistrictForLatLng(result.location.y, result.location.x).then(
       ({ state, district }) => {
         setDisabled(false);
-        navigate(`/state/${state}/districts/${district}/`);
+        if (mobile) {
+          setSubmitState({ state, district });
+        } else {
+          navigate(`/state/${state}/districts/${district}/`);
+        }
       }
     );
   }
 
   function handleState(state: string) {
-    navigate(`/state/${state.toLowerCase()}/`);
+    if (mobile) {
+      setSubmitState({ state, district: null });
+    } else {
+      navigate(`/state/${state.toLowerCase()}/`);
+    }
     return Promise.resolve();
   }
 
-  function handleLocation() {
+  function handleLocation(state: string, district: string) {
     setDisabled(true);
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          if (position && position.coords) {
-            getStateDistrictForLatLng(
-              position.coords.latitude,
-              position.coords.longitude
-            ).then(({ state, district }) => {
-              navigate(`/state/${state}/districts/${district}/`);
-              setDisabled(false);
-              resolve();
-            });
-          } else {
-            setDisabled(false);
-            resolve();
-          }
-        },
-        () => {
-          setDisabled(false);
-          resolve();
-        }
-      );
-    });
+    if (mobile) {
+      setSubmitState({ state, district });
+    } else {
+      navigate(`/state/${state}/districts/${district}/`);
+    }
+    return Promise.resolve();
   }
 
   function handleChange(filter: string) {
@@ -125,7 +123,26 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
           <Checkbox name="woman">Woman</Checkbox>
           <Checkbox name="bipoc">BIPOC</Checkbox>
         </AccordionItem>
+        {mobile && (
+          <button
+            className={styles.submitButton}
+            onClick={() => {
+              if (submitState && submitState.district) {
+                navigate(
+                  `/state/${submitState.state?.toLowerCase()}/districts/${
+                    submitState.district
+                  }/`
+                );
+              } else if (submitState && submitState.state) {
+                navigate(`/state/${submitState.state.toLowerCase()}/`);
+              }
+            }}
+          >
+            Find Candidates
+          </button>
+        )}
       </Accordion>
+
       <Link to="/all/" className={styles.button}>
         Explore All Candidates
       </Link>
