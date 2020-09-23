@@ -303,6 +303,7 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       this.tooltip.addEventListener(
         "mouseenter",
         () => {
+          console.log("tooltip mouseenter");
           this.insideTooltip = true;
         },
         true
@@ -310,7 +311,7 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       this.tooltip.addEventListener(
         "mouseout",
         (e: any) => {
-          if ((e.target as HTMLElement).matches("a")) {
+          if ((e.target as HTMLElement).matches("a, [data-popper-arrow]")) {
             this.insideTooltip = false;
             this.currentTooltip = null;
             this.tooltip.style.display = "none";
@@ -321,7 +322,7 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       this.el.addEventListener(
         "mouseenter",
         (e: any) => {
-          if ((e.target as HTMLElement).matches(`a[id]`)) {
+          if ((e.target as HTMLElement).matches(`a[data-state-abbr]`)) {
             this.currentTooltip = e.target.href;
             this.tooltip.style.display = "block";
             const {
@@ -376,21 +377,21 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
         true
       );
 
-      // this.el.addEventListener(
-      //   "mouseout",
-      //   (e: any) => {
-      //     setTimeout(() => {
-      //       if (
-      //         (e.target as HTMLElement).matches("a") &&
-      //         !this.insideTooltip &&
-      //         this.currentTooltip === e.target.href
-      //       ) {
-      //         this.tooltip.style.display = "none";
-      //       }
-      //     }, 500);
-      //   },
-      //   true
-      // );
+      this.el.addEventListener(
+        "mouseout",
+        (e: any) => {
+          // setTimeout(() => {
+          if (
+            (e.target as HTMLElement).matches("a[data-state-abbr]") &&
+            !this.insideTooltip &&
+            this.currentTooltip === e.target.href
+          ) {
+            this.tooltip.style.display = "none";
+          }
+          // }, 500);
+        },
+        true
+      );
     },
     detach() {
       this.view.ui.remove(this.el);
@@ -549,6 +550,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
       Point,
       Home,
       Extent,
+      promiseUtils,
     ],
     setModulesLoaded,
   ] = useState<any[]>([]);
@@ -741,8 +743,11 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
    */
   useEffect(() => {
     if (mapView.current) {
-      mapView.current.on("pointer-move", (e: any) => {
-        mapView.current.hitTest(e).then((hitResult: any) => {
+      const updateCursor = promiseUtils.debounce((e: any) => {
+        if (!mapView.current.stationary) {
+          return Promise.resolve();
+        }
+        return mapView.current.hitTest(e).then((hitResult: any) => {
           const results = hitResult.results
             .map((r: any) => ({
               attributes: r.graphic.attributes,
@@ -755,6 +760,10 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
             : "default";
         });
       });
+
+      mapView.current.on("pointer-move", (e: any) =>
+        updateCursor(e).catch(() => {})
+      );
       mapView.current.on("click", (e: any) => {
         mapView.current.hitTest(e).then((hitResult: any) => {
           const results = hitResult.results
@@ -792,7 +801,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
         });
       });
     }
-  }, [mapView, mapViewReady]);
+  }, [mapView, mapViewReady, promiseUtils]);
 
   /**
    * Apply layer effects based on stateId and districtId
@@ -1100,6 +1109,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
       "esri/geometry/Point",
       "esri/widgets/Home",
       "esri/geometry/Extent",
+      "esri/core/promiseUtils",
     ]).then((modules) => {
       setModulesLoaded(modules);
     });

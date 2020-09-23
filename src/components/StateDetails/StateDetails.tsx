@@ -38,8 +38,7 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
     battleground,
     battlegroundDistricts,
   } = state;
-  console.log(houseByDistrict);
-  // debugger;
+
   return (
     <div>
       <CloseButton />

@@ -20,12 +20,10 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
   const { setFilterValue, ...filters } = useFilterContext();
   const mobile = useMediaQuery("only screen and (max-device-width: 768px)");
 
-  console.log({ mobile });
   function handleGeocode(result: GeocodeCandidate) {
     setDisabled(true);
     return getStateDistrictForLatLng(result.location.y, result.location.x).then(
       ({ state, district }) => {
-        console.log({ state, district });
         setDisabled(false);
         if (mobile) {
           setSubmitState({ state, district });
