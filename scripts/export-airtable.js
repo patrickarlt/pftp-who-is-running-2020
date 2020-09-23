@@ -291,7 +291,7 @@ async function fetchHouseCandidates() {
       facebookUrl: record.get("Facebook URL"),
       twitterHandle: record.get("Twitter Handle"),
       instagramHandle: record.get("Instagram Handle"),
-      image: record.get("URL Image"),
+      image: record.get("URL nlImage"),
       campaignPriorities: record.get("KVI"),
       battleground: record.get("Battleground District") === "yes",
       woman: record.get("Woman") === "yes",
@@ -401,7 +401,7 @@ async function downloadImage(candidate) {
 
   const filename = `${slug(candidate.state.toLowerCase())}-${
     candidate.district ? candidate.district + "-" : ""
-  }${candidate.slug}${ext}`;
+  }${candidate.slug}.jpg`;
 
   const imagePath = path.resolve(
     __dirname,
@@ -429,7 +429,10 @@ async function downloadImage(candidate) {
     });
 
     const result = await sharp(imageData.data)
-      .resize(300, 300, { fit: "cover" })
+      .resize(300, 300, {
+        fit: "cover",
+      })
+      .toFormat("jpeg")
       .toFile(imagePath);
     console.log(`new image ${filename}`);
     candidate.image = `/images/${filename}`;
