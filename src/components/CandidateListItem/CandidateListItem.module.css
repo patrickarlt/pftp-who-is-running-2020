@@ -1,6 +1,7 @@
 .wrapper {
   padding: 0;
   box-sizing: border-box;
+  margin-top: -0.5rem;
 }
 
 .link {
@@ -45,6 +46,7 @@
 
 .link:focus {
   border-color: var(--pftp-yellow-accent-1);
+  outline: none;
 }
 
 .link:hover .image,

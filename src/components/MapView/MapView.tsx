@@ -6,6 +6,7 @@ import { createPopper } from "@popperjs/core";
 import { statesByAbbr } from "../../utils/states";
 import { useMapSummaryQuery } from "../../hooks/useMapSummaryQuery";
 import { useFilterContext } from "../FilterContext/FilterContext";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 export interface IMapViewProps {}
 
@@ -25,7 +26,7 @@ function padWithZeros(num: number | string, size: number) {
   while (s.length < size) s = "0" + s;
   return s;
 }
-
+console.log(styles);
 // https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/State_Boundries_(Census)/FeatureServer/0/query?where=(STUSPS+%3D+%27CA%27)+OR+(STUSPS+%3D+%27FL%27)+OR+(STUSPS+%3D+%27ME%27)+or+(STUSPS+%3D+%27WA%27)&returnGeometry=true&returnExtentOnly=true&f=pjson&outSr=4326
 const initialExtentJSON = {
   xmin: -124.84898942267459,
@@ -330,13 +331,25 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
               district,
               stateAbbr,
               party,
+              candidates,
             } = e.target.dataset;
-
-            this.tooltipContent.innerHTML = `
+            if (candidates) {
+              this.tooltipContent.innerHTML = `
+              <a href="${e.target.href}" class="${styles.tooltip} ${
+                styles.clusterTooltip
+              }">
+                  <h5 class="${styles.tooltipHeader}">${
+                statesByAbbr.find((s) => s.abbr === stateAbbr.toUpperCase())
+                  ?.name
+              } Senate</h5>
+                  <p class="${styles.infoLine}">${candidates} candidates</p>
+              `;
+            } else {
+              this.tooltipContent.innerHTML = `
               <a href="${e.target.href}" class="${styles.tooltip}">
                 <div class="${styles.imageWrapper} ${
-              styles[party.toLowerCase()]
-            }">
+                styles[party.toLowerCase()]
+              }">
                   <div style="background-image: url('${
                     image ||
                     "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
@@ -345,8 +358,8 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
                 <div class="${styles.tooltipContent}">
                   <h5 class="${styles.tooltipHeader}">${name}</h5>
                   <p class="${styles.infoLine}"><span class="${styles.dot} ${
-              styles[party.toLowerCase()]
-            }"></span>${party}</p>
+                styles[party.toLowerCase()]
+              }"></span>${party}</p>
                   <p class="${styles.infoLine}">
                   ${
                     statesByAbbr.find((s) => s.abbr === stateAbbr.toUpperCase())
@@ -356,6 +369,7 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
                 </div>
               </a>
               `;
+            }
             this.popperInstance.state.elements.reference = e.target;
             this.popperInstance.update();
           }
@@ -363,21 +377,21 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
         true
       );
 
-      this.el.addEventListener(
-        "mouseout",
-        (e: any) => {
-          setTimeout(() => {
-            if (
-              (e.target as HTMLElement).matches("a") &&
-              !this.insideTooltip &&
-              this.currentTooltip === e.target.href
-            ) {
-              this.tooltip.style.display = "none";
-            }
-          }, 500);
-        },
-        true
-      );
+      // this.el.addEventListener(
+      //   "mouseout",
+      //   (e: any) => {
+      //     setTimeout(() => {
+      //       if (
+      //         (e.target as HTMLElement).matches("a") &&
+      //         !this.insideTooltip &&
+      //         this.currentTooltip === e.target.href
+      //       ) {
+      //         this.tooltip.style.display = "none";
+      //       }
+      //     }, 500);
+      //   },
+      //   true
+      // );
     },
     detach() {
       this.view.ui.remove(this.el);
@@ -396,7 +410,6 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       const districtChanged = this.layer.district !== this.previousDistrict;
 
       if (scaleChanged) {
-        console.log("scaleChanged");
         this.previousScale = state.scale;
 
         for (const marker of this.layer.markers) {
@@ -413,12 +426,19 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
           innerWrapper.style.gridTemplateRows = `repeat(auto-fill, minmax(${size}px, 1fr))`;
           innerWrapper.style.gridGap = `${gap}px`;
 
-          const columns = calculateColumns(items);
-          const remainder = items % columns;
+          let max = Infinity;
+
+          if (Math.round(this.view.zoom) < 5) {
+            max = 6;
+          }
+          const displayItems = Math.min(items, max);
+          const columns = calculateColumns(displayItems);
+          const remainder = displayItems % columns;
 
           innerWrapper.className = `
               ${styles.markerInner}
               ${styles[`remainder${remainder}`]} 
+              ${Math.round(this.view.zoom) < 5 ? styles.clustered : ""}
               ${styles[`columns${columns}`]}
             `;
 
@@ -584,7 +604,8 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
         const containerInner = document.createElement("div");
         containerInner.className = styles.markerInner;
         container.appendChild(containerInner);
-        candidates.forEach((candidate) => {
+
+        candidates.forEach((candidate, index) => {
           const image = document.createElement("div");
           image.style.backgroundImage = `url(${
             candidate.image ||
@@ -593,13 +614,13 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           image.classList.add(styles.image);
 
           const wrapper = document.createElement("a");
+          wrapper.style.backgroundImage = `url(${"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"})`;
           wrapper.dataset.image = candidate.image;
           wrapper.dataset.name = candidate.name;
           wrapper.dataset.party = candidate.party;
           wrapper.dataset.stateAbbr = candidate.stateAbbr;
           wrapper.dataset.district = candidate.district + "" || "null";
           const href = `/state/${candidate.stateAbbr}/candidates/${candidate.slug}/`;
-          wrapper.id = `senate-${candidate.slug}`;
           wrapper.href = href;
           wrapper.title = candidate.name;
           wrapper.classList.add(styles.imageWrapper);
@@ -611,6 +632,19 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
             markerLayer.scrollingSurface.dispatchEvent(eventClone);
           });
         });
+        if (candidates.length >= 7) {
+          const clusterIndicator = document.createElement("a");
+          clusterIndicator.id = `${labelPoint.state}-cluster-indicator`;
+          clusterIndicator.dataset.stateAbbr = labelPoint.state;
+          clusterIndicator.dataset.candidates = candidates.length + "";
+          clusterIndicator.href = `/state/${labelPoint.state}/`;
+          clusterIndicator.classList.add(styles.clusterIndicator);
+          containerInner.appendChild(clusterIndicator);
+          const clusterIndicatorText = document.createElement("div");
+          clusterIndicatorText.className = styles.clusterIndicatorText;
+          clusterIndicator.appendChild(clusterIndicatorText);
+        }
+
         return {
           state: labelPoint.state,
           district: labelPoint.district,
@@ -654,6 +688,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
             markerLayer.scrollingSurface.dispatchEvent(eventClone);
           });
         });
+
         return {
           state: labelPoint.state,
           district: labelPoint.district,

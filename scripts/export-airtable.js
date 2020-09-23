@@ -2,12 +2,18 @@ require("isomorphic-fetch");
 require("isomorphic-form-data");
 require("dotenv").config();
 const Airtable = require("airtable");
-const { queryFeatures } = require("@esri/arcgis-rest-feature-layer");
-const { outputJSON } = require("fs-extra");
+const {
+  queryFeatures,
+  updateFeatures,
+} = require("@esri/arcgis-rest-feature-layer");
+const { UserSession } = require("@esri/arcgis-rest-auth");
+const { outputJSON, pathExists } = require("fs-extra");
 const { groupBy } = require("lodash");
 const slug = require("slug");
-const polylabel = require("polylabel");
-const centroid = require("@turf/centroid").default;
+const path = require("path");
+const url = require("url");
+const Axios = require("axios");
+const sharp = require("sharp");
 const stateBoundriesService =
   "https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/State_Boundries_(Census)/FeatureServer/0";
 const districtBoundriesService =
@@ -16,6 +22,10 @@ const districtBoundriesService =
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
   "appICdALWiTou766D"
 );
+
+const session = new UserSession({
+  token: process.env.AGOL_TOKEN,
+});
 
 const statesByAbbr = {
   AZ: "Arizona",
@@ -173,12 +183,73 @@ async function fetchTable(table, view) {
   return allRecords;
 }
 
+async function syncBattlegroundStates({ senate, house }) {
+  return Promise.all([fetchAllStates(), fetchAllDistricts()]).then(
+    ([states, districts]) => {
+      const updatedStateFeatures = states.features.map((feature) => {
+        const state = senate.find(
+          (senate) =>
+            senate.stateAbbr === feature.attributes.STUSPS.toLowerCase()
+        );
+        return {
+          attributes: {
+            FID: feature.attributes.FID,
+            BATTLEGROUND: state && state.battleground ? 1 : 0,
+          },
+        };
+      });
+
+      const updatedDistrictFeatures = districts.features.map((feature) => {
+        const district = house.find((house) => {
+          const matcheddistrict =
+            house.stateAbbr === feature.attributes.STATEUSPS.toLowerCase() &&
+            parseInt(house.district) === parseInt(feature.attributes.CD116FP);
+          return matcheddistrict;
+        });
+        if (!district) {
+          return undefined;
+        }
+        return {
+          attributes: {
+            FID: feature.attributes.FID,
+            BATTLEGROUND: district && district.battleground ? 1 : 0,
+          },
+        };
+      });
+      return Promise.all([
+        updateFeatures({
+          url: stateBoundriesService,
+          features: updatedStateFeatures,
+          authentication: session,
+        })
+          .then((response) => {
+            return response;
+          })
+          .catch((e) => {
+            console.log(e.response);
+          }),
+        updateFeatures({
+          url: districtBoundriesService,
+          features: updatedDistrictFeatures.filter((f) => !!f),
+          authentication: session,
+        })
+          .then((response) => {
+            return response;
+          })
+          .catch((e) => {
+            console.log(e.response);
+          }),
+      ]);
+    }
+  );
+}
+
 async function fetchSenateCandidates() {
   const senateRecords = await fetchTable("Senate", "Full View");
 
   return senateRecords.map((record) => {
     return {
-      state: record.get("State"),
+      state: record.get("State").trim(),
       stateAbbr: convertStateToAbbr(record.get("State")).toLowerCase(),
       district: null,
       party: record.get("Party"),
@@ -209,7 +280,7 @@ async function fetchHouseCandidates() {
     const district = record.get("District");
 
     return {
-      state: record.get("State"),
+      state: record.get("State").trim(),
       stateAbbr: convertStateToAbbr(record.get("State")).toLowerCase(),
       district: Number.isNaN(parseInt(district)) ? 0 : parseInt(district),
       party: record.get("Party"),
@@ -230,165 +301,205 @@ async function fetchHouseCandidates() {
     };
   });
 }
-function padWithZeros(num, size) {
-  num = Number.isNaN(parseInt(num)) ? 0 : num;
-  var s = num + "";
-  while (s.length < size) s = "0" + s;
-  return s;
-}
 
-async function queryStateLabelPoint(stateId) {
+async function fetchAllStates() {
   return queryFeatures({
     url: stateBoundriesService,
-    where: `STUSPS = '${stateId.toUpperCase()}'`,
-    outFields: ["FID"],
-    f: "geojson",
-    geometryPrecision: 5,
-    maxAllowableOffset: 0.02102783203125,
-  })
-    .then((result) => {
-      const [x, y] = polylabel(result.features[0].geometry.coordinates);
-      const point = centroid(result.features[0]).geometry.coordinates;
-      // console.log({
-      //   state: stateId,
-      //   x: x || point[0],
-      //   y: y || point[1],
-      // });
-      return {
-        state: stateId,
-        x: x || point[0],
-        y: y || point[1],
-      };
-    })
-    .catch((e) => {
-      console.log({ e, stateId });
-    });
+    outFields: ["STUSPS", "FID", "BATTLEGROUND"],
+    returnCentroid: true,
+    returnGeometry: false,
+    outSR: 4236,
+  });
 }
 
-async function queryDistrictLabelPoint(stateId, districtId) {
-  const district = parseInt(districtId)
-    ? `(CD116FP = '${padWithZeros(districtId, 2)}') AND `
-    : "";
+async function getStateLabelPoints() {
+  return fetchAllStates()
+    .then((result) => {
+      return result.features.map((feature) => {
+        return {
+          state: feature.attributes.STUSPS.toLowerCase(),
+          x: feature.centroid.x,
+          y: feature.centroid.y,
+        };
+      });
+    })
+    .catch((e) => {
+      console.log({ e });
+    });
+}
+async function fetchAllDistricts() {
   return queryFeatures({
     url: districtBoundriesService,
-    where: `${district}(STATEUSPS = '${stateId.toUpperCase()}')`,
-    outFields: ["FID"],
-    f: "geojson",
-    geometryPrecision: 5,
-    maxAllowableOffset: 0.02102783203125,
-  })
+    outFields: ["FID", "STATEUSPS", "CD116FP", "BATTLEGROUND"],
+    returnCentroid: true,
+    returnGeometry: false,
+    outSR: 4236,
+  }).then((result) => {
+    result.features.map((feature) => {
+      feature.attributes.CD116FP =
+        parseInt(feature.attributes.CD116FP) === 98
+          ? 0
+          : feature.attributes.CD116FP;
+      return feature;
+    });
+    return result;
+  });
+}
+
+async function getDistrictLabelPoints() {
+  return fetchAllDistricts()
     .then((result) => {
-      const [x, y] = polylabel(result.features[0].geometry.coordinates);
-      const point = centroid(result.features[0]).geometry.coordinates;
-
-      // console.log({
-      //   state: stateId,
-      //   district: districtId,
-      //   x: x || point[0],
-      //   y: y || point[1],
-      // });
-
-      return {
-        state: stateId,
-        district: districtId,
-        x: x || point[0],
-        y: y || point[1],
-      };
+      return result.features.map((feature) => {
+        return {
+          state: feature.attributes.STATEUSPS.toLowerCase(),
+          district: parseInt(feature.attributes.CD116FP, 10),
+          x: feature.centroid.x,
+          y: feature.centroid.y,
+        };
+      });
     })
     .catch((e) => {
-      console.log({ e, stateId, districtId });
+      console.log({ e });
     });
 }
 
-async function generateLabelPoints({ senate, house }) {
-  const abbrs = senate.map((s) => s.stateAbbr);
-  const states = abbrs.filter((item, index) => abbrs.indexOf(item) === index);
-  const districts = Object.keys(house).reduce((districts, stateAbbr) => {
-    const candidates = house[stateAbbr];
-    const stateDistricts = candidates.map((s) => s.district);
-    stateDistricts
-      .filter((item, index) => stateDistricts.indexOf(item) === index)
-      .forEach((district) => {
-        districts.push({
-          state: stateAbbr,
-          district: padWithZeros(district, 2),
-        });
-      });
-    return districts;
-  }, []);
-  console.log(districts);
-
-  const stateRequests = new Promise((resolve) => {
-    let results = [];
-
-    function sendReq(itemsList, iterate) {
-      setTimeout(() => {
-        // slice itemsList to send request according to the api limit
-        let slicedArray = itemsList.slice(iterate * 5, iterate * 5 + 5);
-        const result = slicedArray.map((item) => queryStateLabelPoint(item));
-        results = [...results, ...result];
-
-        // This will resolve the promise when reaches to the last iteration
-        if (iterate === Math.ceil(itemsList.length / 5) - 1) {
-          resolve(results);
-        }
-      }, 1000 * iterate); // every 1000ms runs (api limit of one second)
-    }
-
-    // This will make iteration to split array (requests) to chunks of five items
-    for (let i = 0; i < Math.ceil(states.length / 5); i++) {
-      sendReq(states, i);
-    }
-  }).then(Promise.all.bind(Promise));
-  // .then(console.log);
-
-  const districtRequests = new Promise((resolve) => {
-    let results = [];
-
-    function sendReq(itemsList, iterate) {
-      setTimeout(() => {
-        // slice itemsList to send request according to the api limit
-        let slicedArray = itemsList.slice(iterate * 3, iterate * 3 + 3);
-        const result = slicedArray.map((item) =>
-          queryDistrictLabelPoint(item.state, item.district)
-        );
-        results = [...results, ...result];
-
-        // This will resolve the promise when reaches to the last iteration
-        if (iterate === Math.ceil(itemsList.length / 3) - 1) {
-          resolve(results);
-        }
-      }, 1000 * iterate); // every 1000ms runs (api limit of one second)
-    }
-
-    // This will make iteration to split array (requests) to chunks of five items
-    for (let i = 0; i < Math.ceil(districts.length / 3); i++) {
-      sendReq(districts, i);
-    }
-  }).then(Promise.all.bind(Promise));
-  // .then(console.log);
-  // Use Promise.all to wait for all requests to resolve
-  // To use it this way binding is required
-
-  return Promise.all([stateRequests, districtRequests]).then(
+async function generateLabelPoints() {
+  return Promise.all([getStateLabelPoints(), getDistrictLabelPoints()]).then(
     ([stateRequests, districtRequests]) => {
       return { states: stateRequests, districts: districtRequests };
     }
   );
 }
 
+function stripQuery(inUrl) {
+  const parsedUrl = url.parse(inUrl);
+  parsedUrl.query = null;
+  parsedUrl.search = null;
+  return url.format(parsedUrl);
+}
+
+function getExt(inUrl) {
+  const parsedUrl = url.parse(inUrl);
+  if (parsedUrl.path) {
+    return path.extname(parsedUrl.path);
+  }
+  return ".jpg";
+}
+
+async function downloadImage(candidate) {
+  if (!candidate.image) {
+    return Promise.resolve(candidate);
+  }
+  const imageUrl = stripQuery(candidate.image);
+  if (!imageUrl) {
+    return Promise.resolve(candidate);
+  }
+  const ext = getExt(imageUrl);
+  if (!ext) {
+    return Promise.resolve(candidate);
+  }
+
+  const filename = `${slug(candidate.state.toLowerCase())}-${
+    candidate.district ? candidate.district + "-" : ""
+  }${candidate.slug}${ext}`;
+
+  const imagePath = path.resolve(
+    __dirname,
+    "../",
+    "public",
+    "images",
+    filename
+  );
+
+  const exists = await pathExists(imagePath);
+
+  if (exists) {
+    candidate.image = `/images/${filename}`;
+    return candidate;
+  }
+
+  try {
+    const imageData = await Axios({
+      url: imageUrl,
+      method: "GET",
+      responseType: "arraybuffer",
+      headers: {
+        origin: "https://github.com",
+      },
+    });
+
+    const result = await sharp(imageData.data)
+      .resize(300, 300, { fit: "cover" })
+      .toFile(imagePath);
+    console.log(`new image ${filename}`);
+    candidate.image = `/images/${filename}`;
+    return candidate;
+  } catch (e) {
+    console.log({ candidate, error: e.message });
+
+    return candidate;
+  }
+}
+
+function isPrimaryParty(candidate) {
+  return candidate.party === "Democrat" || candidate.party === "Republican";
+}
+
+const candidateCompare = (a, b) => {
+  if ((a.incumbent && b.incumbent) || (!a.incumbent && !b.incumbent)) {
+    if (isPrimaryParty(a) && !isPrimaryParty(b)) {
+      return -1;
+    }
+
+    if (!isPrimaryParty(a) && isPrimaryParty(b)) {
+      return 1;
+    }
+    const aLastName = a.name.split(" ").pop();
+    const bLastName = b.name.split(" ").pop();
+
+    return aLastName.localeCompare(bLastName);
+  }
+
+  if (!a.incumbent && b.incumbent) {
+    return 1;
+  }
+
+  if (a.incumbent && !b.incumbent) {
+    return -1;
+  }
+};
+
 (async function run() {
   try {
-    const senateCandidates = await fetchSenateCandidates();
-    const houseCandidates = await fetchHouseCandidates();
-    const senateByState = groupBy(senateCandidates, "stateAbbr");
-    const houseByState = groupBy(houseCandidates, "stateAbbr");
+    console.log("fetching senate candidates and images");
+    const senateCandidates = await fetchSenateCandidates().then(
+      (candidates) => {
+        return Promise.all(
+          candidates.map((candidate) => downloadImage(candidate))
+        );
+      }
+    );
+    console.log("fetching house candidates and images");
+    const houseCandidates = await fetchHouseCandidates().then((candidates) => {
+      return Promise.all(
+        candidates.map((candidate) => downloadImage(candidate))
+      );
+    });
+
+    const senateByState = groupBy(
+      senateCandidates.sort(candidateCompare),
+      "stateAbbr"
+    );
+    const houseByState = groupBy(
+      houseCandidates.sort(candidateCompare),
+      "stateAbbr"
+    );
+    console.log("generate label points");
 
     const labelPoints = await generateLabelPoints({
       senate: senateCandidates,
       house: houseByState,
     });
-    console.log({ labelPoints });
 
     const stateWrites = stateAbbrs.map((abbr) => {
       return outputJSON(`./public/data/${abbr}-data.json`, {
@@ -410,6 +521,7 @@ async function generateLabelPoints({ senate, house }) {
         ),
       });
     });
+
     const summaryWrite = outputJSON(
       "./public/data/summary.json",
       {
@@ -437,7 +549,6 @@ async function generateLabelPoints({ senate, house }) {
             return Object.keys(houseCandidatesByDistrict).map((district) => {
               return {
                 labelPoint: labelPoints.districts.find((p) => {
-                  console.log(district, p.district);
                   return (
                     p.state === abbr &&
                     parseInt(p.district) === parseInt(district)
@@ -451,7 +562,6 @@ async function generateLabelPoints({ senate, house }) {
                     name: candidate.name,
                     image: candidate.image,
                     slug: candidate.slug,
-
                     woman: candidate.woman,
                     bipoc: candidate.bipoc,
                   })
@@ -463,23 +573,16 @@ async function generateLabelPoints({ senate, house }) {
       },
       { spaces: 2 }
     );
-    const sitemapWrite = outputJSON("./public/data/sitemap.json", {
-      states: stateAbbrs.map((abbr) => {
-        return {
-          abbr,
-          name: convertAbbrToState(abbr),
-        };
-      }),
+
+    console.log("write data");
+
+    await Promise.all([...stateWrites, summaryWrite]);
+
+    console.log("sync battleground states and districts");
+    await syncBattlegroundStates({
+      senate: senateCandidates,
+      house: houseCandidates,
     });
-    await Promise.all([
-      ...stateWrites,
-      summaryWrite,
-      sitemapWrite,
-      // syncBattlegroundStates({
-      //   senate: senateCandidates,
-      //   house: houseCandidates,
-      // }),
-    ]);
   } catch (e) {
     console.error(e);
   }
