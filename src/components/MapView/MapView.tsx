@@ -6,7 +6,6 @@ import { createPopper } from "@popperjs/core";
 import { statesByAbbr } from "../../utils/states";
 import { useMapSummaryQuery } from "../../hooks/useMapSummaryQuery";
 import { useFilterContext } from "../FilterContext/FilterContext";
-import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 export interface IMapViewProps {}
 
