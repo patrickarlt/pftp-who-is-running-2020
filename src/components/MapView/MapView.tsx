@@ -868,15 +868,31 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
             {
               label: "False",
               symbol: {
-                type: "simple-fill",
-                color: null,
-                outline: {
-                  type: "simple-line",
-                  color: [145, 113, 32, 255],
-                  width: 1,
-                  style: "solid",
+                type: "cim",
+                data: {
+                  type: "CIMSymbolReference",
+                  symbol: {
+                    // CIM polygon symbol
+                    type: "CIMPolygonSymbol",
+                    symbolLayers: [
+                      {
+                        // white dashed layer at center of the line
+                        type: "CIMSolidStroke",
+                        enable: true, // must be set to true in order for the symbol layer to be visible
+                        capStyle: "Butt",
+                        joinStyle: "Round",
+                        width: 1,
+                        color: [145, 113, 32, 255],
+                      },
+                      {
+                        // solid blue fill background
+                        type: "CIMSolidFill",
+                        enable: true,
+                        color: [145, 113, 32, 1],
+                      },
+                    ],
+                  },
                 },
-                style: "solid",
               },
               value: "0",
             },
@@ -931,6 +947,12 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                           },
                         ],
                       },
+                      {
+                        // solid blue fill background
+                        type: "CIMSolidFill",
+                        enable: true,
+                        color: [145, 113, 32, 1],
+                      },
                     ],
                   },
                 },
@@ -973,6 +995,12 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                         joinStyle: "Round",
                         width: 0.5,
                         color: [145, 113, 32, 255],
+                      },
+                      {
+                        // solid blue fill background
+                        type: "CIMSolidFill",
+                        enable: true,
+                        color: [145, 113, 32, 1],
                       },
                     ],
                   },
@@ -1036,6 +1064,12 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                             size: 6 * window.devicePixelRatio,
                           },
                         ],
+                      },
+                      {
+                        // solid blue fill background
+                        type: "CIMSolidFill",
+                        enable: true,
+                        color: [145, 113, 32, 1],
                       },
                     ],
                   },
