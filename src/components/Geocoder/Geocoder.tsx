@@ -178,7 +178,6 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
         break;
     }
   }
-
   return (
     <div>
       <form
@@ -193,6 +192,10 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
             {...getInputProps({
               ref: inputRef as any,
               onFocus: () => {
+                if (popper && popper.update) {
+                  popper.update();
+                }
+
                 openMenu();
               },
             })}

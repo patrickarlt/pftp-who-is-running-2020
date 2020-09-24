@@ -291,7 +291,7 @@ async function fetchHouseCandidates() {
       facebookUrl: record.get("Facebook URL"),
       twitterHandle: record.get("Twitter Handle"),
       instagramHandle: record.get("Instagram Handle"),
-      image: record.get("URL nlImage"),
+      image: record.get("URL Image"),
       campaignPriorities: record.get("KVI"),
       battleground: record.get("Battleground District") === "yes",
       woman: record.get("Woman") === "yes",
@@ -485,7 +485,12 @@ const candidateCompare = (a, b) => {
     console.log("fetching house candidates and images");
     const houseCandidates = await fetchHouseCandidates().then((candidates) => {
       return Promise.all(
-        candidates.map((candidate) => downloadImage(candidate))
+        candidates.map((candidate) => {
+          if (candidate.stateAbbr === "ca") {
+            console.log(candidate.image);
+          }
+          return downloadImage(candidate);
+        })
       );
     });
 
