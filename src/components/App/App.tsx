@@ -6,6 +6,8 @@ import StateRoute from "../StateRoute/StateRoute";
 import DistrictRoute from "../DistrictRoute/DistrictRoute";
 import CandidateRoute from "../CandidateRoute/CandidateRoute";
 import FilterContext from "../FilterContext/FilterContext";
+import Logo from "../Logo/Logo";
+
 import { If, classNames } from "react-extras";
 import "overlayscrollbars/css/OverlayScrollbars.css";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
@@ -27,6 +29,7 @@ export const App: React.FunctionComponent<IAppProps> = function App({
           [styles.layoutResults]: !!match?.stateId || !!allMatch,
         })}
       >
+        <Logo className={styles.logo} />
         <OverlayScrollbarsComponent
           className={styles.shadow}
           options={{ className: classNames("os-theme-light", styles.sidebar) }}

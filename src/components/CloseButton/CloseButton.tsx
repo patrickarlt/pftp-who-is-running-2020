@@ -16,22 +16,7 @@ const CloseButton: React.FunctionComponent<ICloseButtonProps> = function CloseBu
         data-name="Layer 1"
         viewBox="0 0 24 24"
       >
-        <defs />
-        <defs>
-          <mask
-            id="a"
-            width="24"
-            height="24"
-            x="0"
-            y="0"
-            maskUnits="userSpaceOnUse"
-          >
-            <path fill="#fff" d="M0 0h24v24H0z" />
-          </mask>
-        </defs>
-        <g mask="url(#a)">
-          <path d="M17.59 5L12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-        </g>
+        <path d="M17.59 5L12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
       </svg>
     </Link>
   );

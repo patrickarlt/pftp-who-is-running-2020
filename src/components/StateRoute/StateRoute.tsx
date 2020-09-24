@@ -7,6 +7,7 @@ import PanelLoadingIndicator from "../PanelLoadingIndicator/PanelLoadingIndicato
 import { useStateQuery } from "../../hooks/useStateQuery";
 import PanelError from "../PanelError/PanelError";
 import { useFilterContext } from "../FilterContext/FilterContext";
+import Helmet from "react-helmet";
 
 interface IStateRouteProps extends RouteComponentProps {
   stateId?: string;
@@ -28,6 +29,9 @@ const StateRoute: React.FunctionComponent<IStateRouteProps> = function StateRout
 
   return (
     <div>
+      <Helmet
+        title={`${data.name} | Who is Running? | People for the People `}
+      />
       <StateDetails state={data} />
     </div>
   );

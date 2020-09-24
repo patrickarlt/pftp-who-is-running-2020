@@ -1,14 +1,18 @@
 .layout {
   display: grid;
-  grid-template-areas: "sidebar map";
-  grid-template-rows: 1fr;
+  grid-template-areas:
+    "logo    map"
+    "sidebar map";
+  grid-template-rows: min-content 1fr;
   grid-template-columns: 320px 1fr;
   width: 100%;
   height: 100%;
 }
 
 .layoutResults {
-  grid-template-areas: "sidebar map results";
+  grid-template-areas:
+    "logo    map results"
+    "sidebar map results";
   grid-template-columns: 320px 1fr 320px;
 }
 
@@ -18,7 +22,7 @@
   overflow: auto;
   box-sizing: border-box;
   padding: 2rem;
-  height: 100%;
+
   position: relative;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   z-index: 1;
@@ -53,38 +57,59 @@
   }
 }
 
+.logo {
+  grid-area: logo;
+  box-sizing: border-box;
+  padding: 2rem 2rem;
+}
+
 @media only screen and (max-device-width: 768px) {
-  .layout {
-    position: relative;
-    display: block;
-  }
   .sidebar {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 3;
-  }
-  .map {
-    position: absolute;
-    bottom: 0;
-    top: 45%;
-    left: 0;
-    right: 0;
-    z-index: 2;
+    border: none;
   }
 
-  .results {
-    position: absolute;
-    top: 0;
-    bottom: 55%;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    min-height: auto;
+  .layout {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 100%;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas: "logo" "sidebar";
   }
-  .layoutResults .sidebar {
-    z-index: 1;
+  .layout .logo {
+    padding: 2rem 2rem 0;
+  }
+
+  .layout .map {
+    display: none;
+  }
+
+  .layout .results {
+    display: none;
+  }
+
+  .layout.layoutResults .sidebar {
+    display: none;
+  }
+
+  .layout.layoutResults .map {
+    display: block;
+  }
+
+  .layout.layoutResults .results {
+    display: block;
+  }
+
+  .layout.layoutResults {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 100%;
+    grid-template-rows: min-content 1fr 1fr;
+    grid-template-areas: "logo" "results" "map";
+  }
+
+  .layout.layoutResults .sidebar {
+    display: none;
   }
 }

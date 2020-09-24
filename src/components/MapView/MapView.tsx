@@ -744,7 +744,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
    */
   useEffect(() => {
     if (mapView.current) {
-      const updateCursor = promiseUtils.debounce((e: any) => {
+      const updateCursor = (e: any) => {
         if (!mapView.current.stationary) {
           return Promise.resolve();
         }
@@ -789,7 +789,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
             mapView.current.container.style.cursor =
               districtGraphic || stateGraphic ? "pointer" : "default";
           });
-      });
+      };
 
       mapView.current.on("pointer-move", (e: any) =>
         updateCursor(e).catch((e: any) => {})

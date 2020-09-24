@@ -4,21 +4,8 @@ import { IStateData } from "../../hooks/useStateQuery";
 import CandidateList from "../CandidateList/CandidateList";
 import { If } from "react-extras";
 import CloseButton from "../CloseButton/CloseButton";
+import { ordinal } from "../../utils/ordinal";
 
-const ordinal = function (i: number | string) {
-  const d = typeof i === "string" ? parseInt(i) : i;
-  if (d > 3 && d < 21) return "th";
-  switch (d % 10) {
-    case 1:
-      return "st";
-    case 2:
-      return "nd";
-    case 3:
-      return "rd";
-    default:
-      return "th";
-  }
-};
 export interface IStateDetailsProps {
   state: IStateData;
 }
