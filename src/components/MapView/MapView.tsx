@@ -534,6 +534,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
 }) {
   const map = useRef<any>();
   const mapView = useRef<any>(null);
+  const highlight = useRef<any>(null);
   const stateLayer = useRef<any>();
   const districtLayer = useRef<any>(null);
   const markerLayerRef = useRef<any>();
@@ -747,22 +748,51 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
         if (!mapView.current.stationary) {
           return Promise.resolve();
         }
-        return mapView.current.hitTest(e).then((hitResult: any) => {
-          const results = hitResult.results
-            .map((r: any) => ({
-              attributes: r.graphic.attributes,
-              layer: r.graphic.layer,
-            }))
-            .filter((r: any) => r.layer.type === "feature");
+        return mapView.current
+          .hitTest(e, { include: [districtLayer.current, stateLayer.current] })
+          .then((hitResult: any) => {
+            console.log(
+              hitResult.results.map((r: any) => r.graphic.layer.id),
+              { d: districtLayer.current.id, s: stateLayer.current.id }
+            );
+            const districtGraphic = hitResult.results.find(
+              (r: any) => r.graphic.layer === districtLayer.current
+            )?.graphic;
+            const stateGraphic = hitResult.results.find(
+              (r: any) => r.graphic.layer === stateLayer.current
+            )?.graphic;
+            console.log({ districtGraphic, stateGraphic });
 
-          mapView.current.container.style.cursor = results?.length
-            ? "pointer"
-            : "default";
-        });
+            if (districtGraphic) {
+              mapView.current
+                .whenLayerView(districtLayer.current)
+                .then(function (layerView: any) {
+                  if (highlight?.current) {
+                    console.log("remove d");
+                    highlight.current.remove();
+                  }
+                  console.log("add d");
+                  highlight.current = layerView.highlight(districtGraphic);
+                });
+            } else if (stateGraphic) {
+              mapView.current
+                .whenLayerView(stateLayer.current)
+                .then(function (layerView: any) {
+                  if (highlight?.current) {
+                    console.log("remove s");
+                    highlight.current.remove();
+                  }
+                  console.log("add s");
+                  highlight.current = layerView.highlight(stateGraphic);
+                });
+            }
+            mapView.current.container.style.cursor =
+              districtGraphic || stateGraphic ? "pointer" : "default";
+          });
       });
 
       mapView.current.on("pointer-move", (e: any) =>
-        updateCursor(e).catch(() => {})
+        updateCursor(e).catch((e: any) => {})
       );
       mapView.current.on("click", (e: any) => {
         mapView.current.hitTest(e).then((hitResult: any) => {
@@ -1048,6 +1078,11 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
               constraints: {
                 maxZoom: 10,
               },
+              highlightOptions: {
+                color: [145, 113, 32, 255],
+                haloOpacity: 0,
+                fillOpacity: 0.15,
+              },
             });
             setupView();
           }
@@ -1060,6 +1095,11 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           extent: new Extent(initialExtentJSON),
           constraints: {
             maxZoom: 10,
+          },
+          highlightOptions: {
+            color: [145, 113, 32, 255],
+            haloOpacity: 0,
+            fillOpacity: 0.15,
           },
         });
         setupView();
