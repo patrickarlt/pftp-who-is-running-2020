@@ -13,6 +13,7 @@ import "overlayscrollbars/css/OverlayScrollbars.css";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import styles from "./App.module.css";
 import All from "../All/All";
+import { Helmet } from "react-helmet";
 
 export interface IAppProps extends RouteComponentProps {}
 
@@ -24,6 +25,9 @@ export const App: React.FunctionComponent<IAppProps> = function App({
 
   return (
     <FilterContext>
+      {!match && !allMatch ? (
+        <Helmet title="Who is Running? | People for the People" />
+      ) : null}
       <div
         className={classNames(styles.layout, {
           [styles.layoutResults]: !!match?.stateId || !!allMatch,
