@@ -51,7 +51,7 @@ export function getStateData(stateAbbr: string): Promise<IStateData> {
     });
 }
 
-export function getStateDistrictForLatLng(lat: number, lng: number) {
+export function getStateDistrictForLatLng(lat: number, lng: number): Promise<any> {
   return Promise.all([
     queryFeatures({
       url: stateBoundriesService,

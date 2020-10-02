@@ -12,6 +12,7 @@ import { classNames } from "react-extras";
 import Loader from "react-loader-spinner";
 import { statesByAbbr } from "../../utils/states";
 import { getStateDistrictForLatLng } from "../../utils/requests";
+import { logger } from "../../utils/logger";
 
 export type GeocodeCandidate = IGeocodeResponse["candidates"][0];
 
@@ -181,6 +182,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
         break;
     }
   }
+
   return (
     <div>
       <form
@@ -214,9 +216,11 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
               type="button"
               aria-label="clear"
               className={classNames(styles.button, styles.clearButton)}
-              disabled={disabled}
+              disabled={(disabled ? true : null) as any}
               onClick={() => {
+                logger("clear")
                 reset();
+                setInputValue("");
                 setInputItems([locationItem]);
                 openMenu();
                 inputRef.current?.focus();
@@ -251,7 +255,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
                 type="submit"
                 aria-label="search"
                 className={classNames(styles.button, styles.searchButton)}
-                disabled={disabled}
+                disabled={disabled ? true : undefined}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

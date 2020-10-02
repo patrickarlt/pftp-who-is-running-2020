@@ -52,8 +52,6 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
 
   function handleLocation(state: string, district: string) {
     sendEvent({ category: "Search Bar", action: "Location", label: `${state.toUpperCase()}-${district}` });
-    setDisabled(true);
-
     if (mobile) {
       setSubmitState({ state, district });
     } else {
