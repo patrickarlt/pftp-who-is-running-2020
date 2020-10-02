@@ -21,7 +21,7 @@ export function useMapSummaryQuery(filters?: any) {
   const mapSummaryQuery = useQuery<IMapSummary>("map", () => {
     return getMapData();
   });
-  console.log(filters);
+
   return useQuery<IMapSummary>(
     ["map", filters, mapSummaryQuery.data],
     (key, filters, mapSummaryData: IMapSummary) => {
