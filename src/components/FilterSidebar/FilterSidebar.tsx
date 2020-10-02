@@ -19,7 +19,7 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
     district: string | null;
   }>({ state: "", district: "" });
   const { setFilterValue, ...filters } = useFilterContext();
-  const mobile = useMediaQuery("only screen and (max-device-width: 768px)");
+  const mobile = useMediaQuery("only screen and (max-device-width: 767px)");
 
   function handleGeocode(result: GeocodeCandidate) {
     sendEvent({ category: "Search Bar", action: "Geocode" })
