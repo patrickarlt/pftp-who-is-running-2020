@@ -3,6 +3,7 @@ import styles from "./CanidateDetails.module.css";
 import { ICandidate, IStateData } from "../../utils/requests";
 import { classNames, If } from "react-extras";
 import CloseButton from "../CloseButton/CloseButton";
+import ReactGA from "react-ga";
 export interface ICanidateDetailsProps {
   candidate: ICandidate;
   state: IStateData;
@@ -45,10 +46,9 @@ export const CanidateDetails: React.FunctionComponent<ICanidateDetailsProps> = f
         >
           <div
             style={{
-              backgroundImage: `url("${
-                candidate.image ||
+              backgroundImage: `url("${candidate.image ||
                 "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
-              }")`,
+                }")`,
             }}
             className={classNames(styles.image)}
           />
@@ -65,8 +65,8 @@ export const CanidateDetails: React.FunctionComponent<ICanidateDetailsProps> = f
               <sup>{ordinal(parseInt(candidate.district))}</sup> District
             </>
           ) : (
-            " - Senate"
-          )}
+              " - Senate"
+            )}
         </h2>
         <p className={styles.infoLine}>
           <span
@@ -86,32 +86,35 @@ export const CanidateDetails: React.FunctionComponent<ICanidateDetailsProps> = f
 
         {candidate?.campaignUrl && (
           <p className={styles.infoLine}>
-            <a
-              href={candidate.campaignUrl}
+            <ReactGA.OutboundLink
+              eventLabel="Candidate Website"
+              to={candidate.campaignUrl}
               rel="noopener noreferrer"
               target="_blank"
             >
               Campaign Website
-            </a>
+            </ReactGA.OutboundLink>
           </p>
         )}
 
         {candidate?.facebookUrl && (
           <p className={styles.infoLine}>
-            <a
-              href={candidate.facebookUrl}
+            <ReactGA.OutboundLink
+              eventLabel="Candidate Facebook"
+              to={candidate.facebookUrl}
               rel="noopener noreferrer"
               target="_blank"
             >
               Facebook Page
-            </a>
+            </ReactGA.OutboundLink>
           </p>
         )}
 
         {candidate?.twitterHandle && (
           <p className={styles.infoLine}>
-            <a
-              href={`https://twitter.com/${candidate.twitterHandle.replace(
+            <ReactGA.OutboundLink
+              eventLabel="Candidate Twitter"
+              to={`https://twitter.com/${candidate.twitterHandle.replace(
                 "@",
                 ""
               )}`}
@@ -119,14 +122,15 @@ export const CanidateDetails: React.FunctionComponent<ICanidateDetailsProps> = f
               target="_blank"
             >
               Tweet {candidate?.twitterHandle}
-            </a>
+            </ReactGA.OutboundLink>
           </p>
         )}
 
         {candidate?.instagramHandle && (
           <p className={styles.infoLine}>
-            <a
-              href={`https://instagram.com/${candidate.instagramHandle.replace(
+            <ReactGA.OutboundLink
+              eventLabel="Candidate Instagram"
+              to={`https://instagram.com/${candidate.instagramHandle.replace(
                 "@",
                 ""
               )}`}
@@ -134,7 +138,8 @@ export const CanidateDetails: React.FunctionComponent<ICanidateDetailsProps> = f
               target="_blank"
             >
               Instagram {candidate?.instagramHandle}
-            </a>
+            </ReactGA.OutboundLink>
+
           </p>
         )}
       </div>

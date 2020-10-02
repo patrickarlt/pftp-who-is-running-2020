@@ -135,12 +135,7 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
         navigator.geolocation.getCurrentPosition(
           (position) => {
             if (position && position.coords) {
-              reverseGeocode({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude,
-              }).then((response) => {
-                setInputValue(response.address.LongLabel);
-              });
+
               getStateDistrictForLatLng(
                 position.coords.latitude,
                 position.coords.longitude
@@ -152,7 +147,15 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
                     closeMenu();
                   });
                 }
-
+              }).then(() => {
+                return reverseGeocode({
+                  latitude: position.coords.latitude,
+                  longitude: position.coords.longitude,
+                });
+              }).then((response) => {
+                setInputValue(response.address.LongLabel);
+                setBusy(false);
+              }).catch(() => {
                 setBusy(false);
               });
             } else {
@@ -243,40 +246,40 @@ const Geocoder: React.FunctionComponent<IGeocoderProps> = function Geocoder({
               </svg>
             </button>
           ) : (
-            <button
-              tabIndex={0}
-              type="submit"
-              aria-label="search"
-              className={classNames(styles.button, styles.searchButton)}
-              disabled={disabled}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                data-name="Layer 1"
-                viewBox="0 0 24 24"
+              <button
+                tabIndex={0}
+                type="submit"
+                aria-label="search"
+                className={classNames(styles.button, styles.searchButton)}
+                disabled={disabled}
               >
-                <defs />
-                <defs>
-                  <mask
-                    id="a"
-                    width="24"
-                    height="24"
-                    x=".21"
-                    y=".7"
-                    maskUnits="userSpaceOnUse"
-                  >
-                    <path fill="#fff" d="M.21.7h24v24h-24z" />
-                  </mask>
-                </defs>
-                <g mask="url(#a)">
-                  <path
-                    fillRule="evenodd"
-                    d="M14.59 13.17a6 6 0 10-1.42 1.42l5.72 5.71 1.41-1.41-5.71-5.72zm-2.06-6.3a4 4 0 11-5.66 0 4 4 0 015.66 0z"
-                  />
-                </g>
-              </svg>
-            </button>
-          )}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-name="Layer 1"
+                  viewBox="0 0 24 24"
+                >
+                  <defs />
+                  <defs>
+                    <mask
+                      id="a"
+                      width="24"
+                      height="24"
+                      x=".21"
+                      y=".7"
+                      maskUnits="userSpaceOnUse"
+                    >
+                      <path fill="#fff" d="M.21.7h24v24h-24z" />
+                    </mask>
+                  </defs>
+                  <g mask="url(#a)">
+                    <path
+                      fillRule="evenodd"
+                      d="M14.59 13.17a6 6 0 10-1.42 1.42l5.72 5.71 1.41-1.41-5.71-5.72zm-2.06-6.3a4 4 0 11-5.66 0 4 4 0 015.66 0z"
+                    />
+                  </g>
+                </svg>
+              </button>
+            )}
         </div>
 
         <label {...getLabelProps()} className={styles.label}>
