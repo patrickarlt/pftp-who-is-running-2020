@@ -6,6 +6,7 @@ import {
 } from "../utils/requests";
 
 export function useMapSummaryQuery(filters?: any) {
+
   function candidateFilter(type: "house" | "senate") {
     return function (candidate: IMapSummaryCandidate) {
       return (
@@ -16,6 +17,7 @@ export function useMapSummaryQuery(filters?: any) {
       );
     };
   }
+
   const mapSummaryQuery = useQuery<IMapSummary>("map", () => {
     return getMapData();
   });

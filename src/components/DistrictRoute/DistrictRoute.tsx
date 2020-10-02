@@ -35,7 +35,7 @@ const DistrictRoute: React.FunctionComponent<IDistrictRouteProps> = function Dis
   return (
     <div>
       <Helmet
-        title={`${data.state} | ${data.district}${ordinal(
+        title={`${data.state.name} | ${data.district}${ordinal(
           data.district
         )} District | Who is Running? | People for the People `}
       />
