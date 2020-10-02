@@ -6,17 +6,16 @@ import { createPopper } from "@popperjs/core";
 import { statesByAbbr } from "../../utils/states";
 import { useMapSummaryQuery } from "../../hooks/useMapSummaryQuery";
 import { useFilterContext } from "../FilterContext/FilterContext";
+import { logger } from '../../utils/logger';
 
-export interface IMapViewProps {}
+export interface IMapViewProps { }
 
 const stateBoundriesService =
-  "https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/State_Boundries_(Census)/FeatureServer/0";
+  "https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/State_Boundries_(Census)_Who_is_Running_View/FeatureServer/0";
 const districtBoundriesService =
-  "https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/Congressional_District_Boundries_(Census)/FeatureServer/0";
+  "https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/Congressional_District_Boundaries_(Census)_Who_is_Running_View/FeatureServer/0";
 const humanGeographyBaseStyle =
   "https://ourcommunity.maps.arcgis.com/sharing/rest/content/items/d7397603e9274052808839b70812be50/resources/styles/root.json";
-// const humanGeographyDetailStyle =
-//   "https://ourcommunity.maps.arcgis.com/sharing/rest/content/items/ee63d0411e274a25bfaf3c9be10a88c6/resources/styles/root.json";
 const humanGeographyLabelsStyle =
   "https://ourcommunity.maps.arcgis.com/sharing/rest/content/items/769db83429944e00b8c0e72b7945559c/resources/styles/root.json";
 
@@ -25,7 +24,7 @@ function padWithZeros(num: number | string, size: number) {
   while (s.length < size) s = "0" + s;
   return s;
 }
-console.log(styles);
+
 // https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/State_Boundries_(Census)/FeatureServer/0/query?where=(STUSPS+%3D+%27CA%27)+OR+(STUSPS+%3D+%27FL%27)+OR+(STUSPS+%3D+%27ME%27)+or+(STUSPS+%3D+%27WA%27)&returnGeometry=true&returnExtentOnly=true&f=pjson&outSr=4326
 const initialExtentJSON = {
   xmin: -124.84898942267459,
@@ -303,7 +302,6 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       this.tooltip.addEventListener(
         "mouseenter",
         () => {
-          console.log("tooltip mouseenter");
           this.insideTooltip = true;
         },
         true
@@ -335,36 +333,30 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
             } = e.target.dataset;
             if (candidates) {
               this.tooltipContent.innerHTML = `
-              <a href="${e.target.href}" class="${styles.tooltip} ${
-                styles.clusterTooltip
-              }">
-                  <h5 class="${styles.tooltipHeader}">${
-                statesByAbbr.find((s) => s.abbr === stateAbbr.toUpperCase())
+              <a href="${e.target.href}" class="${styles.tooltip} ${styles.clusterTooltip
+                }">
+                  <h5 class="${styles.tooltipHeader}">${statesByAbbr.find((s) => s.abbr === stateAbbr.toUpperCase())
                   ?.name
-              } Senate</h5>
+                } Senate</h5>
                   <p class="${styles.infoLine}">${candidates} candidates</p>
               `;
             } else {
               this.tooltipContent.innerHTML = `
               <a href="${e.target.href}" class="${styles.tooltip}">
-                <div class="${styles.imageWrapper} ${
-                styles[party.toLowerCase()]
-              }">
-                  <div style="background-image: url('${
-                    image ||
-                    "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
-                  }');" class="${styles.image}"></div>
+                <div class="${styles.imageWrapper} ${styles[party.toLowerCase()]
+                }">
+                  <div style="background-image: url('${image ||
+                "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
+                }');" class="${styles.image}"></div>
                 </div>
                 <div class="${styles.tooltipContent}">
                   <h5 class="${styles.tooltipHeader}">${name}</h5>
-                  <p class="${styles.infoLine}"><span class="${styles.dot} ${
-                styles[party.toLowerCase()]
-              }"></span>${party}</p>
+                  <p class="${styles.infoLine}"><span class="${styles.dot} ${styles[party.toLowerCase()]
+                }"></span>${party}</p>
                   <p class="${styles.infoLine}">
-                  ${
-                    statesByAbbr.find((s) => s.abbr === stateAbbr.toUpperCase())
-                      ?.name
-                  } - ${getOffice(district)}
+                  ${statesByAbbr.find((s) => s.abbr === stateAbbr.toUpperCase())
+                  ?.name
+                } - ${getOffice(district)}
                   </p>
                 </div>
               </a>
@@ -442,14 +434,11 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
               ${styles[`columns${columns}`]}
             `;
 
-          innerWrapper.style.width = `${
-            columns * size + (columns - 1) * gap
-          }px`;
+          innerWrapper.style.width = `${columns * size + (columns - 1) * gap
+            }px`;
         }
       }
       if (extentChanged) {
-        console.log("extentChanged");
-
         this.previousExtent = state.extent;
         for (const marker of this.layer.markers) {
           let [x, y] = state.toScreen(pt, marker.point.x, marker.point.y);
@@ -464,8 +453,6 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       }
 
       if (stateChanged || districtChanged) {
-        console.log("district/state changed");
-
         this.previousState = this.layer.state;
         this.previousDistrict = this.layer.district;
         for (const marker of this.layer.markers) {
@@ -587,16 +574,20 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
     ) {
       return;
     }
+
     if (markerLayerRef.current) {
+      logger("useEffect: removing marker layer");
       map.current.layers.remove(markerLayerRef.current);
       markerLayerRef.current = null;
     }
+    logger("useEffect: init marker layer");
     const { MarkerLayer } = initMarkerLayer({
       Layer,
       BaseLayerView2D,
     });
 
     const markerLayer = new MarkerLayer();
+
     const senateMarkers = mapQuery.data.senate
       .map(({ candidates, labelPoint }) => {
         const container = document.createElement("div");
@@ -609,10 +600,9 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
 
         candidates.forEach((candidate, index) => {
           const image = document.createElement("div");
-          image.style.backgroundImage = `url(${
-            candidate.image ||
+          image.style.backgroundImage = `url(${candidate.image ||
             "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?f=y&d=mp&s=250"
-          })`;
+            })`;
           image.classList.add(styles.image);
 
           const wrapper = document.createElement("a");
@@ -719,6 +709,8 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
       stateLayer?.current &&
       districtLayer?.current
     ) {
+      logger("useEffect: refocus map", { stateId, districtId });
+
       queryExtent(stateId, districtId, stateLayer, districtLayer).then(
         (result: any) => {
           if (result.extent) {
@@ -727,6 +719,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
         }
       );
     } else if (mapView?.current) {
+      logger("useEffect: refocus map", "defaultm");
       mapView.current.goTo(new Extent(initialExtentJSON));
     }
   }, [
@@ -744,6 +737,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
    */
   useEffect(() => {
     if (mapView.current) {
+      logger("useEffect: setup cursor handlers");
       const updateCursor = (e: any) => {
         if (!mapView.current.stationary) {
           return Promise.resolve();
@@ -751,27 +745,21 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
         return mapView.current
           .hitTest(e, { include: [districtLayer.current, stateLayer.current] })
           .then((hitResult: any) => {
-            console.log(
-              hitResult.results.map((r: any) => r.graphic.layer.id),
-              { d: districtLayer.current.id, s: stateLayer.current.id }
-            );
             const districtGraphic = hitResult.results.find(
               (r: any) => r.graphic.layer === districtLayer.current
             )?.graphic;
             const stateGraphic = hitResult.results.find(
               (r: any) => r.graphic.layer === stateLayer.current
             )?.graphic;
-            console.log({ districtGraphic, stateGraphic });
+
 
             if (districtGraphic) {
               mapView.current
                 .whenLayerView(districtLayer.current)
                 .then(function (layerView: any) {
                   if (highlight?.current) {
-                    console.log("remove d");
                     highlight.current.remove();
                   }
-                  console.log("add d");
                   highlight.current = layerView.highlight(districtGraphic);
                 });
             } else if (stateGraphic) {
@@ -779,10 +767,8 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
                 .whenLayerView(stateLayer.current)
                 .then(function (layerView: any) {
                   if (highlight?.current) {
-                    console.log("remove s");
                     highlight.current.remove();
                   }
-                  console.log("add s");
                   highlight.current = layerView.highlight(stateGraphic);
                 });
             }
@@ -792,7 +778,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
       };
 
       mapView.current.on("pointer-move", (e: any) =>
-        updateCursor(e).catch((e: any) => {})
+        updateCursor(e).catch((e: any) => { })
       );
       mapView.current.on("click", (e: any) => {
         mapView.current.hitTest(e).then((hitResult: any) => {
@@ -837,14 +823,18 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
    * Apply layer effects based on stateId and districtId
    */
   useEffect(() => {
+    logger("useEffect: applyStateEffect");
+
     applyStateEffect(mapView, stateLayer, stateId, districtId);
   }, [stateLayer, stateId, districtId, mapView, mapViewReady]);
 
   useEffect(() => {
+    logger("useEffect: applyDistrictEffect");
     applyDistrictEffect(mapView, districtLayer, stateId, districtId);
   }, [districtLayer, stateId, districtId, mapView, mapViewReady]);
 
   useEffect(() => {
+    logger("useEffect: applyMarkerEffect");
     applyMarkerEffect(mapView, markerLayerRef, stateId, districtId);
   }, [markerLayerRef, stateId, districtId, mapView, mapViewReady]);
 
@@ -856,6 +846,8 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
       return;
     }
     if (MapView && Map && viewRef) {
+      logger("useEffect: create map, map view and layers");
+
       stateLayer.current = new FeatureLayer({
         url: stateBoundriesService,
         definitionExpression: "TERRITORY = 0",

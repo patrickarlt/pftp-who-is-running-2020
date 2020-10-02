@@ -7,11 +7,6 @@
   line-height: 1.25;
 }
 
-@media only screen and (max-device-width: 1024px) {
-  .title {
-    font-size: 1.75rem;
-  }
-}
 
 .subTitle {
   composes: bold from "../../shared.css";
@@ -19,6 +14,17 @@
   margin: 0;
   border-top: 1px solid var(--pftp-gray-1);
   font-size: 1.25rem;
+}
+
+
+@media only screen and (max-device-width: 1024px) {
+  .title {
+    font-size: 1.75rem;
+    padding: 1rem;
+  }
+  .subTitle {
+    padding: 1rem 1rem 0.5rem 1rem;
+  }
 }
 
 .battleground {
@@ -32,3 +38,4 @@
   background: var(--pftp-yellow-accent-1);
   color: var(--pftp-background-1);
 }
+

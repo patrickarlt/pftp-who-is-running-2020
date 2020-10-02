@@ -20,6 +20,9 @@ body {
   --pftp-purple-accent-1: #8c4bdc;
   --pftp-red-accent-1: #c26b68;
   --pftp-yellow-accent-1: #eec041;
+  --calcite-ui-blue-1: #f6bf00;
+  --calcite-ui-blue-2: #e2ab00;
+  --calcite-ui-blue-3: #ce9700;
 
   font-family: "FuturaBT W05 Medium", "Avenir Next", "Avenir", "Roboto", "Arial",
     sans-serif;
@@ -35,16 +38,6 @@ body {
 
 .panelBackground {
   background: var(--pftp-background-2);
-}
-
-.panelLayout {
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
 }
 
 a {

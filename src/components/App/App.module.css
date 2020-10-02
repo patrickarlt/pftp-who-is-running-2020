@@ -1,9 +1,10 @@
 .layout {
   display: grid;
   grid-template-areas:
-    "logo    map"
-    "sidebar map";
-  grid-template-rows: min-content 1fr;
+    "header header"
+    "sidebar map"
+    "footer footer";
+  grid-template-rows: min-content 1fr min-content;
   grid-template-columns: 320px 1fr;
   width: 100%;
   height: 100%;
@@ -11,8 +12,9 @@
 
 .layoutResults {
   grid-template-areas:
-    "logo    map results"
-    "sidebar map results";
+  "header header header"
+  "sidebar map results"
+  "footer footer footer";
   grid-template-columns: 320px 1fr 320px;
 }
 
@@ -22,7 +24,6 @@
   overflow: auto;
   box-sizing: border-box;
   padding: 2rem;
-
   position: relative;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   z-index: 1;
@@ -47,20 +48,30 @@
 
 @media only screen and (max-device-width: 1024px) {
   .layoutResults {
-    grid-template-areas: "sidebar results" "sidebar map";
+    grid-template-areas: 
+      "header header"
+      "sidebar results"
+      "sidebar map" 
+      "footer" "footer";
     grid-template-columns: 320px 1fr;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: min-content 45% 1fr min-content;
   }
   .sidebar {
     border-right: 1px solid var(--pftp-gray-1);
     z-index: 3;
+    padding: 1rem;
   }
 }
 
-.logo {
-  grid-area: logo;
-  box-sizing: border-box;
-  padding: 2rem 2rem;
+.header {
+  grid-area: header;
+}
+
+.footer {
+  grid-area: footer;
+  border-top: 1px solid var(--pftp-gray-1);
+  background: var(--pftp-background-1);
+  padding: .25rem .25rem .25rem 2rem;
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -68,16 +79,17 @@
     border: none;
   }
 
+  .footer {
+    padding: 0 0.5rem;
+  }
+
   .layout {
     display: grid;
     width: 100vw;
     height: 100vh;
     grid-template-columns: 100%;
-    grid-template-rows: min-content 1fr;
-    grid-template-areas: "logo" "sidebar";
-  }
-  .layout .logo {
-    padding: 2rem 2rem 0;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-areas: "header" "sidebar" "footer";
   }
 
   .layout .map {
@@ -105,11 +117,55 @@
     width: 100vw;
     height: 100vh;
     grid-template-columns: 100%;
-    grid-template-rows: min-content 1fr 1fr;
-    grid-template-areas: "logo" "results" "map";
+    grid-template-rows: min-content 1fr 1fr min-content;
+    grid-template-areas: "header" "results" "map" "footer";
   }
 
   .layout.layoutResults .sidebar {
     display: none;
   }
+}
+
+.footerLinks {
+  font-size: 0.825rem;
+  color: var(--pftp-gray-3);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  line-height: 1.125;
+}
+
+.footerLinks a {
+  padding: 0.25rem 0.5rem;
+  color: var(--pftp-gray-3);
+  text-decoration: none;
+  display: grid;
+  align-content: center;
+}
+
+.footerLinks li:first-child {
+  text-align: left;
+  flex: 1 1 auto;
+}
+
+.footerLinks li {
+  list-style: none;
+  padding: 0;
+  margin : 0;
+  text-align: center;
+}
+
+.footerLinks a:hover {
+  background : var(--pftp-gray-2);
+}
+
+.footerLinks a:hover img{ 
+  opacity: 1;
+}
+
+.footerLinks a img {
+  opacity: 0.75;
+  width: 16px;
+  height: 16px;
 }
