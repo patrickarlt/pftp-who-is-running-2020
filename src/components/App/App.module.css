@@ -52,7 +52,7 @@
       "header header"
       "sidebar results"
       "sidebar map" 
-      "footer" "footer";
+      "footer footer";
     grid-template-columns: 320px 1fr;
     grid-template-rows: min-content 45% 1fr min-content;
   }

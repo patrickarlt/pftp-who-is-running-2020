@@ -17,6 +17,7 @@
   background: transparent;
   border: none;
   border-bottom: 2px solid var(--pftp-gray-3);
+  border-radius: 0;
   line-height: 1.5;
   font-size: 1rem;
   padding: 0.5rem 2rem 0.5rem 0.5rem;
