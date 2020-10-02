@@ -1,0 +1,132 @@
+.wrapper {
+  padding: 0;
+  box-sizing: border-box;
+  margin-top: -0.5rem;
+}
+
+.link {
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  width: calc(100% - 2px);
+  display: block;
+  display: grid;
+  grid-template-areas: "image content";
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr;
+  color: var(--pftp-text-1);
+  text-decoration: none;
+  grid-gap: 1rem;
+  border: 2px solid transparent;
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .link {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (max-device-width: 560px) {
+  .link {
+    padding: 1rem 2rem;
+  }
+}
+
+.link:hover {
+  background: var(--pftp-gray-2);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--pftp-text-1);
+}
+
+.moreInfo {
+  color: var(--pftp-yellow-accent-1);
+}
+
+.link:focus {
+  border-color: var(--pftp-yellow-accent-1);
+  outline: none;
+}
+
+.link:hover .image,
+.link:focus .image {
+  filter: grayscale(0);
+}
+
+.link:hover .moreInfo,
+.link:focus .moreInfo {
+  filter: brightness(110%);
+}
+
+.imageWrapper {
+  border: 4px solid transparent;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.25);
+  box-sizing: border-box;
+  grid-area: image;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .imageWrapper {
+    border: 2px solid transparent;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.image {
+  filter: grayscale(100%);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.title {
+  composes: bold from "../../shared.css";
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.infoLine {
+  margin: 0.125rem 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.democrat {
+  border-color: var(--pftp-blue-accent-1);
+  background-color: var(--pftp-blue-accent-1);
+}
+
+.republican {
+  border-color: var(--pftp-red-accent-1);
+  background-color: var(--pftp-red-accent-1);
+}
+
+.independent {
+  border-color: var(--pftp-green-accent-1);
+  background-color: var(--pftp-green-accent-1);
+}
+
+.other {
+  border-color: var(--pftp-purple-accent-1);
+  background-color: var(--pftp-purple-accent-1);
+}
+
+.content {
+  grid-column: content;
+}

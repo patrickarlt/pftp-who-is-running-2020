@@ -10,6 +10,9 @@ export interface IStateData {
   name: string;
   senate: ICandidate[];
   house: ICandidate[];
+  houseByDistrict: {};
+  battleground: boolean;
+  battlegroundDistricts: string[];
 }
 
 export interface ICandidate {
@@ -34,7 +37,9 @@ export interface ICandidate {
 }
 
 export function getStateData(stateAbbr: string): Promise<IStateData> {
-  return axios.get(`/data/${stateAbbr}.json`).then(({ data }) => data);
+  return axios
+    .get(`/data/${stateAbbr}-data.json`)
+    .then(({ data }) => Object.assign({ senate: [], house: [] }, data));
 }
 
 export function getStateDistrictForLatLng(lat: number, lng: number) {
@@ -68,6 +73,41 @@ export function getStateDistrictForLatLng(lat: number, lng: number) {
       return result?.features[0]?.attributes.CD116FP;
     }),
   ]).then(([state, district]) => {
+    if (district === "98" || district === "00") {
+      return { state };
+    }
     return { state, district };
   });
+}
+
+export function getMapData(): Promise<IMapSummary> {
+  return axios.get(`/data/summary.json`).then(({ data }) => data);
+}
+
+export interface IMapSummary {
+  senate: IMarkers[];
+  house: IMarkers[];
+}
+
+export interface IMarkers {
+  labelPoint: ILabelPoint;
+  candidates: IMapSummaryCandidate[];
+}
+
+export interface IMapSummaryCandidate {
+  stateAbbr: string;
+  district: number | null;
+  party: string;
+  name: string;
+  image: string;
+  slug: string;
+  woman: boolean;
+  bipoc: boolean;
+}
+
+export interface ILabelPoint {
+  state: string;
+  district?: string;
+  x: number;
+  y: number;
 }

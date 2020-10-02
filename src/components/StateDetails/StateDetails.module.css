@@ -1,4 +1,41 @@
 .title {
-  font-weight: 800;
+  composes: bold from "../../shared.css";
+  padding: 2rem;
   color: var(--pftp-teal-accent-1);
+  margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.25;
 }
+
+
+.subTitle {
+  composes: bold from "../../shared.css";
+  padding: 1rem 2rem 0.5rem 2rem;
+  margin: 0;
+  border-top: 1px solid var(--pftp-gray-1);
+  font-size: 1.25rem;
+}
+
+
+@media only screen and (max-device-width: 1024px) {
+  .title {
+    font-size: 1.75rem;
+    padding: 1rem;
+  }
+  .subTitle {
+    padding: 1rem 1rem 0.5rem 1rem;
+  }
+}
+
+.battleground {
+  composes: medium from "../../shared.css";
+  letter-spacing: 0.1ch;
+  text-transform: uppercase;
+  float: right;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background: var(--pftp-yellow-accent-1);
+  color: var(--pftp-background-1);
+}
+

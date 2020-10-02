@@ -1,24 +1,11 @@
 import React from "react";
 import styles from "./StateDetails.module.css";
-import { Link } from "@reach/router";
 import { IStateData } from "../../hooks/useStateQuery";
-
+import CandidateList from "../CandidateList/CandidateList";
 import { If } from "react-extras";
+import CloseButton from "../CloseButton/CloseButton";
+import { ordinal } from "../../utils/ordinal";
 
-const ordinal = function (i: number | string) {
-  const d = typeof i === "string" ? parseInt(i) : i;
-  if (d > 3 && d < 21) return "th";
-  switch (d % 10) {
-    case 1:
-      return "st";
-    case 2:
-      return "nd";
-    case 3:
-      return "rd";
-    default:
-      return "th";
-  }
-};
 export interface IStateDetailsProps {
   state: IStateData;
 }
@@ -30,55 +17,52 @@ export const StateDetails: React.FunctionComponent<IStateDetailsProps> = functio
     return null;
   }
 
-  const { name, house, houseByDistrict, senate } = state;
-  console.log({ name, house, houseByDistrict, senate });
+  const {
+    name,
+    house,
+    houseByDistrict,
+    senate,
+    battleground,
+    battlegroundDistricts,
+  } = state;
+
   return (
     <div>
+      <CloseButton />
+
       <h1 className={styles.title}>{name}</h1>
       {senate && senate.length > 0 ? (
         <>
-          <h2>Senate</h2>
-          <ul>
-            {senate.map((candidate, index) => (
-              <li key={candidate.slug}>
-                <Link to={`/state/${state.abbr}/candidates/${candidate.slug}/`}>
-                  {candidate.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2 className={styles.subTitle}>
+            Senator
+            {battleground ? (
+              <mark className={styles.battleground}>Battleground</mark>
+            ) : null}
+          </h2>
+          <CandidateList state={state} candidates={senate} />
         </>
       ) : null}
 
       {house && house.length > 0
         ? Object.keys(houseByDistrict).map((district) => (
-            <If condition={parseInt(district) >= 1}>
-              <h2>
-                {district}
-                <sup>{ordinal(district)}</sup> District
+            <React.Fragment key={district}>
+              <h2 className={styles.subTitle}>
+                Representative - <If condition={district === "0"}>At Large</If>
+                <If condition={district !== "0"}>
+                  {district}
+                  <sup>{ordinal(district)}</sup> District
+                </If>
+                {battlegroundDistricts.includes(district) ? (
+                  <mark className={styles.battleground}>Battleground</mark>
+                ) : null}
               </h2>
-              <ul>
-                {houseByDistrict[district].map((candidate, index) => (
-                  <li key={candidate.slug}>
-                    <Link
-                      to={`/state/${state.abbr}/districts/${candidate.district}/candidates/${candidate.slug}/`}
-                    >
-                      {candidate.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </If>
+              <CandidateList
+                state={state}
+                candidates={houseByDistrict[district]}
+              />
+            </React.Fragment>
           ))
         : null}
-
-      <button
-        onClick={() => {
-          window.history.back();
-        }}
-      >
-        Back
-      </button>
     </div>
   );
 };

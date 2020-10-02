@@ -1,7 +1,8 @@
 import React from "react";
 import { ICandidate, IStateData } from "../../utils/requests";
-import { Link } from "@reach/router";
 import { If } from "react-extras";
+import CandidateList from "../CandidateList/CandidateList";
+import CloseButton from "../CloseButton/CloseButton";
 
 import styles from "./DistrictDetails.module.css";
 
@@ -32,8 +33,11 @@ export const DistrictDetails: React.FunctionComponent<IDistrictDetailsProps> = f
   state,
   district,
 }) {
+  const { battleground, battlegroundDistricts } = state;
   return (
     <div>
+      <CloseButton />
+
       <h1 className={styles.title}>
         {state.name}
         <If condition={district >= 1}>
@@ -44,41 +48,27 @@ export const DistrictDetails: React.FunctionComponent<IDistrictDetailsProps> = f
       </h1>
       {senate && senate.length > 0 ? (
         <>
-          <h2>Senate</h2>
-          <ul>
-            {senate.map((candidate, index) => (
-              <li key={candidate.slug}>
-                <Link to={`/state/${state.abbr}/candidates/${candidate.slug}/`}>
-                  {candidate.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2 className={styles.subTitle}>
+            Senate
+            {battleground ? (
+              <mark className={styles.battleground}>Battleground</mark>
+            ) : null}
+          </h2>
+          <CandidateList state={state} candidates={senate} />
         </>
       ) : null}
       {house && house.length > 0 ? (
         <>
-          <h2>House</h2>
-          <ul>
-            {house.map((candidate, index) => (
-              <li key={candidate.slug}>
-                <Link
-                  to={`/state/${state.abbr}/districts/${candidate.district}/candidates/${candidate.slug}/`}
-                >
-                  {candidate.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2 className={styles.subTitle}>
+            Representative - {district}
+            <sup>{ordinal(district)}</sup> District
+            {battlegroundDistricts.includes((district as unknown) as string) ? (
+              <mark className={styles.battleground}>Battleground</mark>
+            ) : null}
+          </h2>
+          <CandidateList state={state} candidates={house} />
         </>
       ) : null}
-      <button
-        onClick={() => {
-          window.history.back();
-        }}
-      >
-        Back
-      </button>{" "}
     </div>
   );
 };
