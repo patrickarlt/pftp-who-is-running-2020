@@ -6,6 +6,14 @@ import { Router } from "@reach/router";
 import * as serviceWorker from "./serviceWorker";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "normalize.css/normalize.css";
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-143312627-2', {
+  titleCase: false,
+  gaOptions: {
+    siteSpeedSampleRate: 100
+  }
+});
 
 ReactDOM.render(
   <React.StrictMode>

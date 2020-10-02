@@ -8,8 +8,9 @@ import { default as Geocoder, GeocodeCandidate } from "../Geocoder/Geocoder";
 import { classNames } from "react-extras";
 import { useMediaQuery } from "@react-hook/media-query";
 import { getStateDistrictForLatLng } from "../../utils/requests";
+import { sendEvent } from "../../utils/logger";
 
-export interface IFilterSidebarProps {}
+export interface IFilterSidebarProps { }
 
 export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = function FilterSidebar() {
   const [disabled, setDisabled] = useState(false);
@@ -21,6 +22,7 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
   const mobile = useMediaQuery("only screen and (max-device-width: 768px)");
 
   function handleGeocode(result: GeocodeCandidate) {
+    sendEvent({ category: "Search Bar", action: "Geocode" })
     setDisabled(true);
     return getStateDistrictForLatLng(result.location.y, result.location.x).then(
       ({ state, district }) => {
@@ -39,6 +41,7 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
   }
 
   function handleState(state: string) {
+    sendEvent({ category: "Search Bar", action: "State", label: state });
     if (mobile) {
       setSubmitState({ state, district: null });
     } else {
@@ -48,7 +51,9 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
   }
 
   function handleLocation(state: string, district: string) {
+    sendEvent({ category: "Search Bar", action: "Location", label: `${state.toUpperCase()}-${district}` });
     setDisabled(true);
+
     if (mobile) {
       setSubmitState({ state, district });
     } else {
@@ -63,6 +68,7 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
 
   function handleChange(filter: string) {
     return function () {
+      sendEvent({ category: "Filter", action: filter, label: filters[filter] ? "Disable" : "Enable" });
       setFilterValue(filter, !filters[filter]);
     };
   }
@@ -137,8 +143,7 @@ export const FilterSidebar: React.FunctionComponent<IFilterSidebarProps> = funct
             onClick={() => {
               if (submitState && submitState.district) {
                 navigate(
-                  `/state/${submitState.state?.toLowerCase()}/districts/${
-                    submitState.district
+                  `/state/${submitState.state?.toLowerCase()}/districts/${submitState.district
                   }/`
                 );
               } else if (submitState && submitState.state) {

@@ -97,8 +97,9 @@ ul.siteNavigation li a, ul.siteNavigation li span {
   cursor: pointer;
   padding: 0.5rem 1rem;
   transition: all 0.15s ease-in-out;
-  font-size: .875rem;
-  line-height: 1.5;
+  font-size: .8125rem;
+  text-align: center;
+  line-height: 1.125;
 }
 
 ul.siteNavigation li a:hover, ul.siteNavigation li span:hover {

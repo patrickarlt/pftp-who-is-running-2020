@@ -14,12 +14,14 @@ import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import styles from "./App.module.css";
 import All from "../All/All";
 import { Helmet } from "react-helmet";
+import { useAnalytics } from "../../hooks/useAnalytics";
 
 export interface IAppProps extends RouteComponentProps { }
 
 export const App: React.FunctionComponent<IAppProps> = function App({
   children,
 }) {
+  useAnalytics();
   const match = useMatch("/state/:stateId/*");
   const allMatch = useMatch("/all/");
 

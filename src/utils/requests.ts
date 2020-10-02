@@ -1,4 +1,6 @@
 import { queryFeatures } from "@esri/arcgis-rest-feature-layer";
+import { startTiming, stopTiming } from "./logger";
+
 import axios from "axios";
 const stateBoundriesService =
   "https://services9.arcgis.com/q5uyFfTZo3LFL04P/arcgis/rest/services/State_Boundries_(Census)/FeatureServer/0";
@@ -37,9 +39,16 @@ export interface ICandidate {
 }
 
 export function getStateData(stateAbbr: string): Promise<IStateData> {
+  const timingLabel = stateAbbr.toUpperCase()
+  startTiming(timingLabel);
   return axios
     .get(`/data/${stateAbbr}-data.json`)
-    .then(({ data }) => Object.assign({ senate: [], house: [] }, data));
+    .then(({ data }) => {
+      stopTiming(timingLabel, {
+        category: "State Data"
+      });
+      return Object.assign({ senate: [], house: [] }, data)
+    });
 }
 
 export function getStateDistrictForLatLng(lat: number, lng: number) {
@@ -81,7 +90,14 @@ export function getStateDistrictForLatLng(lat: number, lng: number) {
 }
 
 export function getMapData(): Promise<IMapSummary> {
-  return axios.get(`/data/summary.json`).then(({ data }) => data);
+  const timingLabel = "Map Data"
+  startTiming("Map Data");
+  return axios.get(`/data/summary.json`).then(({ data }) => {
+    stopTiming(timingLabel, {
+      category: "Map Data"
+    });
+    return data
+  });
 }
 
 export interface IMapSummary {

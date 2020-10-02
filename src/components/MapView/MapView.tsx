@@ -6,7 +6,7 @@ import { createPopper } from "@popperjs/core";
 import { statesByAbbr } from "../../utils/states";
 import { useMapSummaryQuery } from "../../hooks/useMapSummaryQuery";
 import { useFilterContext } from "../FilterContext/FilterContext";
-import { logger } from '../../utils/logger';
+import { logger, sendEvent } from '../../utils/logger';
 
 export interface IMapViewProps { }
 
@@ -249,7 +249,9 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       });
       this.el.addEventListener("click", (e: MouseEvent) => {
         if ((e.target as HTMLElement).matches("a")) {
-          navigate((e.target as HTMLAnchorElement).href);
+          const href = (e.target as HTMLAnchorElement).href;
+          sendEvent({ category: "Map", action: "Marker Click", label: href });
+          navigate(href);
           e.preventDefault();
         }
       });
@@ -266,6 +268,7 @@ function initMarkerLayer({ BaseLayerView2D, Layer }: any) {
       this.tooltip.addEventListener("click", (e: MouseEvent) => {
         const link: HTMLAnchorElement = this.tooltip.querySelector("a");
         if (link) {
+          sendEvent({ category: "Map", action: "Marker Click", label: link.href });
           navigate(link.href);
         }
 
@@ -790,6 +793,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
             .filter((r: any) => r.layer.type === "feature");
 
           if (!results?.length) {
+            sendEvent({ category: "Map", action: "Click", label: "No Feature" });
             navigate("/");
           }
           const stateResult = results.find(
@@ -798,6 +802,7 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
 
           if (stateResult) {
             const state = stateResult.attributes.STUSPS.toLowerCase();
+            sendEvent({ category: "Map", action: "Click", label: stateResult.attributes.STUSPS });
             navigate(`/state/${state}/`);
           }
 
@@ -808,6 +813,8 @@ export const ElectionMap: React.FunctionComponent<IMapViewProps> = function MapV
           if (districtResult) {
             const state = districtResult.attributes.STATEUSPS.toLowerCase();
             const district = parseInt(districtResult.attributes.CD116FP);
+            sendEvent({ category: "Map", action: "Click", label: `${districtResult.attributes.STATEUSPS}-${districtResult.attributes.CD116FP}` });
+
             if (district === 98 || district === 0) {
               navigate(`/state/${state}/`);
             } else {
