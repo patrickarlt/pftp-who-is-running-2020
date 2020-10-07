@@ -15861,15 +15861,6 @@
           "slug": "bill-rood",
           "woman": false,
           "bipoc": false
-        },
-        {
-          "stateAbbr": "mn",
-          "district": 1,
-          "party": "Other",
-          "name": "Hans Tinsley",
-          "slug": "hans-tinsley",
-          "woman": false,
-          "bipoc": false
         }
       ]
     },
@@ -15898,16 +15889,6 @@
           "name": "Tyler Kistner",
           "image": "/images/minnesota-2-tyler-kistner.jpg",
           "slug": "tyler-kistner",
-          "woman": false,
-          "bipoc": false
-        },
-        {
-          "stateAbbr": "mn",
-          "district": 2,
-          "party": "Other",
-          "name": "Adam Weeks",
-          "image": "/images/minnesota-2-adam-weeks.jpg",
-          "slug": "adam-weeks",
           "woman": false,
           "bipoc": false
         }
@@ -15959,6 +15940,16 @@
           "image": "/images/minnesota-4-betty-mccollum.jpg",
           "slug": "betty-mccollum",
           "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "mn",
+          "district": 4,
+          "party": "Republican",
+          "name": "Gene Rechtzigel",
+          "image": "https://nebula.wsimg.com/bf04ccb5679265b05f0a30203abd2066?AccessKeyId=80DAF100B59813FD824E&disposition=0&alloworigin=1",
+          "slug": "gene-rechtzigel",
+          "woman": false,
           "bipoc": false
         },
         {
@@ -16069,6 +16060,16 @@
           "image": "/images/minnesota-7-michelle-fischbach.jpg",
           "slug": "michelle-fischbach",
           "woman": true,
+          "bipoc": false
+        },
+        {
+          "stateAbbr": "mn",
+          "district": 7,
+          "party": "Other",
+          "name": "Rae Hart Anderson",
+          "image": "/images/minnesota-7-rae-hart-anderson.jpg",
+          "slug": "rae-hart-anderson",
+          "woman": false,
           "bipoc": false
         },
         {
